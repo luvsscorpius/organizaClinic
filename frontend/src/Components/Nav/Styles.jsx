@@ -6,6 +6,7 @@ export const navContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: auto;
+    gap: 20px;
 `
 
 export const titleContainer = styled.div`
@@ -14,7 +15,7 @@ export const titleContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
 `
 
 export const Nav = styled.nav`

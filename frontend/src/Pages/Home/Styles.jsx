@@ -9,7 +9,9 @@ export const section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px auto;
     gap: 10px;
+    width: 95%;
 `
 
 export const Container = styled.div`
