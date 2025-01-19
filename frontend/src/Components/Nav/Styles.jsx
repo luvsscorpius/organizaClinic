@@ -14,11 +14,11 @@ export const titleContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-
+    margin-top: 10px;
 `
 
 export const Nav = styled.nav`
-    width: 40%;
+    width: 95%;
     height: 70px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,9 +35,11 @@ export const Nav = styled.nav`
         width: 100%;
         margin: 0;
         padding: 0;
+        gap: 5px;
+        padding: 5px;
         
         span {
-            width: 13%;
+            width: 100%;
             height: 35px;
             border-radius: 10px;
             display: flex;
