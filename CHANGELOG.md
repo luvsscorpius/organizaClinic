@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.3.0...v1.4.0) (2025-01-19)
+
+
+### Features
+
+* **agenda:** agenda.jsx ([d5e4e05](https://github.com/luvsscorpius/organizaClinic/commit/d5e4e0579f629dce15220f21e88c3b967263b4f5))
+
 # [1.3.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.2.0...v1.3.0) (2025-01-19)
 
 
