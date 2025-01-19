@@ -3,18 +3,17 @@ import * as H from './Styles'
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaChartLine } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
 
 export const Home = () => {
+    const [selected, setSelected] = useState(new Date());
+
     return (
         <H.section>
-            <H.Container>
-                <span>
-                    <FaRegCalendarCheck size={22} />
-                    <h1>Datas Disponíveis</h1>
-                </span>
-            </H.Container>
-
-            <H.Container>
+            <H.Container className='first'>
                 <span>
                     <FaChartLine size={22} />
                     <h1>Informações</h1>
@@ -59,6 +58,23 @@ export const Home = () => {
                     </div>
 
                 </H.infoContainer>
+            </H.Container>
+
+            <H.Container className='second'>
+                <span className='titleContainer'>
+                    <FaRegCalendarCheck size={22} />
+                    <h1>Datas Disponíveis</h1>
+                </span>
+
+                <span>
+                    <DayPicker
+                        mode="single"
+                        selected={selected}
+                        onSelect={setSelected}
+                        footer={
+                            selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
+                        } />
+                </span>
             </H.Container>
         </H.section>
     )

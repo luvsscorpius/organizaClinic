@@ -22,6 +22,22 @@ export const Container = styled.div`
         justify-content: center;
         gap: 10px;
     }
+
+       &.first {
+        order: 1; /* Ordem padrão para o primeiro container */
+
+        @media (min-width: 768px) {
+            order: 2; /* Muda a ordem para resoluções maiores */
+        }
+    }
+
+    &.second {
+        order: 2; /* Ordem padrão para o segundo container */
+
+        @media (min-width: 768px) {
+            order: 1; /* Muda a ordem para resoluções maiores */
+        }
+    }
 `
 
 export const infoContainer = styled.div`
