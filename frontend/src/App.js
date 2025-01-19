@@ -3,6 +3,7 @@ import {HashRouter as Router, Routes, Route} from 'react-router'
 import { Home } from "./Pages/Home/Home";
 import { GlobalStyle } from "./Css/GlobalStyle";
 import { Agenda } from "./Pages/Agenda/Agenda";
+import { Pacientes } from "./Pages/Pacientes/Pacientes";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/agenda" element={<Agenda/>} />
+          <Route path="/pacientes" element={<Pacientes/>} />
         </Routes>
       </Router>
     </>
