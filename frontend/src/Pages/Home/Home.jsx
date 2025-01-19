@@ -11,6 +11,12 @@ import "react-day-picker/style.css";
 export const Home = () => {
     const [selected, setSelected] = useState(new Date());
 
+    const bookedDays = [
+        new Date(2025, 0, 20), // 20 de Janeiro de 2025
+        new Date(2025, 0, 21), // 21 de Janeiro de 2025
+        new Date(2025, 0, 25), // 25 de Janeiro de 2025
+    ];
+
     return (
         <H.section>
             <H.Container className='first'>
@@ -71,6 +77,14 @@ export const Home = () => {
                         mode="single"
                         selected={selected}
                         onSelect={setSelected}
+                        disabled={[{ before: new Date() }, ...bookedDays]}
+                        defaultMonth={bookedDays[0]}
+                        modifiers={{
+                            booked: bookedDays,
+                        }}
+                        modifiersClassNames={{
+                            booked: 'booked-day',
+                        }}
                         footer={
                             selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
                         } />

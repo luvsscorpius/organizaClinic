@@ -12,6 +12,12 @@ export const section = styled.section`
     margin: 20px auto;
     gap: 10px;
     width: 95%;
+
+    .booked-day {
+        background-color: #15babc;
+        color: white;
+        border-radius: 50%;
+    }
 `
 
 export const Container = styled.div`
