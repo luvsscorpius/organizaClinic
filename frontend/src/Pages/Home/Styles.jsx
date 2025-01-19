@@ -16,7 +16,8 @@ export const section = styled.section`
 
 export const Container = styled.div`
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
+    gap: 20px;
 
     span {
         display: flex;
