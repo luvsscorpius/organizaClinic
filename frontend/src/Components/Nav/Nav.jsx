@@ -49,7 +49,7 @@ export const Nav = () => {
                         <li>Pacientes</li>
                     </span>
 
-                    <span className={activeName === 'Médicos' ? 'active' : ''} onClick={(e) => handleActive('Médicos')}>
+                    <span className={activeName === 'Medicos' ? 'active' : ''} onClick={(e) => handleActive('Medicos')}>
                         <FaUserDoctor size={22} />
                         <li>Médicos</li>
                     </span>
