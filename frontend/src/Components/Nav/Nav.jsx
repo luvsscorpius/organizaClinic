@@ -5,13 +5,22 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaClinicMedical } from "react-icons/fa";
+import { useNavigate } from 'react-router';
 
 export const Nav = () => {
     const [activeName, setActiveName] = useState('Home')
 
+    const navigate = useNavigate()
+
     const handleActive = (e) => {
         console.log(e)
         setActiveName(e)
+        if (e === 'Home') {
+            console.log('teste')
+            navigate('/')
+        } else {
+            navigate(`/${e}`)
+        }
     }
 
     console.log(activeName)
