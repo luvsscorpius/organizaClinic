@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.4.0...v1.5.0) (2025-01-19)
+
+
+### Features
+
+* **medicos:** creating medicos folder and files ([79a07af](https://github.com/luvsscorpius/organizaClinic/commit/79a07af1aa2638608819391625920e80447c146c))
+* **pacientes:** creating pacientes folder and files ([827bba8](https://github.com/luvsscorpius/organizaClinic/commit/827bba890f0af8ace505a096e6a7a7b15f675f12))
+
 # [1.4.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.3.0...v1.4.0) (2025-01-19)
 
 
