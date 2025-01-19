@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.2.0...v1.3.0) (2025-01-19)
+
+
+### Features
+
+* **home.jsx:** disabled and bookedays ([473be50](https://github.com/luvsscorpius/organizaClinic/commit/473be50e077e025cc15aeaa5b2f9dfde359e19e6))
+
 # [1.2.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.1.0...v1.2.0) (2025-01-19)
 
 
