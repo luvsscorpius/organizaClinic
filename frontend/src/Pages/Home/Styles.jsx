@@ -23,19 +23,19 @@ export const Container = styled.div`
         gap: 10px;
     }
 
-       &.first {
-        order: 1; /* Ordem padrão para o primeiro container */
+    &.first {
+        order: 1; 
 
         @media (min-width: 768px) {
-            order: 2; /* Muda a ordem para resoluções maiores */
+            order: 2;
         }
     }
 
     &.second {
-        order: 2; /* Ordem padrão para o segundo container */
+        order: 2; 
 
         @media (min-width: 768px) {
-            order: 1; /* Muda a ordem para resoluções maiores */
+            order: 1; 
         }
     }
 `
