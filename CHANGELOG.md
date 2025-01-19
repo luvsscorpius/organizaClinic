@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.1.0...v1.2.0) (2025-01-19)
+
+
+### Features
+
+* **home.jsx:** margin auto and width 95% ([a43936f](https://github.com/luvsscorpius/organizaClinic/commit/a43936fb5ca61692746f705c8b0b705358469593))
+* **home.jsx:** margin-top on container and gap 20p ([9f4b273](https://github.com/luvsscorpius/organizaClinic/commit/9f4b27392bf25900cd63dcdda053537cf651cb36))
+
 # [1.1.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.0.0...v1.1.0) (2025-01-19)
 
 
