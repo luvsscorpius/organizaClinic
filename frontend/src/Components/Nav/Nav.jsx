@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as N from './Styles'
 import { IoHomeOutline } from "react-icons/io5";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -8,9 +8,17 @@ import { FaClinicMedical } from "react-icons/fa";
 import { useNavigate } from 'react-router';
 
 export const Nav = () => {
-    const [activeName, setActiveName] = useState('Home')
+    const [activeName, setActiveName] = useState('')
 
     const navigate = useNavigate()
+
+    // usando o useEffect para recuperar o hash da url e adicionar a classname active 
+    useEffect(() => {
+        const path = window.location.hash
+        const pathUpdated = path.split('#/')
+        setActiveName(pathUpdated[1])
+    }, [])
+
 
     const handleActive = (e) => {
         console.log(e)
