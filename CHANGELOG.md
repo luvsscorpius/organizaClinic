@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/luvsscorpius/organizaClinic/compare/v1.5.0...v1.5.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* **nav.jsx:** using useeffect to put active name when page is realoaded ([bc82075](https://github.com/luvsscorpius/organizaClinic/commit/bc82075005d069dfe69369c6e1c1712eb14b2161))
+
 # [1.5.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.4.0...v1.5.0) (2025-01-19)
 
 
