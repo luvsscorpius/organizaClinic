@@ -9,22 +9,54 @@ import '../../Css/index.css'
 export const Agenda = () => {
     const [events, setEvents] = useState([]);
     const [open, setOpen] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(null)
 
     const handleOpen = () => setOpen(!open);
 
+    const [eventData, setEventData] = useState({
+        cliente: '',
+        medico: '',
+        data: '',
+        horario: '',
+        desc: ''
+    })
+
     const handleDateClick = (arg) => {
-        setSelectedDate(arg.dateStr)
+        setEventData((prev) => ({...prev, data: arg.dateStr}))
         handleOpen()
     };
+    console.log(events)
+
+    // Função para adicionar eventos
+    const eventAdd = (e) => {
+        e.preventDefault()
+        console.log('teste')
+
+        if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
+            alert('Preencha todas as informações')
+        } 
+
+        const newEvent = {
+            id: `${eventData.cliente} - ${eventData.medico} - ${eventData.data}`,
+            title: `${eventData.cliente} - ${eventData.medico}`,
+            start: eventData.data,
+            description: eventData.desc
+        }
+
+        setEvents((prev) => ([...prev, newEvent]))
+        console.log(events.newEvent)
+        handleOpen()
+    }
+
 
     return (
-        <H.section style={{ padding: '10px' }}>
+        <H.section style={{ padding: '10px'}}>
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
                 dateClick={handleDateClick}
                 selectable={true}
+                height={'100%'}
+                events={events}
             />
 
             <Dialog open={open} onClose={setOpen} className="relative z-10">
@@ -39,7 +71,7 @@ export const Agenda = () => {
                             transition
                             className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95" 
                         >
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={(e) => eventAdd(e)}>
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="text-center sm:text-left">
                                         <DialogTitle as="h3" className="text-lg font-semibold text-gray-900">
@@ -55,9 +87,12 @@ export const Agenda = () => {
                                                     id="cliente"
                                                     name="cliente"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
+                                                    value={eventData.cliente}
+                                                    onChange={(e) => setEventData((prev) => ({...prev, cliente: e.target.value}))}
                                                 >
                                                     <option value="">Selecione um cliente</option>
                                                     <option value="Anderson">Anderson</option>
+                                                    <option value="Vitor">Vitor</option>
                                                 </select>
                                             </div>
 
@@ -70,6 +105,8 @@ export const Agenda = () => {
                                                     id="medico"
                                                     name="medico"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
+                                                    value={eventData.medico}
+                                                    onChange={(e) => setEventData((prev) => ({...prev, medico: e.target.value}))}
                                                 >
                                                     <option value="">Selecione um médico</option>
                                                     <option value="Anderson">Anderson</option>
@@ -85,7 +122,7 @@ export const Agenda = () => {
                                                     type="date"
                                                     id="data"
                                                     name="data"
-                                                    value={selectedDate}
+                                                    value={eventData.data}
                                                     readOnly
                                                     className="mt-1 w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                 />
@@ -100,6 +137,8 @@ export const Agenda = () => {
                                                     id="horario"
                                                     name="horario"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
+                                                    value={eventData.horario}
+                                                    onChange={(e) => setEventData((prev) => ({...prev, horario: e.target.value}))}
                                                 >
                                                     <option value="">Selecione um horário</option>
                                                     {[7, 8, 9, 10, 11, 13, 14, 15, 16, 17].map((hour) => (
@@ -121,6 +160,8 @@ export const Agenda = () => {
                                                     placeholder="Descreva o evento"
                                                     className="mt-1 w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                     rows="4"
+                                                    value={eventData.desc}
+                                                    onChange={(e) => setEventData((prev) => ({...prev, desc: e.target.value}))}
                                                 ></textarea>
                                             </div>
                                         </div>
@@ -131,6 +172,7 @@ export const Agenda = () => {
                                     <button
                                         type="submit"
                                         className="inline-flex w-full justify-center rounded-md bg-[#15babc] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+                                        onClick={(e) => eventAdd(e)}
                                     >
                                         Salvar
                                     </button>
