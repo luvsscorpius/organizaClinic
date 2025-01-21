@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.5.1...v1.6.0) (2025-01-21)
+
+
+### Features
+
+* **agenda.jsx:** implementing modal ([5157986](https://github.com/luvsscorpius/organizaClinic/commit/5157986c01a9a861512d7aa56f6136f22205d8cc))
+* **agenda.jsx:** implemeting logic to add new event to calendar ([f547c4c](https://github.com/luvsscorpius/organizaClinic/commit/f547c4c0cf3ee66329f1544714f94308cfc03cf2))
+
 ## [1.5.1](https://github.com/luvsscorpius/organizaClinic/compare/v1.5.0...v1.5.1) (2025-01-21)
 
 
