@@ -16,7 +16,11 @@ export const Nav = () => {
     useEffect(() => {
         const path = window.location.hash
         const pathUpdated = path.split('#/')
-        setActiveName(pathUpdated[1])
+        if (pathUpdated[1] === 'Medicos/cadastrarmedico') {
+            setActiveName('Medicos')
+        } else {
+            setActiveName(pathUpdated[1])
+        }
     }, [])
 
 
