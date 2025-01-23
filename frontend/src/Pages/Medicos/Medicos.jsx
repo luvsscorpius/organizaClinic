@@ -5,7 +5,6 @@ import { FaPlus } from "react-icons/fa";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import '../../Css/index.css'
 import { useNavigate } from 'react-router';
 
 export const Medicos = () => {
