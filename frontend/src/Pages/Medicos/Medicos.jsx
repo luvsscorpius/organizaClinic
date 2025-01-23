@@ -6,8 +6,12 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import '../../Css/index.css'
+import { useNavigate } from 'react-router';
 
 export const Medicos = () => {
+
+  const navigate = useNavigate()
+
   return (
     <H.section>
       <M.buttonContainer>
@@ -16,7 +20,7 @@ export const Medicos = () => {
           <input type="search" placeholder='Pesquise um médico' />
         </span>
 
-        <span className='buttonSpan'>
+        <span className='buttonSpan' onClick={() => navigate('cadastrarmedico')}>
           <FaPlus />
           <button>Novo</button>
         </span>
