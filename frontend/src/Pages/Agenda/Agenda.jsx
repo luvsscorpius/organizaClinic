@@ -55,7 +55,6 @@ export const Agenda = () => {
                 initialView="dayGridMonth"
                 dateClick={handleDateClick}
                 selectable={true}
-                height={'100%'}
                 events={events}
             />
 

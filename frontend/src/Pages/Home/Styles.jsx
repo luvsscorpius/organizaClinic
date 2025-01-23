@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const section = styled.section`
-    height: 100vh;
+    height: 100%;
     margin-top: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
