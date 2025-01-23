@@ -26,13 +26,15 @@ export const Nav = () => {
     // usando o useEffect para recuperar o hash da url e adicionar a classname active 
     useEffect(() => {
         const path = window.location.hash
-        const pathUpdated = path.split('#/')
-        if (pathUpdated[1] === 'Medicos/cadastrarmedico') {
+        const pathArray = path.split('#/')
+        const pathUpdated = pathArray[1]
+
+        if (pathUpdated === 'Medicos/cadastrarmedico') {
             setActiveName('Medicos')
-        } else if (pathUpdated[0] === '') {
+        } else if (pathUpdated === '' || pathUpdated === undefined) {
             setActiveName('Home')
         } else {
-            setActiveName(pathUpdated[1])
+            setActiveName(pathUpdated)
         }
     }, [])
 
