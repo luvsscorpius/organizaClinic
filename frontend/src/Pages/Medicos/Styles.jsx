@@ -8,6 +8,7 @@ export const buttonContainer = styled.div`
     align-items: center;
     padding: 10px;
     gap: 10px;
+    font-family: Poppins, serif;
 
     .buttonSpan {
         width: 130px;
