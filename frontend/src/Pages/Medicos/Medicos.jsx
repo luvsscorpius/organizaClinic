@@ -43,17 +43,27 @@ export const Medicos = () => {
                 </th>
                 <th class="p-4">
                   <p class="text-sm leading-none font-normal">
-                    Especialidade
+                    CPF
                   </p>
                 </th>
                 <th class="p-4">
                   <p class="text-sm leading-none font-normal">
-                    Telefone
+                    CRM
                   </p>
                 </th>
                 <th class="p-4">
                   <p class="text-sm leading-none font-normal">
-                  Data de cadastro
+                  Especialidade
+                  </p>
+                </th>
+                <th class="p-4">
+                  <p class="text-sm leading-none font-normal">
+                  E-mail
+                  </p>
+                </th>
+                <th class="p-4">
+                  <p class="text-sm leading-none font-normal">
+                  Telefone
                   </p>
                 </th>
                 <th class="p-4">
@@ -75,17 +85,27 @@ export const Medicos = () => {
                 </td>
                 <td class="p-4">
                   <p class="text-sm">
+                    15630436252
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p class="text-sm">
+                    1262336
+                  </p>
+                </td>
+                <td class="p-4">
+                  <p class="text-sm">
                     Psicólogo
                   </p>
                 </td>
                 <td class="p-4">
                   <p class="text-sm">
-                    (35) 99892-2086
+                    joao@gmail.com
                   </p>
                 </td>
                 <td class="p-4">
                   <p class="text-sm">
-                    23/01/2025
+                    35998922086
                   </p>
                 </td>
                 <td class="p-4 tdIcons">
