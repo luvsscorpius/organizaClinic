@@ -1,3 +1,19 @@
+# [1.9.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.8.0...v1.9.0) (2025-01-23)
+
+
+### Bug Fixes
+
+* **nav.jsx:** fixing useEffect when pathUpdated[0] === '' we se activeName = 'Home'' ([3381a3f](https://github.com/luvsscorpius/organizaClinic/commit/3381a3f4e078c60a93eb28f55c981fade3c5a650))
+* **nav.jsx:** updating pathway with pathArray[1] ([4396c19](https://github.com/luvsscorpius/organizaClinic/commit/4396c19cdb9cda6eba97f7242ad506e0ef9870a5))
+
+
+### Features
+
+* **cadastrarmedico.jsx:** implementing navigate('medicos') ([559188c](https://github.com/luvsscorpius/organizaClinic/commit/559188ca8404f1cc9c29bdb56d0150f8577a65b9))
+* **cadastrarmedico:** implementing more inputs ([8425b74](https://github.com/luvsscorpius/organizaClinic/commit/8425b7444c2b4cee6a22d4ed239373b13d5d09bb))
+* **medicos.jsx:** implementing new td ([127aa04](https://github.com/luvsscorpius/organizaClinic/commit/127aa04c662cad5eed6b26e0731a7f2943934bf8))
+* **pacientes.jsx:** implementing table from tailwind ([e61f681](https://github.com/luvsscorpius/organizaClinic/commit/e61f6816f344f865917749dfcc13e8027590e34a))
+
 # [1.8.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.7.0...v1.8.0) (2025-01-23)
 
 
