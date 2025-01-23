@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.7.0...v1.8.0) (2025-01-23)
+
+
+### Bug Fixes
+
+* **nav.jsx:** implenting that if pathname is cadastrarmedicos li medicos will stay active ([7dfb349](https://github.com/luvsscorpius/organizaClinic/commit/7dfb349d2a621699e7692b0c5c64073e5c2e7d1c))
+
+
+### Features
+
+* **app.js:** implementing subroutes & creating cadastrarmedico.jsx ([30b975a](https://github.com/luvsscorpius/organizaClinic/commit/30b975adf2af9ac93475200fdc1331299b2e8662))
+* **cadastrarmedico.jsx:** implementing form to cadastrarMedico.jsx ([c6ad76b](https://github.com/luvsscorpius/organizaClinic/commit/c6ad76bcf7aa9c605ee9ec34f0e23bfc04ca40f0))
+* **index.html:** implementing poppins font ([9f5518d](https://github.com/luvsscorpius/organizaClinic/commit/9f5518d78c88c8a38ad09de5dd82467076eea2b9))
+* **medicos.jsx:** implementing table from tailwind ([e7cb480](https://github.com/luvsscorpius/organizaClinic/commit/e7cb4806c80b126b7d063bbd347840a1e08943a4))
+
 # [1.7.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.6.0...v1.7.0) (2025-01-22)
 
 
