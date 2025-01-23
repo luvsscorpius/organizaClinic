@@ -8,21 +8,9 @@ import { FaClinicMedical } from "react-icons/fa";
 import { useNavigate } from 'react-router';
 
 export const Nav = () => {
-    const [activeName, setActiveName] = useState('')
+    const [activeName, setActiveName] = useState('Home')
 
     const navigate = useNavigate()
-
-    // usando o useEffect para recuperar o hash da url e adicionar a classname active 
-    useEffect(() => {
-        const path = window.location.hash
-        const pathUpdated = path.split('#/')
-        if (pathUpdated[1] === 'Medicos/cadastrarmedico') {
-            setActiveName('Medicos')
-        } else {
-            setActiveName(pathUpdated[1])
-        }
-    }, [])
-
 
     const handleActive = (e) => {
         console.log(e)
@@ -35,7 +23,18 @@ export const Nav = () => {
         }
     }
 
-    console.log(activeName)
+    // usando o useEffect para recuperar o hash da url e adicionar a classname active 
+    useEffect(() => {
+        const path = window.location.hash
+        const pathUpdated = path.split('#/')
+        if (pathUpdated[1] === 'Medicos/cadastrarmedico') {
+            setActiveName('Medicos')
+        } else if (pathUpdated[0] === '') {
+            setActiveName('Home')
+        } else {
+            setActiveName(pathUpdated[1])
+        }
+    }, [])
 
     return (
         <N.navContainer>
