@@ -59,3 +59,28 @@ export const buttonContainer = styled.div`
         transform: scale(0.95)
     }
 `
+
+export const tableContainer = styled.div`
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    overflow-x: auto;
+
+   .tdIcons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+
+    a {
+        border: 1px solid #ddd;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 5px;
+    }
+   }
+`

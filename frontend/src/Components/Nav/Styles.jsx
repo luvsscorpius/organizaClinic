@@ -7,6 +7,7 @@ export const navContainer = styled.div`
     justify-content: center;
     height: auto;
     gap: 20px;
+    font-family: Poppins, serif;
 `
 
 export const titleContainer = styled.div`

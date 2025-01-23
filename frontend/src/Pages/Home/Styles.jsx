@@ -12,6 +12,7 @@ export const section = styled.section`
     margin: 20px auto;
     gap: 10px;
     width: 95%;
+    font-family: Poppins, serif;
 
     .booked-day {
         background-color: #15babc;
