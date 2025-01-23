@@ -3,14 +3,17 @@ import * as H from '../Home/Styles'
 import { MdOutlineArrowBack } from "react-icons/md";
 import * as C from './Styles'
 import { FaUserPlus } from "react-icons/fa6";
+import { useNavigate } from 'react-router';
 
 export const CadastrarMedico = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0,10))
 
+    const navigate = useNavigate()
+
     return (
         <H.section>
             <C.ButtonContainer>
-                <span>
+                <span onClick={() => navigate('/Medicos')}>
                     <MdOutlineArrowBack size={22} />
                     <p>Voltar</p>
                 </span>

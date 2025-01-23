@@ -105,7 +105,7 @@ export const Medicos = () => {
                 </td>
                 <td class="p-4">
                   <p class="text-sm">
-                    35998922086
+                    35998922086 
                   </p>
                 </td>
                 <td class="p-4 tdIcons">
