@@ -23,14 +23,27 @@ export const CadastrarMedico = () => {
                         <h1>Cadastrar Médico</h1>
                     </C.titleContainer>
 
-                    <C.inputContainer>
+                    <C.inputContainer> 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Nome do médico' />
+                            <input type="text" placeholder='Nome completo' />
+                        </div>
+
+                        <div className="inputContainerItem">
+                            <input type="text" placeholder='CPF' />
+                        </div>
+
+                        <div className="inputContainerItem">
+                            <input type="text" placeholder='CRM' />
                         </div>
 
                         <div className="inputContainerItem">
                             <input type="text" placeholder='Especialidade' />
                         </div>
+
+                        <div className="inputContainerItem">
+                            <input type="email" placeholder='E-mail' />
+                        </div>
+
                         <div className="inputContainerItem">
                             <input type="tel" placeholder='Telefone' maxLength={11} />
                             <input type="date" value={date} readOnly/>
