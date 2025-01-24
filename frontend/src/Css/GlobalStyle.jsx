@@ -10,4 +10,14 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #f2f2f2;
   }
+
+  @media (max-width: 768px) {
+     .toast-container {
+        .Toastify__toast {
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+    }
 `;

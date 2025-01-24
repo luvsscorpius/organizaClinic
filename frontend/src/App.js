@@ -8,6 +8,8 @@ import { Medicos } from "./Pages/Medicos/Medicos";
 import { CadastrarMedico } from "./Pages/CadastrarMedico/CadastrarMedico";
 import { CadastrarPaciente } from "./Pages/CadastrarPaciente/CadastrarPaciente";
 import { EditarMedico } from "./Pages/EditarMedico/EditarMedico";
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <GlobalStyle />
       <Router>
         <Nav />
+        <ToastContainer autoClose={3000} className='toast-container'/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/agenda" element={<Agenda />} />
