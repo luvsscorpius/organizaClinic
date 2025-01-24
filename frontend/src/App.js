@@ -1,27 +1,33 @@
 import { Nav } from "./Components/Nav/Nav";
-import {HashRouter as Router, Routes, Route} from 'react-router'
+import { HashRouter as Router, Routes, Route } from 'react-router'
 import { Home } from "./Pages/Home/Home";
 import { GlobalStyle } from "./Css/GlobalStyle";
 import { Agenda } from "./Pages/Agenda/Agenda";
 import { Pacientes } from "./Pages/Pacientes/Pacientes";
 import { Medicos } from "./Pages/Medicos/Medicos";
 import { CadastrarMedico } from "./Pages/CadastrarMedico/CadastrarMedico";
+import { CadastrarPaciente } from "./Pages/CadastrarPaciente/CadastrarPaciente";
 
 function App() {
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Router>
-      <Nav/>
+        <Nav />
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/agenda" element={<Agenda/>} />
-          <Route path="/pacientes" element={<Pacientes/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/agenda" element={<Agenda />} />
+
+          {/* Rota principal de paciente */}
+          <Route path="/pacientes" >
+            <Route index element={<Pacientes />} />
+            <Route path="cadastrarpaciente" element={<CadastrarPaciente/>}/>
+          </Route>
 
           {/* Rota principal de médicos */}
           <Route path="/medicos"  >
-            <Route index element={<Medicos/>} />
-            <Route path="cadastrarmedico" element={<CadastrarMedico/>}/>
+            <Route index element={<Medicos />} />
+            <Route path="cadastrarmedico" element={<CadastrarMedico />} />
           </Route>
         </Routes>
       </Router>
