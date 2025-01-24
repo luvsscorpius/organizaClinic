@@ -36,9 +36,8 @@ export const Nav = styled.nav`
         justify-content: space-around;
         width: 100%;
         margin: 0;
-        padding: 0;
-        gap: 5px;
-        padding: 5px;
+        gap: 3px;
+        font-size: 15px;
         
         span {
             width: 100%;
