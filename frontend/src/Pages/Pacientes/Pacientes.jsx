@@ -47,6 +47,11 @@ export const Pacientes = () => {
                 </th>
                 <th class="p-4">
                   <p class="text-sm leading-none font-normal">
+                    Gênero
+                  </p>
+                </th>
+                <th class="p-4">
+                  <p class="text-sm leading-none font-normal">
                     Sexo
                   </p>
                 </th>
