@@ -29,7 +29,7 @@ export const Nav = () => {
         const pathArray = path.split('#/')
         const pathUpdated = pathArray[1]
 
-        if (pathUpdated === 'Medicos/cadastrarmedico') {
+        if (pathUpdated === 'Medicos/cadastrarmedico' || pathUpdated === 'Medicos/editarmedico') {
             setActiveName('Medicos')
         } else if (pathUpdated === 'Pacientes/cadastrarpaciente') {
             setActiveName('Pacientes')
