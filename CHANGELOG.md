@@ -1,3 +1,12 @@
+# [1.11.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.10.0...v1.11.0) (2025-01-24)
+
+
+### Features
+
+* **cadastrarmedico.jsx:** implementing toastify container to catch errors ([655fe63](https://github.com/luvsscorpius/organizaClinic/commit/655fe633810c5fceddc350d36ae8fce3183b6a8f))
+* **cadastrarpaciente.jsx:** dealing with error on cadastrarPacientes.jsx ([3954aa9](https://github.com/luvsscorpius/organizaClinic/commit/3954aa93e26c7e33b232a2410e0346c6fdd615ad))
+* **nav.jsx:** removing padding from ul ([395b311](https://github.com/luvsscorpius/organizaClinic/commit/395b311ce4c64a5f62e2ee1e29f0b42aa54ead88))
+
 # [1.10.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.9.0...v1.10.0) (2025-01-24)
 
 
