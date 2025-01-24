@@ -1,3 +1,14 @@
+# [1.10.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.9.0...v1.10.0) (2025-01-24)
+
+
+### Features
+
+* **cadastrarpaciente.jsx:** creating page to add new patients ([0335aef](https://github.com/luvsscorpius/organizaClinic/commit/0335aef1fe609bae4dcc38f7f647aa3286f7bf27))
+* **cadastrarpaciente.jsx:** implementing form to add new patients ([5540754](https://github.com/luvsscorpius/organizaClinic/commit/55407543a15cd7f5d933c0c27e5303cba74e9086))
+* **editarmedico.jsx:** creating editarmedico folder and files ([6dd852b](https://github.com/luvsscorpius/organizaClinic/commit/6dd852b6d8cc9e488f4bee4a77847bf8afbd302d))
+* **nav.jsx & pacientes.jsx:** implementing logic on useEffect on nav.jsx and useNavigate pacientes ([cb852bb](https://github.com/luvsscorpius/organizaClinic/commit/cb852bb2d3fb1b67de544e073310c16f84a2b781))
+* **nav.jsx:** implementing that if /medicos/editarmedico nav will be active on medicos ([92929ce](https://github.com/luvsscorpius/organizaClinic/commit/92929ce29590d6d8d17b5e80921942e82ab19ddc))
+
 # [1.9.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.8.0...v1.9.0) (2025-01-23)
 
 
