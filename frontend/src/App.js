@@ -7,6 +7,7 @@ import { Pacientes } from "./Pages/Pacientes/Pacientes";
 import { Medicos } from "./Pages/Medicos/Medicos";
 import { CadastrarMedico } from "./Pages/CadastrarMedico/CadastrarMedico";
 import { CadastrarPaciente } from "./Pages/CadastrarPaciente/CadastrarPaciente";
+import { EditarMedico } from "./Pages/EditarMedico/EditarMedico";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/medicos"  >
             <Route index element={<Medicos />} />
             <Route path="cadastrarmedico" element={<CadastrarMedico />} />
+            <Route path="editarmedico" element={<EditarMedico />} />
           </Route>
         </Routes>
       </Router>

@@ -61,7 +61,6 @@ export const buttonContainer = styled.div`
 `
 
 export const tableContainer = styled.div`
-    border: 1px solid red;
     width: 100%;
     height: 100%;
     padding: 10px;
