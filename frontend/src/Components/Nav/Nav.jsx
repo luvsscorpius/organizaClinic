@@ -31,6 +31,8 @@ export const Nav = () => {
 
         if (pathUpdated === 'Medicos/cadastrarmedico') {
             setActiveName('Medicos')
+        } else if (pathUpdated === 'Pacientes/cadastrarpaciente') {
+            setActiveName('Pacientes')
         } else if (pathUpdated === '' || pathUpdated === undefined) {
             setActiveName('Home')
         } else {

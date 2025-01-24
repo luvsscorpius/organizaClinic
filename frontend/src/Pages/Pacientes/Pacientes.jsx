@@ -5,8 +5,12 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { FaPlus } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { useNavigate } from 'react-router';
 
 export const Pacientes = () => {
+
+  const navigate = useNavigate()
+
   return (
     <H.section>
       <M.buttonContainer>
@@ -15,7 +19,7 @@ export const Pacientes = () => {
           <input type="search" placeholder='Pesquise um paciente' />
         </span>
 
-        <span className='buttonSpan'>
+        <span className='buttonSpan' onClick={() => navigate('cadastrarpaciente')}>
           <FaPlus />
           <button>Novo</button>
         </span>
