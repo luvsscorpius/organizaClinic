@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.11.0...v1.12.0) (2025-01-25)
+
+
+### Features
+
+* **cadastrarpaciente.jsx:** adding a new input to get the date when the new patient was added ([f59eab4](https://github.com/luvsscorpius/organizaClinic/commit/f59eab4cee8826fa33aa1ee4ab868fe8c3c808b8))
+
 # [1.11.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.10.0...v1.11.0) (2025-01-24)
 
 
