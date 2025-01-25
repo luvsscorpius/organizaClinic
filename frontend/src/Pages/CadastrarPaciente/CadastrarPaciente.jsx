@@ -23,7 +23,8 @@ export const CadastrarPaciente = () => {
         Numero: '',
         Bairro: '',
         Cidade: '',
-        Estado: ''
+        Estado: '',
+        DataDeCadastro: '',
     })
 
     const cadastrarPaciente = (e) => {
@@ -36,8 +37,6 @@ export const CadastrarPaciente = () => {
             toast.success('Médico cadastrado com sucesso.')
         }
     }
-
-    console.log(newPatient)
 
     const navigate = useNavigate()
 
@@ -113,6 +112,10 @@ export const CadastrarPaciente = () => {
                         <div className="inputContainerItem">
                             <input type="text" placeholder='Cidade' value={newPatient.Cidade} onChange={(e) => setNewPatient((prev) => ({...prev, Cidade: e.target.value}))}/>
                             <input type="text" placeholder='Estado' value={newPatient.Estado} onChange={(e) => setNewPatient((prev) => ({...prev, Estado: e.target.value}))} />
+                        </div>
+
+                        <div className="inputContainerItem">
+                            <input type="date" value={date} readOnly />
                         </div>
 
                         <button onClick={(e) => cadastrarPaciente(e)}>Salvar</button>
