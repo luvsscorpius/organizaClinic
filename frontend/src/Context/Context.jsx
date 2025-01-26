@@ -1,12 +1,13 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const OrganizaClinicContext = createContext()
 
-const OrganizaClinicProvider = ({children}) => {
-    console.log('teste')
+const OrganizaClinicProvider = ({ children }) => {
+
+    const contextValue = {}
 
     return (
-        <OrganizaClinicContext.Provider>
+        <OrganizaClinicContext.Provider value={contextValue}>
             {children}
         </OrganizaClinicContext.Provider>
     )

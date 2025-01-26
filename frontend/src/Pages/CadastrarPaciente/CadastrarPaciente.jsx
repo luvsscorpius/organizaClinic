@@ -33,7 +33,7 @@ export const CadastrarPaciente = () => {
         if (newPatient.Nome === '' || newPatient.DataDeNascimento === '' || newPatient.CRM === '' || newPatient.Genero === '' || newPatient.Sexo === '' || newPatient.CPF === '' || newPatient.Telefone === '' || newPatient.Email === ''|| newPatient.Naturalidade === '' || newPatient.CEP === '' || newPatient.Rua === '' || newPatient.Numero === '' || newPatient.Bairro === '' || newPatient.Cidade === '' || newPatient.Estado === '') {
             toast.error('Preencha todos os dados antes de salvar.')
         } else {
-            navigate('/Medicos')
+            navigate('/Pacientes')
             toast.success('Médico cadastrado com sucesso.')
         }
     }

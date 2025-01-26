@@ -10,21 +10,9 @@ import { useNavigate } from 'react-router';
 export const Nav = () => {
     const [activeName, setActiveName] = useState('Home')
 
-    const navigate = useNavigate()
-
-    const handleActive = (e) => {
-        console.log(e)
-        setActiveName(e)
-        if (e === 'Home') {
-            console.log('teste')
-            navigate('/')
-        } else {
-            navigate(`/${e}`)
-        }
-    }
-
     // usando o useEffect para recuperar o hash da url e adicionar a classname active 
-    useEffect(() => {
+
+    const activeUpdate = () => {
         const path = window.location.hash
         const pathArray = path.split('#/')
         const pathUpdated = pathArray[1]
@@ -40,7 +28,27 @@ export const Nav = () => {
         } else {
             setActiveName(pathUpdated)
         }
-    }, [])
+    }
+
+    
+    useEffect(() => {
+        activeUpdate()
+    })
+
+
+    const navigate = useNavigate()
+
+    const handleActive = (e) => {
+        console.log(e)
+        setActiveName(e)
+        if (e === 'Home') {
+            console.log('teste')
+            navigate('/')
+        } else {
+            navigate(`/${e}`)
+        }
+    }
+
 
     return (
         <N.navContainer>
