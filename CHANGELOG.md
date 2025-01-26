@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.12.0...v1.13.0) (2025-01-26)
+
+
+### Features
+
+* **context:** creating context folder and files ([f919e3d](https://github.com/luvsscorpius/organizaClinic/commit/f919e3dd443620f6c51e88419b62ecf0f00f726d))
+* **nav.jsx:** creating a function called activeUpdate to fix bug when you change url active wouldnt ([109ea29](https://github.com/luvsscorpius/organizaClinic/commit/109ea298d6360711c4d2feb97cf3c5128175f3c4))
+
 # [1.12.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.11.0...v1.12.0) (2025-01-25)
 
 
