@@ -1,3 +1,11 @@
+# [1.14.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.13.0...v1.14.0) (2025-01-28)
+
+
+### Features
+
+* **globalstyle.jsx:** centralizing body ([575e979](https://github.com/luvsscorpius/organizaClinic/commit/575e97983853a8749e425f61ac2963ba4aab6cd4))
+* **mobile first:** implementing mobile first now to tablets ([0e458e3](https://github.com/luvsscorpius/organizaClinic/commit/0e458e36930334346d1d5f5d2748b4a3be021ab3))
+
 # [1.13.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.12.0...v1.13.0) (2025-01-26)
 
 
