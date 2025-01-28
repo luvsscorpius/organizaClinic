@@ -10,8 +10,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #f2f2f2;
     height: 100vh;
-    display: grid;
-    place-items: center;
   }
 
   @media (max-width: 768px) {

@@ -76,6 +76,7 @@ export const Home = () => {
                     <DayPicker
                         mode="single"
                         selected={selected}
+                        className='daypicker'
                         onSelect={setSelected}
                         disabled={[{ before: new Date() }, ...bookedDays]}
                         defaultMonth={bookedDays[0]}

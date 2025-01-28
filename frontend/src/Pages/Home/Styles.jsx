@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const section = styled.section`
-    height: 100%;
+    height: auto;
     margin-top: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -13,11 +13,23 @@ export const section = styled.section`
     gap: 10px;
     width: 95%;
     font-family: Poppins, serif;
+    font-weight: 400;
+    padding-bottom: 20px;
 
     .booked-day {
         background-color: #15babc;
         color: white;
-        border-radius: 50%;
+        border-radius: 100%;
+    }   
+
+    .daypicker {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    @media (min-width: 768px) { 
+        flex-direction: row;
     }
 `
 
@@ -38,6 +50,12 @@ export const Container = styled.div`
 
         @media (min-width: 768px) {
             order: 2;
+
+            span {
+                h1 {
+                    font-weight: 800;
+                }
+            }
         }
     }
 
@@ -46,6 +64,20 @@ export const Container = styled.div`
 
         @media (min-width: 768px) {
             order: 1; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .titleContainer {
+                width: 85%;
+                display: flex;
+                justify-content: start;
+
+                h1 {
+                    font-weight: 800;
+                }
+            }
         }
     }
 `

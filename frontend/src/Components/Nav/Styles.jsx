@@ -17,6 +17,12 @@ export const titleContainer = styled.div`
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
+
+    @media (min-width: 768px) {
+        h1 {
+            font-size: 22px;
+        }
+    }
 `
 
 export const Nav = styled.nav`
@@ -65,5 +71,10 @@ export const Nav = styled.nav`
             transition: 0.3s ease-in-out;
             color: #15babc;
         }
+    }
+
+    @media (min-width: 768px) {
+        padding: 10px;
+
     }
 `

@@ -41,7 +41,7 @@ export const CadastrarPaciente = () => {
     const navigate = useNavigate()
 
     return (
-        <H.section>
+        <H.section style={{flexDirection: 'column'}}>
             <C.ButtonContainer>
                 <span onClick={() => navigate('/Pacientes')}>
                     <MdOutlineArrowBack size={22} />

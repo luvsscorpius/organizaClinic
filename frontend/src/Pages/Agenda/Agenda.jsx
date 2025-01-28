@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as H from '../Home/Styles';
+import * as A from './Styles'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -49,7 +49,7 @@ export const Agenda = () => {
 
 
     return (
-        <H.section style={{ padding: '10px'}}>
+        <A.section style={{ padding: '10px'}}>
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
@@ -188,6 +188,6 @@ export const Agenda = () => {
                     </div>
                 </div>
             </Dialog>
-        </H.section>
+        </A.section>
     );
 };
