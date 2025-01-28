@@ -29,7 +29,6 @@ export const Nav = () => {
             setActiveName(pathUpdated)
         }
     }
-
     
     useEffect(() => {
         activeUpdate()
