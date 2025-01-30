@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.14.0...v1.15.0) (2025-01-30)
+
+
+### Features
+
+* **mobile first:** finishing styling for tablets ([fa62021](https://github.com/luvsscorpius/organizaClinic/commit/fa6202186d4122ea17b21fbb8ba400b4be299065))
+* **mobile first:** styling to desktop ([8fe3de4](https://github.com/luvsscorpius/organizaClinic/commit/8fe3de431011e92206f16268729b9b1de0969b06))
+
 # [1.14.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.13.0...v1.14.0) (2025-01-28)
 
 
