@@ -11,7 +11,7 @@ export const EditarMedico = () => {
     const navigate = useNavigate()
 
     return (
-        <H.section>
+        <H.section style={{flexDirection: 'column'}}>
             <C.ButtonContainer>
                 <span onClick={() => navigate('/Medicos')}>
                     <MdOutlineArrowBack size={22} />

@@ -79,6 +79,6 @@ export const Nav = styled.nav`
     }
 
     @media (min-width: 1024px) {
-	    width: 700px;
+	    width: 950px;
     }
 `
