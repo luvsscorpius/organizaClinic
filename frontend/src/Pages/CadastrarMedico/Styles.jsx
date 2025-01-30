@@ -54,6 +54,12 @@ export const inputContainer = styled.div`
         margin-bottom: 10px;
     }
 
+    @media (min-width: 768px) {
+        button {
+            width: 97.5%;
+        }
+    }
+
     .inputContainerItem {
         padding: 10px;
         display: flex;
@@ -67,4 +73,6 @@ export const inputContainer = styled.div`
             padding: 10px;
         }
     }
+
+
 `

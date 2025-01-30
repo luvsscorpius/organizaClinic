@@ -12,7 +12,7 @@ export const Medicos = () => {
   const navigate = useNavigate()
 
   return (
-    <H.section>
+    <H.section style={{flexDirection: 'column'}}>
       <M.buttonContainer>
         <span className='searchSpan'>
           <HiOutlineMagnifyingGlass />

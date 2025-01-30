@@ -33,7 +33,7 @@ export const CadastrarMedico = () => {
     }
 
     return (
-        <H.section>
+        <H.section style={{flexDirection: 'column'}}>
             <C.ButtonContainer>
                 <span onClick={() => navigate('/Medicos')}>
                     <MdOutlineArrowBack size={22} />
