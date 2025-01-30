@@ -21,7 +21,7 @@ export const Agenda = () => {
     })
 
     const handleDateClick = (arg) => {
-        setEventData((prev) => ({...prev, data: arg.dateStr}))
+        setEventData((prev) => ({ ...prev, data: arg.dateStr }))
         handleOpen()
     };
     console.log(events)
@@ -31,31 +31,45 @@ export const Agenda = () => {
         e.preventDefault()
         console.log('teste')
 
+        const horarioFim = Number.parseFloat(eventData.horario) + 1
+        const horarioFimUpdated = horarioFim < 10 ? `0${horarioFim}:00` : `${horarioFim}:00`
+
+        const endEvent = `${eventData.data}T${horarioFimUpdated}`
+
         if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
             alert('Preencha todas as informações')
-        } 
+        } else {
 
-        const newEvent = {
-            id: `${eventData.cliente} - ${eventData.medico} - ${eventData.data}`,
-            title: `${eventData.cliente} - ${eventData.medico}`,
-            start: eventData.data,
-            description: eventData.desc
+            const newEvent = {
+                id: `${eventData.cliente} - ${eventData.medico} - ${eventData.data}`,
+                title: `Paciente ${eventData.cliente} - Médico ${eventData.medico}`,
+                start: `${eventData.data}T${eventData.horario}`,
+                end: endEvent,
+                description: eventData.desc,
+                allDay: false
+            }
+
+            setEvents((prev) => ([...prev, newEvent]))
+            console.log(events.newEvent)
+            handleOpen()
         }
-
-        setEvents((prev) => ([...prev, newEvent]))
-        console.log(events.newEvent)
-        handleOpen()
     }
 
 
     return (
-        <A.section style={{ padding: '10px'}}>
+        <A.section style={{ padding: '10px' }}>
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
+                headerToolbar={{
+                    start: "today prev next",
+                    end: "dayGridMonth dayGridWeek dayGridDay",
+                }}
+                views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
                 dateClick={handleDateClick}
                 selectable={true}
                 events={events}
+                resources='https://fullcalendar.io/api/demo-feeds/resources.json?with-nesting&with-colors'
             />
 
             <Dialog open={open} onClose={setOpen} className="relative z-10">
@@ -68,7 +82,7 @@ export const Agenda = () => {
                     <div className="flex min-h-full !min-w-full items-center justify-center p-4 text-center sm:items-center sm:p-0"  >
                         <DialogPanel
                             transition
-                            className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95" 
+                            className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
                         >
                             <form className="space-y-6" onSubmit={(e) => eventAdd(e)}>
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
@@ -77,21 +91,23 @@ export const Agenda = () => {
                                             Adicionar Evento
                                         </DialogTitle>
                                         <div className="mt-6 space-y-4">
-                                            {/* Cliente */}
+                                            {/* Paciente */}
                                             <div>
-                                                <label htmlFor="cliente" className="block text-sm font-medium text-gray-700 text-start">
-                                                    Cliente
+                                                <label htmlFor="Paciente" className="block text-sm font-medium text-gray-700 text-start">
+                                                    Paciente
                                                 </label>
                                                 <select
-                                                    id="cliente"
-                                                    name="cliente"
+                                                    id="Paciente"
+                                                    name="Paciente"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                     value={eventData.cliente}
-                                                    onChange={(e) => setEventData((prev) => ({...prev, cliente: e.target.value}))}
+                                                    onChange={(e) => setEventData((prev) => ({ ...prev, cliente: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um cliente</option>
                                                     <option value="Anderson">Anderson</option>
                                                     <option value="Vitor">Vitor</option>
+                                                    <option value="Vitrória">Vitrória</option>
+                                                    <option value="Catita">Catita</option>
                                                 </select>
                                             </div>
 
@@ -105,10 +121,12 @@ export const Agenda = () => {
                                                     name="medico"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                     value={eventData.medico}
-                                                    onChange={(e) => setEventData((prev) => ({...prev, medico: e.target.value}))}
+                                                    onChange={(e) => setEventData((prev) => ({ ...prev, medico: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um médico</option>
                                                     <option value="Anderson">Anderson</option>
+                                                    <option value="Ana Paula">Ana Paula</option>
+                                                    <option value="Amanda">Amanda</option>
                                                 </select>
                                             </div>
 
@@ -137,12 +155,12 @@ export const Agenda = () => {
                                                     name="horario"
                                                     className="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                     value={eventData.horario}
-                                                    onChange={(e) => setEventData((prev) => ({...prev, horario: e.target.value}))}
+                                                    onChange={(e) => setEventData((prev) => ({ ...prev, horario: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um horário</option>
                                                     {[7, 8, 9, 10, 11, 13, 14, 15, 16, 17].map((hour) => (
-                                                        <option key={hour} value={hour}>
-                                                            {`${hour}:00`}
+                                                        <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`}>
+                                                            {`${hour}` < 10 ? `0${hour}:00` : `${hour}:00` }
                                                         </option>
                                                     ))}
                                                 </select>
@@ -160,7 +178,7 @@ export const Agenda = () => {
                                                     className="mt-1 w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50 text-sm"
                                                     rows="4"
                                                     value={eventData.desc}
-                                                    onChange={(e) => setEventData((prev) => ({...prev, desc: e.target.value}))}
+                                                    onChange={(e) => setEventData((prev) => ({ ...prev, desc: e.target.value }))}
                                                 ></textarea>
                                             </div>
                                         </div>
