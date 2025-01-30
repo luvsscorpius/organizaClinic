@@ -24,5 +24,9 @@ export const section = styled.section`
             height: 100%;
         }
     }
+
+    @media (min-width: 1024px) {
+        width: 950px;
+    }
 `
 

@@ -73,4 +73,11 @@ export const inputContainer = styled.div`
             width: 97.5%;
         }
     }
+
+    
+    @media (min-width: 1024px) {
+        button {
+            width: 98%;
+        }
+    }
 `

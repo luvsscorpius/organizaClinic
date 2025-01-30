@@ -77,4 +77,8 @@ export const Nav = styled.nav`
         padding: 10px;
 
     }
+
+    @media (min-width: 1024px) {
+	    width: 700px;
+    }
 `

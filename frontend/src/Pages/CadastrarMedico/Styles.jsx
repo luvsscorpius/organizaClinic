@@ -60,6 +60,12 @@ export const inputContainer = styled.div`
         }
     }
 
+    @media (min-width: 1024px) {
+        button {
+            width: 98%;
+        }
+    }
+
     .inputContainerItem {
         padding: 10px;
         display: flex;

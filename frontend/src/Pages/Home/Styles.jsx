@@ -31,12 +31,19 @@ export const section = styled.section`
     @media (min-width: 768px) { 
         flex-direction: row;
     }
+
+
+    @media (min-width: 1024px) {
+	    width: 950px;
+        gap: 0;
+    }
 `
 
 export const Container = styled.div`
     width: 100%;
     margin-top: 20px;
     gap: 20px;
+    height: 100%;
 
     span {
         display: flex;
@@ -56,6 +63,10 @@ export const Container = styled.div`
                     font-weight: 800;
                 }
             }
+        }
+
+        @media (min-width: 1024px) {
+            height: 100%;
         }
     }
 
@@ -77,6 +88,14 @@ export const Container = styled.div`
                 h1 {
                     font-weight: 800;
                 }
+            }
+        }
+
+        @media (min-width: 1024px) {
+
+            .titleContainer {
+                width: 100%;
+                padding-left: 75px;
             }
         }
     }
@@ -120,5 +139,11 @@ export const infoContainer = styled.div`
         padding: 8px;
         border-radius: 90%;
         background-color: white;
+    }
+
+    @media (min-width: 1024px) {
+        .container-items {
+            width: 350px;
+        }
     }
 `
