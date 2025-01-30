@@ -8,6 +8,7 @@ import { Medicos } from "./Pages/Medicos/Medicos";
 import { CadastrarMedico } from "./Pages/CadastrarMedico/CadastrarMedico";
 import { CadastrarPaciente } from "./Pages/CadastrarPaciente/CadastrarPaciente";
 import { EditarMedico } from "./Pages/EditarMedico/EditarMedico";
+import { EditarPaciente } from "./Pages/EditarPaciente/EditarPaciente";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import OrganizaClinicProvider from "./Context/Context";
@@ -28,6 +29,7 @@ function App() {
             <Route path="/pacientes" >
               <Route index element={<Pacientes />} />
               <Route path="cadastrarpaciente" element={<CadastrarPaciente />} />
+              <Route path="editarpaciente" element={<EditarPaciente />} />
             </Route>
 
             {/* Rota principal de médicos */}

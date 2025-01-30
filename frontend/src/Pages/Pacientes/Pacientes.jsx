@@ -151,7 +151,7 @@ export const Pacientes = () => {
                   <a href="#" class="text-sm font-semibold ">
                     <FaRegTrashAlt size={22} />
                   </a>
-                  <a href="#" class="text-sm font-semibold ">
+                  <a href="#/Pacientes/editarPaciente" class="text-sm font-semibold ">
                     <FaEdit size={22} />
                   </a>
                 </td>
