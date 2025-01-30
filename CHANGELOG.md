@@ -1,3 +1,13 @@
+# [1.16.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.15.0...v1.16.0) (2025-01-30)
+
+
+### Features
+
+* **agenda.jsx:** start event and end envent ([dee7260](https://github.com/luvsscorpius/organizaClinic/commit/dee72609af56ddd53b078ec806a37285db72867c))
+* **editarmedico.jsx:** styling section to flexDirection column ([7427a1d](https://github.com/luvsscorpius/organizaClinic/commit/7427a1d7577bdc41ac6d7e3eb6d846469a528563))
+* **editarpaciente.jsx:** setting new route and editing editarPaciente ([47db953](https://github.com/luvsscorpius/organizaClinic/commit/47db9536b4667b7927c5d3504e069806afd40dbc))
+* **editarpaciente:** creating editarPaciente folder & files ([a965e6a](https://github.com/luvsscorpius/organizaClinic/commit/a965e6aa320e9fef131787bac1a3118beefea567))
+
 # [1.15.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.14.0...v1.15.0) (2025-01-30)
 
 
