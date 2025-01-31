@@ -72,7 +72,7 @@ export const Home = () => {
                     <h1>Datas Disponíveis</h1>
                 </span>
 
-                <span>
+                <span className='calendarContainer'>
                     <DayPicker
                         mode="single"
                         selected={selected}

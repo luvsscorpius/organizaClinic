@@ -17,7 +17,7 @@ export const titleContainer = styled.div`
     gap: 10px;
     margin-top: 20px;
     background-color:  ${(props) => props.theme.colors.primaryColor};
-    width: 950px;
+    width: 95%;
     color: #eee;
     border-radius: 10px 10px 0px 0px;
     height: 50px;
@@ -26,6 +26,10 @@ export const titleContainer = styled.div`
         h1 {
             font-size: 22px;
         }
+    }
+
+    @media (min-width: 1024px) {
+        width: 950px;
     }
 `
 
@@ -51,7 +55,7 @@ export const Nav = styled.nav`
         font-weight: 500;
         
         span {
-            width: 20%;
+            width: 100%;
             height: 35px;
             border-radius: 10px;
             display: flex;
@@ -80,9 +84,21 @@ export const Nav = styled.nav`
 
     @media (min-width: 768px) {
         padding: 10px;
+
+        ul {
+            span {
+                width: 20%;
+            }        
+        }
     }
 
     @media (min-width: 1024px) {
 	    width: 950px;
+
+        ul {
+            span {
+                width: 20%;
+            }        
+        }
     }
 `

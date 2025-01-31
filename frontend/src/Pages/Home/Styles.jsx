@@ -32,7 +32,6 @@ export const section = styled.section`
         flex-direction: row;
     }
 
-
     @media (min-width: 1024px) {
 	    width: 950px;
         gap: 0;
@@ -42,7 +41,7 @@ export const section = styled.section`
 export const Container = styled.div`
     width: 100%;
     margin-top: 20px;
-    gap: 20px;
+    gap: 40px;
     height: 100%;
 
     span {
@@ -50,6 +49,13 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         gap: 10px;
+    }
+
+    .titleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     &.first {
@@ -72,6 +78,11 @@ export const Container = styled.div`
 
     &.second {
         order: 2; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
 
         @media (min-width: 768px) {
             order: 1; 
@@ -92,7 +103,6 @@ export const Container = styled.div`
         }
 
         @media (min-width: 1024px) {
-
             .titleContainer {
                 width: 100%;
                 padding-left: 75px;

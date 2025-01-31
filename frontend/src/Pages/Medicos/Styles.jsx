@@ -53,6 +53,8 @@ export const buttonContainer = styled.div`
 
     span:hover {
         cursor: pointer;
+        opacity: 0.9;
+        transition: 0.9s ease-in-out;
     }
 
     .buttonSpan:active {
