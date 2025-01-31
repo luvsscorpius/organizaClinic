@@ -29,6 +29,10 @@ export const CadastrarPaciente = () => {
 
     const {pacientes, setPacientes} = useContext(OrganizaClinicContext)
 
+    const checkCPFs = (CPF) => {
+        return pacientes.some((paciente) => paciente.CPF === CPF)
+    }
+
     const cadastrarPaciente = (e) => {
         e.preventDefault()
         
@@ -38,6 +42,8 @@ export const CadastrarPaciente = () => {
             toast.error('Preencha todos os dados antes de salvar.')
         } else if (CPF.length < 11) {
             toast.error('Campo CPF precisa ter 11 digitos.')
+        } else if (checkCPFs(CPF)) {
+            toast.error('CPF já cadastrado no banco de dados.')
         } else {
             navigate('/Pacientes')
             setPacientes((prev) => [...prev, newPatient])
