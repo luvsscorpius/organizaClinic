@@ -69,7 +69,6 @@ export const Agenda = () => {
                 dateClick={handleDateClick}
                 selectable={true}
                 events={events}
-                resources='https://fullcalendar.io/api/demo-feeds/resources.json?with-nesting&with-colors'
             />
 
             <Dialog open={open} onClose={setOpen} className="relative z-10">

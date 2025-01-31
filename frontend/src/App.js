@@ -12,11 +12,14 @@ import { EditarPaciente } from "./Pages/EditarPaciente/EditarPaciente";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import OrganizaClinicProvider from "./Context/Context";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "./Css/Theme";
 
 function App() {
   return (
     <>
       <OrganizaClinicProvider>
+        <ThemeProvider theme={Theme}>
         <GlobalStyle />
         <Router>
           <Nav />
@@ -40,6 +43,7 @@ function App() {
             </Route>
           </Routes>
         </Router>
+        </ThemeProvider>
       </OrganizaClinicProvider>
     </>
   );

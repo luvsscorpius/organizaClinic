@@ -17,7 +17,7 @@ export const buttonContainer = styled.div`
         justify-content: center;
         gap: 5px;
         padding: 5px;
-        background-color: #15babc;
+        background-color: ${(props) => props.theme.colors.primaryColor};
         border-radius: 5px;
         color: #fff;
         margin-right: 10px;

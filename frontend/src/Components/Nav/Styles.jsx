@@ -6,7 +6,6 @@ export const navContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: auto;
-    gap: 20px;
     font-family: Poppins, serif;
 `
 
@@ -17,6 +16,11 @@ export const titleContainer = styled.div`
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
+    background-color:  ${(props) => props.theme.colors.primaryColor};
+    width: 950px;
+    color: #eee;
+    border-radius: 10px 10px 0px 0px;
+    height: 50px;
 
     @media (min-width: 768px) {
         h1 {
@@ -30,7 +34,7 @@ export const Nav = styled.nav`
     height: 70px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,9 +48,10 @@ export const Nav = styled.nav`
         margin: 0;
         gap: 3px;
         font-size: 15px;
+        font-weight: 500;
         
         span {
-            width: 100%;
+            width: 20%;
             height: 35px;
             border-radius: 10px;
             display: flex;
@@ -57,8 +62,8 @@ export const Nav = styled.nav`
         }
 
         .active {
-            color: #15babc;
-            background-color: #eee;
+            color: #eee;
+            background-color: ${(props) => props.theme.colors.primaryColor};
         }
 
         li {
@@ -69,13 +74,12 @@ export const Nav = styled.nav`
             cursor: pointer;
             opacity: 0.7;
             transition: 0.3s ease-in-out;
-            color: #15babc;
+            color:${(props) => props.theme.colors.primaryColor};
         }
     }
 
     @media (min-width: 768px) {
         padding: 10px;
-
     }
 
     @media (min-width: 1024px) {

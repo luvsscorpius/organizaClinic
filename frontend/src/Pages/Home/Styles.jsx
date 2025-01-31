@@ -17,7 +17,7 @@ export const section = styled.section`
     padding-bottom: 20px;
 
     .booked-day {
-        background-color: #15babc;
+        background-color: ${(props) => props.theme.colors.primaryColor};
         color: white;
         border-radius: 100%;
     }   

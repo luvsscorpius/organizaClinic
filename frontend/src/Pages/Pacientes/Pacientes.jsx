@@ -29,7 +29,7 @@ export const Pacientes = () => {
         <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <table class="w-full text-left table-auto min-w-max text-slate-800">
             <thead>
-            <tr class="text-slate-500 border-b border-slate-300 bg-slate-50">
+            <tr class="text-slate-500 border-b border-slate-300 bg-slate-50 bg-[#3B448E] text-[#eee]">
                 <th class="p-4">
                   <p class="text-sm leading-none font-normal">
                     ID
