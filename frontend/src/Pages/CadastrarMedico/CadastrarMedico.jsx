@@ -21,6 +21,10 @@ export const CadastrarMedico = () => {
 
     const {medicos, setMedicos} = useContext(OrganizaClinicContext)
 
+    const checkCPFsNCRMs = (CPF, CRM) => {
+        return medicos.some((medico) => medico.CPF === CPF || medico.CRM === CRM)
+    }
+
     const navigate = useNavigate()
 
     const cadastrarMedico = (e) => {
@@ -32,6 +36,8 @@ export const CadastrarMedico = () => {
             toast.error('Preencha todos os dados antes de salvar.')
         } else if (CPF.length < 11 || CRM.length < 11) {
             toast.error('CPF e CRM precisam ter 11 digitos.')
+        } else if (checkCPFsNCRMs(CPF, CRM)) {
+            toast.error('CPF ou CRM já cadastrados no banco de dados.')
         } else {
             navigate('/Medicos')
             setMedicos((prev) => [...prev, newMedico])
