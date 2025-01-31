@@ -86,7 +86,7 @@ export const Medicos = () => {
                 <tr class="hover:bg-slate-50" key={index}>
                   <td class="p-4">
                     <p class="text-sm font-bold">
-                      1
+                      {index}
                     </p>
                   </td>
                   <td class="p-4">
