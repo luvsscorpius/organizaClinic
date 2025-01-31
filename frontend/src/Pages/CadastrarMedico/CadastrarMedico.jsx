@@ -26,17 +26,18 @@ export const CadastrarMedico = () => {
     const cadastrarMedico = (e) => {
         e.preventDefault()
 
-        if (newMedico.Nome === '' || newMedico.CPF === '' || newMedico.CRM === '' || newMedico.Especialidade === '' || newMedico.Telefone === '') {
+        const {Nome, CPF, CRM, Especialidade, Telefone} = newMedico
+
+        if (Nome === '' || CPF === '' || CRM === '' || Especialidade === '' || Telefone === '') {
             toast.error('Preencha todos os dados antes de salvar.')
+        } else if (CPF.length < 11 || CRM.length < 11) {
+            toast.error('CPF e CRM precisam ter 11 digitos.')
         } else {
             navigate('/Medicos')
             setMedicos((prev) => [...prev, newMedico])
             toast.success('Médico cadastrado com sucesso.')
         }
     }
-
-    console.log(medicos)
-    // console.log(newMedico)
 
     return (
         <H.section style={{flexDirection: 'column'}}>
@@ -60,11 +61,11 @@ export const CadastrarMedico = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CPF' maxLength={11} value={newMedico.CPF} onChange={(e) => setNewMedico((prev) => ({...prev, CPF: e.target.value}))} />
+                            <input type="text" placeholder='CPF' minLength={11} maxLength={11} value={newMedico.CPF} onChange={(e) => setNewMedico((prev) => ({...prev, CPF: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CRM' maxLength={11} value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
+                            <input type="text" placeholder='CRM' minLength={11} maxLength={11} value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
