@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as H from '../Home/Styles'
 import { MdOutlineArrowBack } from "react-icons/md";
 import * as C from './Styles'
 import { FaUserPlus } from "react-icons/fa6";
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { OrganizaClinicContext } from '../../Context/Context';
 
 export const CadastrarPaciente = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
-    const [medicos, setMedicos] = useState([])
     const [newPatient, setNewPatient] = useState({
         Nome: '',
         DataDeNascimento: '',
@@ -27,16 +27,25 @@ export const CadastrarPaciente = () => {
         DataDeCadastro: '',
     })
 
+    const {pacientes, setPacientes} = useContext(OrganizaClinicContext)
+
     const cadastrarPaciente = (e) => {
         e.preventDefault()
+        
+        const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado} = newPatient
 
-        if (newPatient.Nome === '' || newPatient.DataDeNascimento === '' || newPatient.CRM === '' || newPatient.Genero === '' || newPatient.Sexo === '' || newPatient.CPF === '' || newPatient.Telefone === '' || newPatient.Email === ''|| newPatient.Naturalidade === '' || newPatient.CEP === '' || newPatient.Rua === '' || newPatient.Numero === '' || newPatient.Bairro === '' || newPatient.Cidade === '' || newPatient.Estado === '') {
+        if (Nome === '' || DataDeNascimento === '' || Genero === '' || Sexo === '' || CPF === '' || Telefone === '' || Email === ''|| Naturalidade === '' || CEP === '' || Rua === '' || Numero === '' || Bairro === '' || Cidade === '' || Estado === '') {
             toast.error('Preencha todos os dados antes de salvar.')
+        } else if (CPF.length < 11) {
+            toast.error('Campo CPF precisa ter 11 digitos.')
         } else {
             navigate('/Pacientes')
+            setPacientes((prev) => [...prev, newPatient])
             toast.success('Médico cadastrado com sucesso.')
         }
     }
+
+    console.log(pacientes)
 
     const navigate = useNavigate()
 
@@ -84,7 +93,7 @@ export const CadastrarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CPF' maxLength={11}  value={newPatient.CPF} onChange={(e) => setNewPatient((prev) => ({...prev, CPF: e.target.value}))}/>
+                            <input type="text" placeholder='CPF' minLength={11} maxLength={11}  value={newPatient.CPF} onChange={(e) => setNewPatient((prev) => ({...prev, CPF: e.target.value}))}/>
                             <input type="tel" placeholder='Telefone' maxLength={11} value={newPatient.Telefone} onChange={(e) => setNewPatient((prev) => ({...prev, Telefone: e.target.value}))} />
                         </div>
 
