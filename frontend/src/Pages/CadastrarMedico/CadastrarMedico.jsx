@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as H from '../Home/Styles'
 import { MdOutlineArrowBack } from "react-icons/md";
 import * as C from './Styles'
 import { FaUserPlus } from "react-icons/fa6";
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { OrganizaClinicContext } from '../../Context/Context';
 
 export const CadastrarMedico = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0,10))
-    const [medicos, setMedicos] = useState([])
     const [newMedico, setNewMedico] = useState({
         Nome: '',
         CPF: '',
@@ -19,6 +19,8 @@ export const CadastrarMedico = () => {
         DataDeCadastro: date
     })
 
+    const {medicos, setMedicos} = useContext(OrganizaClinicContext)
+
     const navigate = useNavigate()
 
     const cadastrarMedico = (e) => {
@@ -28,9 +30,13 @@ export const CadastrarMedico = () => {
             toast.error('Preencha todos os dados antes de salvar.')
         } else {
             navigate('/Medicos')
+            setMedicos((prev) => [...prev, newMedico])
             toast.success('Médico cadastrado com sucesso.')
         }
     }
+
+    console.log(medicos)
+    // console.log(newMedico)
 
     return (
         <H.section style={{flexDirection: 'column'}}>
@@ -54,11 +60,11 @@ export const CadastrarMedico = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CPF'  value={newMedico.CPF} onChange={(e) => setNewMedico((prev) => ({...prev, CPF: e.target.value}))} />
+                            <input type="text" placeholder='CPF' maxLength={11} value={newMedico.CPF} onChange={(e) => setNewMedico((prev) => ({...prev, CPF: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CRM' value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
+                            <input type="text" placeholder='CRM' maxLength={11} value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
