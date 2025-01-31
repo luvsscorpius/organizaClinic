@@ -1,3 +1,11 @@
+# [1.17.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.16.0...v1.17.0) (2025-01-31)
+
+
+### Features
+
+* **styling:** finishing styling ([5fea38f](https://github.com/luvsscorpius/organizaClinic/commit/5fea38f1e25e2c12b988e557ead3e1b0578e489f))
+* **theme:** implementing themes and variables ([3388f21](https://github.com/luvsscorpius/organizaClinic/commit/3388f210a90462d9fa528c5af6514de87b06ed0c))
+
 # [1.16.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.15.0...v1.16.0) (2025-01-30)
 
 
