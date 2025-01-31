@@ -1,3 +1,17 @@
+# [1.18.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.17.0...v1.18.0) (2025-01-31)
+
+
+### Features
+
+* **cadastrarmedico.jsx:** checking if CPF and CRM inputs.length are < 11 ([3cbd059](https://github.com/luvsscorpius/organizaClinic/commit/3cbd0599b5784b8da1549e44ca2296ac1481b6cf))
+* **cadastrarmedico.jsx:** using ...prev to add more than one doctor to array ([9050e44](https://github.com/luvsscorpius/organizaClinic/commit/9050e44e8294ad4a747d3e4c5a2d30156233f63f))
+* **cadastrarmedicos.jsx:** using checkCPFsNCRMs to check if a doctor is already on database ([a76ffba](https://github.com/luvsscorpius/organizaClinic/commit/a76ffbaffb8d2e20ecfde584af7e5029d58335a1))
+* **cadastrarpaciente.jsx:** creating a function to check if there's a CPF already in database ([5358353](https://github.com/luvsscorpius/organizaClinic/commit/535835354be504521d8b7f255330955b1acaa240))
+* **cadastrarpaciente.jsx:** using (prev) => [...prev, newPatient] to add more than 1 patient ([d51a758](https://github.com/luvsscorpius/organizaClinic/commit/d51a75859f02e1ba4c34fb3fcd657052c97a6329))
+* **context.jsx:** creating a new state on context.jsx to keep the patients ([87dc778](https://github.com/luvsscorpius/organizaClinic/commit/87dc778eeccfaec92c01d752f60a3100b8a169b4))
+* **medicos.jsx:** using map to check the doctors on context and create new tr ([bbdff1e](https://github.com/luvsscorpius/organizaClinic/commit/bbdff1ef7283b1e03b0923ca862a7b41dfcf4056))
+* **pacientes.jsx:** using map to check the patients and create more tr ([5b9a1d9](https://github.com/luvsscorpius/organizaClinic/commit/5b9a1d91dd2fea2e9143c816c951877078173d67))
+
 # [1.17.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.16.0...v1.17.0) (2025-01-31)
 
 
