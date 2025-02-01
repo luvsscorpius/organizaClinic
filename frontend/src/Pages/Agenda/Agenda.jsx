@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import * as A from './Styles'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import '../../Css/index.css'
+import { OrganizaClinicContext } from '../../Context/Context';
 
 export const Agenda = () => {
     const [events, setEvents] = useState([]);
@@ -56,6 +57,8 @@ export const Agenda = () => {
     }
 
 
+    const {medicos, setMedicos, pacientes} = useContext(OrganizaClinicContext)
+
     return (
         <A.section style={{ padding: '10px' }}>
             <FullCalendar
@@ -103,10 +106,9 @@ export const Agenda = () => {
                                                     onChange={(e) => setEventData((prev) => ({ ...prev, cliente: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um cliente</option>
-                                                    <option value="Anderson">Anderson</option>
-                                                    <option value="Vitor">Vitor</option>
-                                                    <option value="Vitrória">Vitrória</option>
-                                                    <option value="Catita">Catita</option>
+                                                   {pacientes.map((paciente) => (
+                                                    <option value={paciente.Nome}>{paciente.Nome}</option>
+                                                   ))}
                                                 </select>
                                             </div>
 
@@ -123,9 +125,9 @@ export const Agenda = () => {
                                                     onChange={(e) => setEventData((prev) => ({ ...prev, medico: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um médico</option>
-                                                    <option value="Anderson">Anderson</option>
-                                                    <option value="Ana Paula">Ana Paula</option>
-                                                    <option value="Amanda">Amanda</option>
+                                                    {medicos.map((medico) => (
+                                                        <option value={medico.Nome}>{medico.Nome}</option>
+                                                    ))}
                                                 </select>
                                             </div>
 
