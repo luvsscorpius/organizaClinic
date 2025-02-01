@@ -25,7 +25,7 @@ export const CadastrarPaciente = () => {
         Bairro: '',
         Cidade: '',
         Estado: '',
-        DataDeCadastro: '',
+        DataDeCadastro: date,
     })
 
     const {pacientes, setPacientes} = useContext(OrganizaClinicContext)
@@ -37,9 +37,9 @@ export const CadastrarPaciente = () => {
     const cadastrarPaciente = async (e) => {
         e.preventDefault()
         
-        const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado} = newPatient
+        const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado, DataDeCadastro} = newPatient
 
-        if (Nome === '' || DataDeNascimento === '' || Genero === '' || Sexo === '' || CPF === '' || Telefone === '' || Email === ''|| Naturalidade === '' || CEP === '' || Rua === '' || Numero === '' || Bairro === '' || Cidade === '' || Estado === '') {
+        if (Nome === '' || DataDeNascimento === '' || Genero === '' || Sexo === '' || CPF === '' || Telefone === '' || Email === ''|| Naturalidade === '' || CEP === '' || Rua === '' || Numero === '' || Bairro === '' || Cidade === '' || Estado === '', DataDeCadastro === '') {
             toast.error('Preencha todos os dados antes de salvar.')
         } else if (CPF.length < 11) {
             toast.error('Campo CPF precisa ter 11 digitos.')
