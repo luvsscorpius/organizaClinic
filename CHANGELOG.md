@@ -1,3 +1,16 @@
+# [1.19.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.18.0...v1.19.0) (2025-02-01)
+
+
+### Features
+
+* **agenda.jsx:** using medicos and pacientes from context to map on options on modal ([02482d1](https://github.com/luvsscorpius/organizaClinic/commit/02482d1f1e0a9744da5cd6c1b2e532c3c90499c1))
+* **backend addnewpatient.js:** creating addnewpatient route ([f08e150](https://github.com/luvsscorpius/organizaClinic/commit/f08e1505b2c2e874cec2bb640f0ee178f4a3d7a1))
+* **backend:** addnewPatient.js route checking if the info is getting to backend ([4ab31ac](https://github.com/luvsscorpius/organizaClinic/commit/4ab31acecfe015af555279242b4a83ec9bc4e71f))
+* **backend:** creating backend folder & files ([757a72c](https://github.com/luvsscorpius/organizaClinic/commit/757a72caa54302c90f5bc56d0c354ed581b5f2ce))
+* **backend:** implementing cors ([e146406](https://github.com/luvsscorpius/organizaClinic/commit/e146406b059ce08233754c499715e3384ded3cc4))
+* **frontend pacientes.jsx:** adding th and td with dataDeCadastro values ([29ef274](https://github.com/luvsscorpius/organizaClinic/commit/29ef274848c173d8e28422186506b63d866d55aa))
+* **frontend:** cadastrarPaciente.jsx putting dataDeCadastro on verification too ([77666d2](https://github.com/luvsscorpius/organizaClinic/commit/77666d2e73655f7c3252bdef06b31579241a0ad1))
+
 # [1.18.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.17.0...v1.18.0) (2025-01-31)
 
 
