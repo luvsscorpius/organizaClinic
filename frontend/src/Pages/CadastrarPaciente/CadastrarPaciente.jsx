@@ -47,17 +47,21 @@ export const CadastrarPaciente = () => {
             toast.error('CPF já cadastrado no banco de dados.')
         } else {
             try {
-                const res = await axios.get('http://localhost:2000/addNewPatient', {
-                    headers: {'Content-Type': 'appplication/json'}
+                const res = await axios.post('http://localhost:2000/addNewPatient',newPatient, {
+                    headers: {'Content-Type': 'application/json'}
                 }) 
 
-                console.log(res.status)
-            } catch (error) {
+                console.log(res)
 
+                if (res.status === 200) {
+                    navigate('/Pacientes')
+                    setPacientes((prev) => [...prev, newPatient])
+                    toast.success('Médico cadastrado com sucesso.')
+                }
+
+            } catch (error) {
+                console.error(error)
             }
-            navigate('/Pacientes')
-            setPacientes((prev) => [...prev, newPatient])
-            toast.success('Médico cadastrado com sucesso.')
         }
     }
 
