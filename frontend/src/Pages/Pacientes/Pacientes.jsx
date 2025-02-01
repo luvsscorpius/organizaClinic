@@ -111,6 +111,11 @@ export const Pacientes = () => {
                   </p>
                 </th>
                 <th class="p-4">
+                  <p class="text-sm leading-none font-normal">
+                    Data de Cadastro
+                  </p>
+                </th>
+                <th class="p-4">
                   <p class="text-sm leading-none font-normal">Ações</p>
                 </th>
               </tr>
@@ -192,6 +197,11 @@ export const Pacientes = () => {
                   <td class="p-4">
                     <p class="text-sm">
                     {paciente.Estado}
+                    </p>
+                  </td>
+                  <td class="p-4">
+                    <p class="text-sm">
+                    {paciente.DataDeCadastro}
                     </p>
                   </td>
                   <td class="p-4 tdIcons">
