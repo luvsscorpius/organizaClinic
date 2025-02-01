@@ -6,6 +6,7 @@ import { FaUserPlus } from "react-icons/fa6";
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { OrganizaClinicContext } from '../../Context/Context';
+import axios from 'axios'
 
 export const CadastrarPaciente = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
@@ -33,7 +34,7 @@ export const CadastrarPaciente = () => {
         return pacientes.some((paciente) => paciente.CPF === CPF)
     }
 
-    const cadastrarPaciente = (e) => {
+    const cadastrarPaciente = async (e) => {
         e.preventDefault()
         
         const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado} = newPatient
@@ -45,13 +46,20 @@ export const CadastrarPaciente = () => {
         } else if (checkCPFs(CPF)) {
             toast.error('CPF já cadastrado no banco de dados.')
         } else {
+            try {
+                const res = await axios.get('http://localhost:2000/addNewPatient', {
+                    headers: {'Content-Type': 'appplication/json'}
+                }) 
+
+                console.log(res.status)
+            } catch (error) {
+
+            }
             navigate('/Pacientes')
             setPacientes((prev) => [...prev, newPatient])
             toast.success('Médico cadastrado com sucesso.')
         }
     }
-
-    console.log(pacientes)
 
     const navigate = useNavigate()
 
