@@ -1,3 +1,12 @@
+# [1.20.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.19.0...v1.20.0) (2025-02-02)
+
+
+### Features
+
+* **backend addnewpatient route:** implementing query sql on route ([1f75c0d](https://github.com/luvsscorpius/organizaClinic/commit/1f75c0d02afbd4f2ec7d4fb8cfefd1221275cfdc))
+* **backend addnewpatient.route:** importing db.js ([84b623a](https://github.com/luvsscorpius/organizaClinic/commit/84b623a146f63254f6ac6c2f7ff527e4eff1dbb3))
+* **backend:** creating db file and config folder ([a84b128](https://github.com/luvsscorpius/organizaClinic/commit/a84b128074be9858253ac2c05bf8c982c7f991ac))
+
 # [1.19.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.18.0...v1.19.0) (2025-02-01)
 
 
