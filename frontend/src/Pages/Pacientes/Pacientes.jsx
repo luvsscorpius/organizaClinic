@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import * as H from '../Home/Styles'
 import * as M from '../Medicos/Styles'
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
@@ -12,9 +12,13 @@ export const Pacientes = () => {
 
   const navigate = useNavigate()
 
-  const { pacientes, setPacientes } = useContext(OrganizaClinicContext)
+  const { pacientes, setPacientes, getPacientes } = useContext(OrganizaClinicContext)
 
   console.log(pacientes)
+  
+  useEffect(() => {
+    getPacientes()
+  }, [])
 
   return (
     <H.section style={{ flexDirection: 'column' }}>
@@ -122,11 +126,11 @@ export const Pacientes = () => {
             </thead>
             <tbody>
 
-              {pacientes.map((paciente, index) => (
-                <tr class="hover:bg-slate-50" key={index}>
+              {pacientes.map((paciente) => (
+                <tr class="hover:bg-slate-50" key={paciente.IDPaciente}>
                   <td class="p-4">
                     <p class="text-sm font-bold">
-                      {index}
+                      {paciente.IDPaciente}
                     </p>
                   </td>
                   <td class="p-4">

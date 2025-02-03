@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
             }
 
             console.log(result)
-            res.status(200).send('getPacientes route')
+            res.status(200).send(result)
             console.log('getPacientes route')
         })
     } catch (error) {
