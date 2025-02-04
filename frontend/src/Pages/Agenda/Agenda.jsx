@@ -84,7 +84,6 @@ export const Agenda = () => {
                         allDay: false
                     }
 
-
                     setEvents((prev) => ([...prev, newEvent]))
                     console.log(events.newEvent)
                     handleOpen()
