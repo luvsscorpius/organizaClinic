@@ -6,6 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import '../../Css/index.css'
 import { OrganizaClinicContext } from '../../Context/Context';
+import axios from 'axios';
 
 export const Agenda = () => {
     const [events, setEvents] = useState([]);
@@ -55,7 +56,7 @@ export const Agenda = () => {
     })
 
     // Função para adicionar eventos
-    const eventAdd = (e) => {
+    const eventAdd = async (e) => {
         e.preventDefault()
         console.log('teste')
 
@@ -68,18 +69,29 @@ export const Agenda = () => {
             alert('Preencha todas as informações')
         } else {
 
-            const newEvent = {
-                id: `${eventData.cliente} - ${eventData.medico} - ${eventData.data}`,
-                title: `Paciente ${eventData.cliente} - Médico ${eventData.medico}`,
-                start: `${eventData.data}T${eventData.horario}`,
-                end: endEvent,
-                description: eventData.desc,
-                allDay: false
-            }
+            try {
+                const res = await axios.post('http://localhost:2000/addNewAppointment', newAppointment, {
+                    headers: { "Content-Type": "application/json" }
+                })
 
-            setEvents((prev) => ([...prev, newEvent]))
-            console.log(events.newEvent)
-            handleOpen()
+                if (res.status === 200) {
+                    const newEvent = {
+                        id: `${eventData.cliente} - ${eventData.medico} - ${eventData.data}`,
+                        title: `Paciente ${eventData.cliente} - Médico ${eventData.medico}`,
+                        start: `${eventData.data}T${eventData.horario}`,
+                        end: endEvent,
+                        description: eventData.desc,
+                        allDay: false
+                    }
+
+
+                    setEvents((prev) => ([...prev, newEvent]))
+                    console.log(events.newEvent)
+                    handleOpen()
+                }
+            } catch (error) {
+                console.error(error)
+            }
         }
     }
 
