@@ -13,7 +13,12 @@ const OrganizaClinicProvider = ({ children }) => {
         console.log(res.data)
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes}
+    const getMedicos = async () => {
+        const res = await axios.get('http://localhost:2000/getDoctors')
+        setMedicos(res.data)
+    }
+
+    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos}
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

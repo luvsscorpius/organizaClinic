@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import * as H from '../Home/Styles'
 import * as M from './Styles'
 import { FaPlus } from "react-icons/fa";
@@ -12,9 +12,14 @@ export const Medicos = () => {
 
   const navigate = useNavigate()
 
-  const { medicos, setMedicos } = useContext(OrganizaClinicContext)
+  const { medicos, setMedicos, getMedicos } = useContext(OrganizaClinicContext)
+
+  useEffect(() => {
+    getMedicos()
+  }, [])
 
   console.log(medicos)
+
 
   return (
     <H.section style={{ flexDirection: 'column' }}>
