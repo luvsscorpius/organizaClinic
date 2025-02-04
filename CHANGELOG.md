@@ -1,3 +1,12 @@
+# [1.22.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.21.0...v1.22.0) (2025-02-04)
+
+
+### Features
+
+* **backend addnewappointment.route:** finishing route ([fb29f85](https://github.com/luvsscorpius/organizaClinic/commit/fb29f8550f5f8d5de778b6f3d23fd09227b2e884))
+* **backend getappointments.route:** creating a new route to get all appointments from database ([262046c](https://github.com/luvsscorpius/organizaClinic/commit/262046c8c9d7ed715ab26297ef1f880c34108fac))
+* **frontend:** now the callendar is getting the data from backend ([2a10bdf](https://github.com/luvsscorpius/organizaClinic/commit/2a10bdf64ebe4b4da18ed0fdba21274371608dd7))
+
 # [1.21.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.20.0...v1.21.0) (2025-02-04)
 
 
