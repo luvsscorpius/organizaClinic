@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as A from './Styles'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -26,6 +26,33 @@ export const Agenda = () => {
         handleOpen()
     };
     console.log(events)
+
+    const { medicos, pacientes, getMedicos, getPacientes } = useContext(OrganizaClinicContext)
+
+    useEffect(() => {
+        getMedicos()
+        getPacientes()
+    }, [])
+
+    const findMedicoId = (nome) => {
+        const medico = medicos.find((medico) => medico.Nome === nome)
+        return medico ? medico.IDMedico : 'ID não encontrado'
+    }
+
+    const findPacienteId = (nome) => {
+        const paciente = pacientes.find((paciente) => paciente.Nome === nome)
+        return paciente ? paciente.IDPaciente : 'ID não encontrado'
+    }
+
+    findMedicoId('Dra. Maria Oliveira')
+
+    const [newAppointment, setNewAppointment] = useState({
+        DataConsulta: eventData.data,
+        HorarioConsulta: eventData.horario,
+        DescricaoConsulta: eventData.desc,
+        pacientes_IDPaciente: findPacienteId(eventData.cliente),
+        medicos_IDMedico: findMedicoId(eventData.medico)
+    })
 
     // Função para adicionar eventos
     const eventAdd = (e) => {
@@ -56,8 +83,17 @@ export const Agenda = () => {
         }
     }
 
+    useEffect(() => {
+        setNewAppointment({
+            DataConsulta: eventData.data,
+            HorarioConsulta: eventData.horario,
+            DescricaoConsulta: eventData.desc,
+            pacientes_IDPaciente: findPacienteId(eventData.cliente),
+            medicos_IDMedico: findMedicoId(eventData.medico)
+        });
+    }, [eventData]);
 
-    const {medicos, setMedicos, pacientes} = useContext(OrganizaClinicContext)
+    console.log(newAppointment)
 
     return (
         <A.section style={{ padding: '10px' }}>
@@ -106,9 +142,9 @@ export const Agenda = () => {
                                                     onChange={(e) => setEventData((prev) => ({ ...prev, cliente: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um cliente</option>
-                                                   {pacientes.map((paciente) => (
-                                                    <option value={paciente.Nome}>{paciente.Nome}</option>
-                                                   ))}
+                                                    {pacientes.map((paciente) => (
+                                                        <option value={paciente.Nome}>{paciente.Nome}</option>
+                                                    ))}
                                                 </select>
                                             </div>
 
@@ -161,7 +197,7 @@ export const Agenda = () => {
                                                     <option value="">Selecione um horário</option>
                                                     {[7, 8, 9, 10, 11, 13, 14, 15, 16, 17].map((hour) => (
                                                         <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`}>
-                                                            {`${hour}` < 10 ? `0${hour}:00` : `${hour}:00` }
+                                                            {`${hour}` < 10 ? `0${hour}:00` : `${hour}:00`}
                                                         </option>
                                                     ))}
                                                 </select>
