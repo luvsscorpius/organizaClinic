@@ -1,3 +1,18 @@
+# [1.21.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.20.0...v1.21.0) (2025-02-04)
+
+
+### Features
+
+* **backend addnewappointment.route:** creating a new route to add new appointments to database ([12951a6](https://github.com/luvsscorpius/organizaClinic/commit/12951a650e9eec0745b2bf290d8886c1fb03ee34))
+* **backend addnewdoctor route:** creating a route to add new doctors in the database ([cd39934](https://github.com/luvsscorpius/organizaClinic/commit/cd3993427ae43773804e980755a3857e15e0f430))
+* **backend addnewdoctour.route:** finishing implementation of route to add new doctos to database ([b0f1e5d](https://github.com/luvsscorpius/organizaClinic/commit/b0f1e5dc95433a6fcd03c76769e579477ffc8684))
+* **backend getdoctors.route:** creating a new route to get all doctors from database ([4daad2e](https://github.com/luvsscorpius/organizaClinic/commit/4daad2e191e6c7c0b99fceff9ad0af1ecea91b89))
+* **backend getpacientes route:** creating getPacientes route ([d7b9dd9](https://github.com/luvsscorpius/organizaClinic/commit/d7b9dd9e30284967477a8a37953fc427960046be))
+* **backend/frontend:** receiving data from frontend to backend ([00c361e](https://github.com/luvsscorpius/organizaClinic/commit/00c361e82b4459728b80ababd587dd5bd8719f7c))
+* **frontend agenda.jsx:** creating state and functions to get patient and doctor id ([8815114](https://github.com/luvsscorpius/organizaClinic/commit/881511421706cb43aab445f225a3807fca2acce2))
+* **frontend context and pacientes.jsx:** creating a function to get pacietes from frontend ([9023cd2](https://github.com/luvsscorpius/organizaClinic/commit/9023cd29f1ae3a522ee3cdcb3c132032e0c30e60))
+* **frontend:** creating a function to get all doctors from backend ([8600f0f](https://github.com/luvsscorpius/organizaClinic/commit/8600f0f38effc12c08d883ef105919a4a2dd1d81))
+
 # [1.20.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.19.0...v1.20.0) (2025-02-02)
 
 
