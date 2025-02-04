@@ -6,6 +6,7 @@ import { FaUserPlus } from "react-icons/fa6";
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { OrganizaClinicContext } from '../../Context/Context';
+import axios from 'axios';
 
 export const CadastrarMedico = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0,10))
@@ -27,21 +28,34 @@ export const CadastrarMedico = () => {
 
     const navigate = useNavigate()
 
-    const cadastrarMedico = (e) => {
+    const cadastrarMedico = async (e) => {
         e.preventDefault()
 
         const {Nome, CPF, CRM, Especialidade, Telefone} = newMedico
 
         if (Nome === '' || CPF === '' || CRM === '' || Especialidade === '' || Telefone === '') {
             toast.error('Preencha todos os dados antes de salvar.')
-        } else if (CPF.length < 11 || CRM.length < 11) {
-            toast.error('CPF e CRM precisam ter 11 digitos.')
+        } else if (CPF.length < 11) {
+            toast.error('CPF precisa ter 11 digitos.')
         } else if (checkCPFsNCRMs(CPF, CRM)) {
             toast.error('CPF ou CRM já cadastrados no banco de dados.')
         } else {
-            navigate('/Medicos')
-            setMedicos((prev) => [...prev, newMedico])
-            toast.success('Médico cadastrado com sucesso.')
+
+            try {
+                const res = await axios.post('http://localhost:2000/addNewDoctor', newMedico, {
+                    headers: {'Content-Type': 'application/json'}
+                })
+
+                console.log(res)
+
+                if (res.status === 200) {
+                    navigate('/Medicos')
+                    setMedicos((prev) => [...prev, newMedico])
+                    toast.success('Médico cadastrado com sucesso.')
+                }
+            } catch (error) {
+                console.error(error)
+            }
         }
     }
 
