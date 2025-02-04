@@ -26,14 +26,38 @@ export const Agenda = () => {
         setEventData((prev) => ({ ...prev, data: arg.dateStr }))
         handleOpen()
     };
-    console.log(events)
 
-    const { medicos, pacientes, getMedicos, getPacientes } = useContext(OrganizaClinicContext)
+    const { medicos, pacientes, getMedicos, getPacientes, agenda, getAppointments } = useContext(OrganizaClinicContext)
 
     useEffect(() => {
         getMedicos()
         getPacientes()
+        getAppointments()
     }, [])
+
+    useEffect(() => {
+        const formattedEventsFromDataBase = agenda.map((consulta) => {
+            const horarioFim = Number.parseFloat(consulta.HorarioConsulta) + 1
+            console.log(consulta.HorarioConsulta)
+
+            const dataConsultaSplit = consulta.DataConsulta.split('T')
+            const dataConsultaRefatorada = dataConsultaSplit[0]
+
+            const horarioFimUpdated = horarioFim < 10 ? `0${horarioFim}:00` : `${horarioFim}:00`;
+
+
+            return {
+                id: consulta.IDConsulta,
+                title: `Paciente ${consulta.pacientes_IDPaciente} - Médico ${consulta.medicos_IDMedico}`,
+                start: `${dataConsultaRefatorada}T${consulta.HorarioConsulta}`,
+                end: `${dataConsultaRefatorada}T${horarioFimUpdated}`,
+                description: consulta.DescricaoConsulta || 'Sem descrição',
+                allDay: false,
+            }
+        })
+
+        setEvents(formattedEventsFromDataBase)
+    }, [agenda])
 
     const findMedicoId = (nome) => {
         const medico = medicos.find((medico) => medico.Nome === nome)
