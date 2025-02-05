@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.22.0...v1.23.0) (2025-02-05)
+
+
+### Features
+
+* **frontend agenda.jsx:** implementing logic to check if the time is available to appoint a patient ([03cb62a](https://github.com/luvsscorpius/organizaClinic/commit/03cb62adc34d02bbece544cf6322d3f48eed41b0))
+
 # [1.22.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.21.0...v1.22.0) (2025-02-04)
 
 
