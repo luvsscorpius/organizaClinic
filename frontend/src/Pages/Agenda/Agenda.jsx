@@ -27,6 +27,10 @@ export const Agenda = () => {
         handleOpen()
     };
 
+    const allTimeSlots = [
+        7, 8, 9, 10, 11, 13, 14, 15, 16, 17
+    ]
+
     const { medicos, pacientes, getMedicos, getPacientes, agenda, getAppointments } = useContext(OrganizaClinicContext)
 
     useEffect(() => {
@@ -34,6 +38,13 @@ export const Agenda = () => {
         getPacientes()
         getAppointments()
     }, [])
+
+    const bookedTimes = agenda.map(event => ({date: event.DataConsulta.split('T')[0], hours: event.HorarioConsulta.split(':').slice(0, 2).join(':')}))
+
+    const groupedTimes = bookedTimes.reduce((acc, {date, hours}) => {
+        (acc[date] ||= []).push(hours)
+        return acc
+    }, [])  
 
     useEffect(() => {
         const formattedEventsFromDataBase = agenda.map((consulta) => {
@@ -230,8 +241,8 @@ export const Agenda = () => {
                                                     onChange={(e) => setEventData((prev) => ({ ...prev, horario: e.target.value }))}
                                                 >
                                                     <option value="">Selecione um horário</option>
-                                                    {[7, 8, 9, 10, 11, 13, 14, 15, 16, 17].map((hour) => (
-                                                        <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`}>
+                                                    {allTimeSlots.map((hour) => (
+                                                        <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`}   disabled={groupedTimes[eventData.data]?.includes(hour < 10 ? `0${hour}:00` : `${hour}:00`)}  >
                                                             {`${hour}` < 10 ? `0${hour}:00` : `${hour}:00`}
                                                         </option>
                                                     ))}
