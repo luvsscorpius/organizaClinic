@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.24.0...v1.25.0) (2025-02-06)
+
+
+### Features
+
+* **frontend:** creating a function to edit a doctor from database ([85e2386](https://github.com/luvsscorpius/organizaClinic/commit/85e23864843e8e941c342d5ae321747700a86c3d))
+
 # [1.24.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.23.0...v1.24.0) (2025-02-06)
 
 
