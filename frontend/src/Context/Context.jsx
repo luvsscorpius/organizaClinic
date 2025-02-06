@@ -37,7 +37,16 @@ const OrganizaClinicProvider = ({ children }) => {
         }
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor}
+    const deletePatient = async (idPatient) => {
+        console.log(idPatient)
+        const res = await axios.delete(`http://localhost:2000/deletePatient/${idPatient}`)
+        if (res.status === 200) {
+            getPacientes()
+            toast.success('Paciente excluído com sucesso.')
+        }
+    }
+
+    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient}
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

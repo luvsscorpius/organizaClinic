@@ -8,6 +8,19 @@ router.delete('/:id', async (req, res) => {
 
     try {
         const conn = await db()
+        
+        const sql = `DELETE FROM Pacientes WHERE IDPaciente = ${id.id}`
+
+        await conn.query(sql, (err, result) => {
+            if (err) {
+                console.log('Erro ao efetuar exclusão de paciente', err)
+                return res.status(500).send(err)
+            }
+
+            console.log('Paciente excluído com sucesso.')
+            return res.status(200).send(result)
+        })
+
     } catch (error) {
         console.error(error)
     }
