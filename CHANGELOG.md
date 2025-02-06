@@ -1,3 +1,14 @@
+# [1.24.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.23.0...v1.24.0) (2025-02-06)
+
+
+### Features
+
+* **backend deletedoctor.route:** creating a new route to delete a doctor in the database ([69028ad](https://github.com/luvsscorpius/organizaClinic/commit/69028ad9feb8a5959b683870a293cb6874c01ba5))
+* **backend deletepatient.route:** creating a new route to delete a patient from database ([b622586](https://github.com/luvsscorpius/organizaClinic/commit/b6225863ad57a0ba1bd77cf7f5da30bb1e8adda2))
+* **frontend home.jsx:** getting length of agenda, pacientes & medicos ([9b77e11](https://github.com/luvsscorpius/organizaClinic/commit/9b77e11ab3112a6185e98c7a71c0521ba45d374c))
+* **frontend/backend:** creating a function on frontend and finishing route on backend ([8303442](https://github.com/luvsscorpius/organizaClinic/commit/83034427eef1ddf7ce69acb2958109ccbff3f74c))
+* **frontend:** creating a function in context.jsx to delete a doctor from database ([bcf11c9](https://github.com/luvsscorpius/organizaClinic/commit/bcf11c9686a9e0e43778fcc527b1a033524c4046))
+
 # [1.23.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.22.0...v1.23.0) (2025-02-05)
 
 
