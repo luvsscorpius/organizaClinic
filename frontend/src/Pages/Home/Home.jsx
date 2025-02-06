@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import * as H from './Styles'
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaChartLine } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
+import { OrganizaClinicContext } from '../../Context/Context';
 
 export const Home = () => {
     const [selected, setSelected] = useState(new Date());
@@ -17,6 +18,14 @@ export const Home = () => {
         new Date(2025, 0, 25), // 25 de Janeiro de 2025
     ];
 
+    const {agenda, pacientes, medicos, getMedicos, getPacientes, getAppointments} = useContext(OrganizaClinicContext)
+
+    useEffect(() => {
+        getMedicos()
+        getAppointments()
+        getPacientes()
+    }, [])
+ 
     return (
         <H.section>
             <H.Container className='first'>
@@ -34,7 +43,7 @@ export const Home = () => {
 
                             <span>
                                 <h3>Agendamentos</h3>
-                                <p>10</p>
+                                <p>{agenda.length}</p>
                             </span>
                         </div>
                     </div>
@@ -47,7 +56,7 @@ export const Home = () => {
 
                             <span>
                                 <h3>Pacientes</h3>
-                                <p>10</p>
+                                <p>{pacientes.length}</p>
                             </span>
                         </div>
 
@@ -58,7 +67,7 @@ export const Home = () => {
 
                             <span>
                                 <h3>Médicos</h3>
-                                <p>10</p>
+                                <p>{medicos.length}</p>
                             </span>
                         </div>
                     </div>
