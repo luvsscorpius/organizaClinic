@@ -1,6 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import axios from 'axios'
-import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 export const OrganizaClinicContext = createContext()
@@ -9,8 +8,16 @@ const OrganizaClinicProvider = ({ children }) => {
     const [medicos, setMedicos] = useState([])
     const [pacientes, setPacientes] = useState([])
     const [agenda, setAgenda] = useState([])
-
-    const navigate = useNavigate()
+    const [doctorUpdate, setDoctorUpdate] = useState({
+        IDMedico: '',
+        NomeMedico: '',
+        CPF: '',
+        CRM: '',
+        Especialidade: '',
+        Email: '',
+        Telefone: '',
+        DataDeCadastro: ''
+    })
 
     const getPacientes = async () => {
         const res = await axios.get('http://localhost:2000/getPacientes')
@@ -46,7 +53,14 @@ const OrganizaClinicProvider = ({ children }) => {
         }
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient}
+    const editDoctor = async (idDoctor) => {
+        console.log(idDoctor)
+        const findDoctor = medicos.find((doctor) => doctor.IDMedico === idDoctor)
+        console.log(findDoctor)
+        setDoctorUpdate((prev) => ({...prev, IDMedico: idDoctor, NomeMedico: findDoctor.Nome, CPF: findDoctor.CPF, CRM: findDoctor.CRM, Especialidade: findDoctor.Especialidade, Email: findDoctor.Email, Telefone: findDoctor.Telefone, DataDeCadastro: findDoctor.DataDeCadastro}))
+    }
+
+    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate}
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

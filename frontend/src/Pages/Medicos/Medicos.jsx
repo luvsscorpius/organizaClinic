@@ -12,7 +12,7 @@ export const Medicos = () => {
 
   const navigate = useNavigate()
 
-  const { medicos, getMedicos, deleteDoctor } = useContext(OrganizaClinicContext)
+  const { medicos, getMedicos, deleteDoctor, editDoctor } = useContext(OrganizaClinicContext)
 
   useEffect(() => {
     getMedicos()
@@ -131,12 +131,11 @@ export const Medicos = () => {
                       <FaRegTrashAlt size={22} onClick={() => deleteDoctor(medico.IDMedico)} />
                     </a>
                     <a href="/#/Medicos/editarmedico" class="text-sm font-semibold ">
-                      <FaEdit size={22} />
+                      <FaEdit size={22} onClick={() => editDoctor(medico.IDMedico)} />
                     </a>
                   </td>
                 </tr>
               ))}
-
             </tbody>
           </table>
         </div>
