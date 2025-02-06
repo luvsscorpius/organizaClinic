@@ -18,10 +18,10 @@ import { Theme } from "./Css/Theme";
 function App() {
   return (
     <>
-      <OrganizaClinicProvider>
         <ThemeProvider theme={Theme}>
         <GlobalStyle />
         <Router>
+        <OrganizaClinicProvider>
           <Nav />
           <ToastContainer autoClose={3000} className='toast-container' />
           <Routes>
@@ -42,9 +42,9 @@ function App() {
               <Route path="editarmedico" element={<EditarMedico />} />
             </Route>
           </Routes>
+          </OrganizaClinicProvider>
         </Router>
         </ThemeProvider>
-      </OrganizaClinicProvider>
     </>
   );
 }

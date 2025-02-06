@@ -85,7 +85,7 @@ export const CadastrarMedico = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CRM' minLength={11} maxLength={11} value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
+                            <input type="text" placeholder='CRM' minLength={11} maxLength={10} value={newMedico.CRM} onChange={(e) => setNewMedico((prev) => ({...prev, CRM: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">

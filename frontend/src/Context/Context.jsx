@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 export const OrganizaClinicContext = createContext()
 
@@ -7,6 +9,8 @@ const OrganizaClinicProvider = ({ children }) => {
     const [medicos, setMedicos] = useState([])
     const [pacientes, setPacientes] = useState([])
     const [agenda, setAgenda] = useState([])
+
+    const navigate = useNavigate()
 
     const getPacientes = async () => {
         const res = await axios.get('http://localhost:2000/getPacientes')
@@ -24,7 +28,16 @@ const OrganizaClinicProvider = ({ children }) => {
         setAgenda(res.data)
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments}
+    const deleteDoctor = async (idDoctor) => {
+        console.log(idDoctor)
+        const res = await axios.delete(`http://localhost:2000/deleteDoctor/${idDoctor}`)
+        if (res.status === 200) {
+            getMedicos()
+            toast.success('Médico excluído com sucesso.')
+        }
+    }
+
+    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor}
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

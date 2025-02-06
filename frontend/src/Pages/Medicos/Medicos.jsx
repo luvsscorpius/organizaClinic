@@ -12,14 +12,11 @@ export const Medicos = () => {
 
   const navigate = useNavigate()
 
-  const { medicos, setMedicos, getMedicos } = useContext(OrganizaClinicContext)
+  const { medicos, getMedicos, deleteDoctor } = useContext(OrganizaClinicContext)
 
   useEffect(() => {
     getMedicos()
   }, [])
-
-  console.log(medicos)
-
 
   return (
     <H.section style={{ flexDirection: 'column' }}>
@@ -87,11 +84,11 @@ export const Medicos = () => {
             </thead>
             <tbody>
 
-              {medicos.map((medico, index) => (
-                <tr class="hover:bg-slate-50" key={index}>
+              {medicos.map((medico) => (
+                <tr class="hover:bg-slate-50" key={medico.IDMedico}>
                   <td class="p-4">
                     <p class="text-sm font-bold">
-                      {index}
+                      {medico.IDMedico}
                     </p>
                   </td>
                   <td class="p-4">
@@ -130,8 +127,8 @@ export const Medicos = () => {
                     </p>
                   </td>
                   <td class="p-4 tdIcons">
-                    <a href="#" class="text-sm font-semibold ">
-                      <FaRegTrashAlt size={22} />
+                    <a href="/#/Medicos" class="text-sm font-semibold ">
+                      <FaRegTrashAlt size={22} onClick={() => deleteDoctor(medico.IDMedico)} />
                     </a>
                     <a href="/#/Medicos/editarmedico" class="text-sm font-semibold ">
                       <FaEdit size={22} />
