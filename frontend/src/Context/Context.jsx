@@ -19,6 +19,24 @@ const OrganizaClinicProvider = ({ children }) => {
         Telefone: '',
         DataDeCadastro: ''
     })
+    const [patientUpdate, setPatientUpdate] = useState({
+        IDPaciente: '',
+        Nome: '',
+        DataDeNascimento: '',
+        Genero: '',
+        Sexo: '',
+        CPF: '',
+        Telefone: '',
+        Email: '',
+        Naturalidade: '',
+        CEP: '',
+        Rua: '',
+        Numero: '',
+        Bairro: '',
+        Cidade: '',
+        Estado: '',
+        DataDeCadastro: ''
+    })
 
     const navigate = useNavigate('')
 
@@ -73,7 +91,24 @@ const OrganizaClinicProvider = ({ children }) => {
 
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate}
+    const editPatient = async (idPatient) => {
+        console.log(idPatient)
+        const findPatient = pacientes.find((patient) => patient.IDPaciente === idPatient)
+        console.log(findPatient)
+        setPatientUpdate((prev) => ({...prev, IDPaciente: idPatient, Nome: findPatient.Nome,DataDeNascimento: findPatient.DataDeNascimento, Genero: findPatient.Genero, Sexo: findPatient.Sexo, CPF: findPatient.CPF, Telefone: findPatient.Telefone,  Email: findPatient.Email, Naturalidade: findPatient.Naturalidade, CEP: findPatient.CEP, Rua: findPatient.Rua, Numero: findPatient.Numero,  Bairro: findPatient.Bairro, Cidade: findPatient.Cidade, Estado: findPatient.Estado,  DataDeCadastro: findPatient.DataDeCadastro}))
+    
+        // const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
+        //     headers: {"Content-Type": "application/json"}
+        // })
+
+        // if (res.status === 200) {
+        //     toast.success('Médico atualizado com sucesso.')
+        //     navigate('/Medicos')
+        // }
+
+    }
+
+    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate}
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

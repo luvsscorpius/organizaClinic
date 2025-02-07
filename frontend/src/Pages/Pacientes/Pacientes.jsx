@@ -12,7 +12,7 @@ export const Pacientes = () => {
 
   const navigate = useNavigate()
 
-  const { pacientes, getPacientes, deletePatient } = useContext(OrganizaClinicContext)
+  const { pacientes, getPacientes, deletePatient, editPatient } = useContext(OrganizaClinicContext)
 
   console.log(pacientes)
   
@@ -212,8 +212,8 @@ export const Pacientes = () => {
                     <a href="#/Pacientes" class="text-sm font-semibold ">
                       <FaRegTrashAlt size={22} onClick={() => deletePatient(paciente.IDPaciente)} />
                     </a>
-                    <a href="#/Pacientes/editarPaciente" class="text-sm font-semibold ">
-                      <FaEdit size={22} />
+                    <a href="#/Pacientes/editarPaciente" class="text-sm font-semibold">
+                      <FaEdit size={22} onClick={() => editPatient(paciente.IDPaciente)} />
                     </a>
                   </td>
                 </tr>
