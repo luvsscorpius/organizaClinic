@@ -11,7 +11,7 @@ export const EditarMedico = () => {
 
     const navigate = useNavigate()
 
-    const {doctorUpdate, setDoctorUpdate} = useContext(OrganizaClinicContext)
+    const {doctorUpdate, setDoctorUpdate, editDoctor} = useContext(OrganizaClinicContext)
 
     console.log(doctorUpdate)
 
@@ -57,7 +57,7 @@ export const EditarMedico = () => {
                             <input type="date" value={date} readOnly />
                         </div>
 
-                        <button type='button' >Salvar</button>
+                        <button type='button' onClick={() => editDoctor(doctorUpdate.IDMedico)} >Salvar</button>
                     </C.inputContainer>
                 </form>
             </C.formContainer>

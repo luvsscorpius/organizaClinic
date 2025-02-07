@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import axios from 'axios'
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const OrganizaClinicContext = createContext()
 
@@ -18,6 +19,8 @@ const OrganizaClinicProvider = ({ children }) => {
         Telefone: '',
         DataDeCadastro: ''
     })
+
+    const navigate = useNavigate('')
 
     const getPacientes = async () => {
         const res = await axios.get('http://localhost:2000/getPacientes')
@@ -58,6 +61,16 @@ const OrganizaClinicProvider = ({ children }) => {
         const findDoctor = medicos.find((doctor) => doctor.IDMedico === idDoctor)
         console.log(findDoctor)
         setDoctorUpdate((prev) => ({...prev, IDMedico: idDoctor, NomeMedico: findDoctor.Nome, CPF: findDoctor.CPF, CRM: findDoctor.CRM, Especialidade: findDoctor.Especialidade, Email: findDoctor.Email, Telefone: findDoctor.Telefone, DataDeCadastro: findDoctor.DataDeCadastro}))
+    
+        const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
+            headers: {"Content-Type": "application/json"}
+        })
+
+        if (res.status === 200) {
+            toast.success('Médico atualizado com sucesso.')
+            navigate('/Medicos')
+        }
+
     }
 
     const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate}
