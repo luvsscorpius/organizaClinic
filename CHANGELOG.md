@@ -1,3 +1,12 @@
+# [1.26.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.25.0...v1.26.0) (2025-02-07)
+
+
+### Features
+
+* **backend updatedoctor.route:** creating a new route to update doctor in database ([cc25d0f](https://github.com/luvsscorpius/organizaClinic/commit/cc25d0fb7b34c2885b5d79ef85d847071539ac16))
+* **frontend/backend:** finishing route and function to update a doctor ([d5270b9](https://github.com/luvsscorpius/organizaClinic/commit/d5270b93f112d423a6cf29bf63e6242f59eac862))
+* **frontend:** starting to develop a function to edit a patient from database ([bcb854a](https://github.com/luvsscorpius/organizaClinic/commit/bcb854a7c2f525851fbc06485e52f6d1a03d013a))
+
 # [1.25.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.24.0...v1.25.0) (2025-02-06)
 
 
