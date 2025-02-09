@@ -31,7 +31,7 @@ export const EditarPaciente = () => {
 
                     <C.inputContainer>
                     <div className="inputContainerItem">
-                            <input type="text" placeholder='Nome completo' value={patientUpdate.Nome}  />
+                            <input type="text" placeholder='Nome completo' value={patientUpdate.Nome} onChange={(e) => setPatientUpdate((prev) => ({...prev, Nome: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -40,7 +40,7 @@ export const EditarPaciente = () => {
 
                         <div className="inputContainerItem">
                             <select
-                                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer" value={patientUpdate.Genero} >
+                                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer" value={patientUpdate.Genero} onChange={(e) => setPatientUpdate((prev) => ({...prev, Genero: e.target.value}))} >
                                 <option>Informe seu gênero</option>
                                 <option value="cisgênero">cisgênero</option>
                                 <option value="transgênero">transgênero</option>
@@ -49,7 +49,7 @@ export const EditarPaciente = () => {
                             </select>
 
                             <select
-                                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer" value={patientUpdate.Sexo}>
+                                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer" value={patientUpdate.Sexo} onChange={(e) => setPatientUpdate((prev) => ({...prev, Sexo: e.target.value}))}>
                                 <option>Informe seu sexo</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
@@ -57,34 +57,34 @@ export const EditarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CPF' maxLength={11} value={patientUpdate.CPF} />
+                            <input type="text" placeholder='CPF' maxLength={11} value={patientUpdate.CPF} onChange={(e) => setPatientUpdate((prev) => ({...prev, CPF: e.target.value}))} />
                             <input type="tel" placeholder='Telefone' maxLength={11} value={patientUpdate.Telefone} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="email" placeholder='E-mail' value={patientUpdate.Email} />
+                            <input type="email" placeholder='E-mail' value={patientUpdate.Email} onChange={(e) => setPatientUpdate((prev) => ({...prev, Email: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Naturalidade' value={patientUpdate.Naturalidade} />
+                            <input type="text" placeholder='Naturalidade' value={patientUpdate.Naturalidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Naturalidade: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CEP' maxLength={8} value={patientUpdate.CEP}  />
+                            <input type="text" placeholder='CEP' maxLength={8} value={patientUpdate.CEP} onChange={(e) => setPatientUpdate((prev) => ({...prev, CEP: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Rua' value={patientUpdate.Rua}  />
-                            <input type="text" placeholder='Número' value={patientUpdate.Numero}  />
+                            <input type="text" placeholder='Rua' value={patientUpdate.Rua} onChange={(e) => setPatientUpdate((prev) => ({...prev, Rua: e.target.value}))} />
+                            <input type="text" placeholder='Número' value={patientUpdate.Numero} onChange={(e) => setPatientUpdate((prev) => ({...prev, Numero: e.target.value}))}  />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Bairro'  value={patientUpdate.Bairro} />
+                            <input type="text" placeholder='Bairro'  value={patientUpdate.Bairro} onChange={(e) => setPatientUpdate((prev) => ({...prev, Bairro: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Cidade' value={patientUpdate.Cidade}/>
-                            <input type="text" placeholder='Estado' value={patientUpdate.Estado} />
+                            <input type="text" placeholder='Cidade' value={patientUpdate.Cidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Cidade: e.target.value}))}/>
+                            <input type="text" placeholder='Estado' value={patientUpdate.Estado} onChange={(e) => setPatientUpdate((prev) => ({...prev, Estado: e.target.value}))}/>
                         </div>
 
                         <div className="inputContainerItem">
