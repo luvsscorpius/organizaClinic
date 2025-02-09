@@ -11,7 +11,7 @@ export const EditarPaciente = () => {
 
     const navigate = useNavigate()
 
-    const {patientUpdate} = useContext(OrganizaClinicContext)
+    const {patientUpdate, setPatientUpdate} = useContext(OrganizaClinicContext)
 
     return (
         <H.section style={{flexDirection: 'column'}}>
@@ -35,7 +35,7 @@ export const EditarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="date" value={patientUpdate.DataDeNascimento}  />
+                            <input type="date" value={patientUpdate.DataDeNascimento} onChange={(e) => setPatientUpdate((prev) => ({...prev, DataDeNascimento: e.target.value}))}/>
                         </div>
 
                         <div className="inputContainerItem">
