@@ -16,6 +16,7 @@ const getAppointments = require('./Routes/getAppointments.route')
 const deleteDoctorRoute = require('./Routes/deleteDoctor.route')
 const deletePatientRoute = require('./Routes/deletePatient.route')
 const updateDoctorRoute = require('./Routes/updateDoctor.route')
+const updatePatientRoute = require('./Routes/updatePatient.route')
 
 app.use('/', indexRoute)
 app.use('/addNewPatient', addNewPatientRoute)
@@ -27,6 +28,7 @@ app.use('/getAppointments', getAppointments)
 app.use('/deleteDoctor', deleteDoctorRoute)
 app.use('/deletePatient', deletePatientRoute)
 app.use('/updateDoctor', updateDoctorRoute)
+app.use('/updatePatient', updatePatientRoute)
 
 app.listen(port, () => {
     console.log(`Server running on port`, port)
