@@ -7,6 +7,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import '../../Css/index.css'
 import { OrganizaClinicContext } from '../../Context/Context';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const Agenda = () => {
     const [events, setEvents] = useState([]);
@@ -80,8 +81,6 @@ export const Agenda = () => {
         return paciente ? paciente.IDPaciente : 'ID não encontrado'
     }
 
-    findMedicoId('Dra. Maria Oliveira')
-
     const [newAppointment, setNewAppointment] = useState({
         DataConsulta: eventData.data,
         HorarioConsulta: eventData.horario,
@@ -121,10 +120,12 @@ export const Agenda = () => {
 
                     setEvents((prev) => ([...prev, newEvent]))
                     console.log(events.newEvent)
+                    toast.success('Consulta agendada com sucesso')
                     handleOpen()
                 }
             } catch (error) {
                 console.error(error)
+                toast.error('Erro ao agendar consulta', error)
             }
         }
     }
