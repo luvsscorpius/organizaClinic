@@ -97,6 +97,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
         // Formatando as datas para ficar no formato de yyyy/mm/dd
         const dataDeNascimentoUpdated = new Date(findPatient.DataDeNascimento).toISOString().split('T')[0]
+        console.log(dataDeNascimentoUpdated)
         const dataDeCadastroUpdated = new Date(findPatient.DataDeCadastro).toISOString().split('T')[0]
 
         // Setando no state

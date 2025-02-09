@@ -11,7 +11,7 @@ export const EditarPaciente = () => {
 
     const navigate = useNavigate()
 
-    const {patientUpdate, setPatientUpdate} = useContext(OrganizaClinicContext)
+    const {patientUpdate, setPatientUpdate, editPatient} = useContext(OrganizaClinicContext)
 
     return (
         <H.section style={{flexDirection: 'column'}}>
@@ -91,7 +91,7 @@ export const EditarPaciente = () => {
                             <input type="date" value={patientUpdate.DataDeCadastro} readOnly />
                         </div>
 
-                        <button>Salvar</button>
+                        <button onClick={() => editPatient(patientUpdate.IDPaciente)}>Salvar</button>
                     </C.inputContainer>
                 </form>
             </C.formContainer>
