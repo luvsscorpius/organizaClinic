@@ -11,7 +11,7 @@ export const EditarMedico = () => {
 
     const navigate = useNavigate()
 
-    const {doctorUpdate, setDoctorUpdate, editDoctor, sendDoctorUpdated} = useContext(OrganizaClinicContext)
+    const {doctorUpdate, setDoctorUpdate, sendDoctorUpdated} = useContext(OrganizaClinicContext)
 
     console.log(doctorUpdate)
 

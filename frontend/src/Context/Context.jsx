@@ -77,7 +77,7 @@ const OrganizaClinicProvider = ({ children }) => {
     const editDoctor = async (idDoctor) => {
         const findDoctor = medicos.find((doctor) => doctor.IDMedico === idDoctor)
 
-        const {Nome, CPF, CRM, Especialidade, Email, Telefone, DataDeCadastro} = findDoctor
+        const { Nome, CPF, CRM, Especialidade, Email, Telefone, DataDeCadastro } = findDoctor
         setDoctorUpdate({ IDMedico: idDoctor, NomeMedico: Nome, CPF: CPF, CRM: CRM, Especialidade: Especialidade, Email: Email, Telefone: Telefone, DataDeCadastro: DataDeCadastro })
     }
 
@@ -95,28 +95,31 @@ const OrganizaClinicProvider = ({ children }) => {
     }
 
     const editPatient = async (idPatient) => {
-        console.log(idPatient)
         const findPatient = pacientes.find((patient) => patient.IDPaciente === idPatient)
+        const { Nome, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado } = findPatient
 
         // Formatando as datas para ficar no formato de yyyy/mm/dd
         const dataDeNascimentoUpdated = new Date(findPatient.DataDeNascimento).toISOString().split('T')[0]
         const dataDeCadastroUpdated = new Date(findPatient.DataDeCadastro).toISOString().split('T')[0]
 
         // Setando no state
-        setPatientUpdate((prev) => ({ ...prev, IDPaciente: idPatient, Nome: findPatient.Nome, DataDeNascimento: dataDeNascimentoUpdated, Genero: findPatient.Genero, Sexo: findPatient.Sexo, CPF: findPatient.CPF, Telefone: findPatient.Telefone, Email: findPatient.Email, Naturalidade: findPatient.Naturalidade, CEP: findPatient.CEP, Rua: findPatient.Rua, Numero: findPatient.Numero, Bairro: findPatient.Bairro, Cidade: findPatient.Cidade, Estado: findPatient.Estado, DataDeCadastro: dataDeCadastroUpdated }))
-
-        // const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
-        //     headers: {"Content-Type": "application/json"}
-        // })
-
-        // if (res.status === 200) {
-        //     toast.success('Médico atualizado com sucesso.')
-        //     navigate('/Medicos')
-        // }
-
+        setPatientUpdate((prev) => ({ ...prev, IDPaciente: idPatient, Nome: Nome, DataDeNascimento: dataDeNascimentoUpdated, Genero: Genero, Sexo: Sexo, CPF: CPF, Telefone: Telefone, Email: Email, Naturalidade: Naturalidade, CEP: CEP, Rua: Rua, Numero: Numero, Bairro: Bairro, Cidade: Cidade, Estado: Estado, DataDeCadastro: dataDeCadastroUpdated }))
     }
 
-    const contextValue = { medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate, sendDoctorUpdated }
+    const sendPatientUpdated = async (idPatient) => {
+        const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
+            headers: {"Content-Type": "application/json"}
+        })
+
+        if (res.status === 200) {
+            toast.success('Paciente atualizado com sucesso.')
+            navigate('/Pacientes')
+        } else {
+            toast.error('Erro ao atualizar paciente')
+        }
+    }
+
+    const contextValue = { medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate, sendDoctorUpdated, sendPatientUpdated }
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>
