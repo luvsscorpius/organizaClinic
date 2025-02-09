@@ -102,14 +102,14 @@ const OrganizaClinicProvider = ({ children }) => {
         // Setando no state
         setPatientUpdate((prev) => ({...prev, IDPaciente: idPatient, Nome: findPatient.Nome,DataDeNascimento: dataDeNascimentoUpdated, Genero: findPatient.Genero, Sexo: findPatient.Sexo, CPF: findPatient.CPF, Telefone: findPatient.Telefone,  Email: findPatient.Email, Naturalidade: findPatient.Naturalidade, CEP: findPatient.CEP, Rua: findPatient.Rua, Numero: findPatient.Numero,  Bairro: findPatient.Bairro, Cidade: findPatient.Cidade, Estado: findPatient.Estado,  DataDeCadastro: dataDeCadastroUpdated}))
     
-        // const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
-        //     headers: {"Content-Type": "application/json"}
-        // })
+        const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
+            headers: {"Content-Type": "application/json"}
+        })
 
-        // if (res.status === 200) {
-        //     toast.success('Médico atualizado com sucesso.')
-        //     navigate('/Medicos')
-        // }
+        if (res.status === 200) {
+            toast.success('Paciente atualizado com sucesso.')
+            navigate('/Pacientes')
+        }
 
     }
 
