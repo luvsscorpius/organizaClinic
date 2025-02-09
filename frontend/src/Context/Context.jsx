@@ -75,20 +75,23 @@ const OrganizaClinicProvider = ({ children }) => {
     }
 
     const editDoctor = async (idDoctor) => {
-        console.log(idDoctor)
         const findDoctor = medicos.find((doctor) => doctor.IDMedico === idDoctor)
-        console.log(findDoctor)
-        setDoctorUpdate((prev) => ({...prev, IDMedico: idDoctor, NomeMedico: findDoctor.Nome, CPF: findDoctor.CPF, CRM: findDoctor.CRM, Especialidade: findDoctor.Especialidade, Email: findDoctor.Email, Telefone: findDoctor.Telefone, DataDeCadastro: findDoctor.DataDeCadastro}))
-    
+
+        const {Nome, CPF, CRM, Especialidade, Email, Telefone, DataDeCadastro} = findDoctor
+        setDoctorUpdate({ IDMedico: idDoctor, NomeMedico: Nome, CPF: CPF, CRM: CRM, Especialidade: Especialidade, Email: Email, Telefone: Telefone, DataDeCadastro: DataDeCadastro })
+    }
+
+    const sendDoctorUpdated = async (idDoctor) => {
         const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
-            headers: {"Content-Type": "application/json"}
+            headers: { "Content-Type": "application/json" }
         })
 
         if (res.status === 200) {
             toast.success('Médico atualizado com sucesso.')
             navigate('/Medicos')
+        } else {
+            toast.error('Erro ao atualizar médico')
         }
-
     }
 
     const editPatient = async (idPatient) => {
@@ -97,24 +100,23 @@ const OrganizaClinicProvider = ({ children }) => {
 
         // Formatando as datas para ficar no formato de yyyy/mm/dd
         const dataDeNascimentoUpdated = new Date(findPatient.DataDeNascimento).toISOString().split('T')[0]
-        console.log(dataDeNascimentoUpdated)
         const dataDeCadastroUpdated = new Date(findPatient.DataDeCadastro).toISOString().split('T')[0]
 
         // Setando no state
-        setPatientUpdate((prev) => ({...prev, IDPaciente: idPatient, Nome: findPatient.Nome,DataDeNascimento: dataDeNascimentoUpdated, Genero: findPatient.Genero, Sexo: findPatient.Sexo, CPF: findPatient.CPF, Telefone: findPatient.Telefone,  Email: findPatient.Email, Naturalidade: findPatient.Naturalidade, CEP: findPatient.CEP, Rua: findPatient.Rua, Numero: findPatient.Numero,  Bairro: findPatient.Bairro, Cidade: findPatient.Cidade, Estado: findPatient.Estado,  DataDeCadastro: dataDeCadastroUpdated}))
-    
-        const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
-            headers: {"Content-Type": "application/json"}
-        })
+        setPatientUpdate((prev) => ({ ...prev, IDPaciente: idPatient, Nome: findPatient.Nome, DataDeNascimento: dataDeNascimentoUpdated, Genero: findPatient.Genero, Sexo: findPatient.Sexo, CPF: findPatient.CPF, Telefone: findPatient.Telefone, Email: findPatient.Email, Naturalidade: findPatient.Naturalidade, CEP: findPatient.CEP, Rua: findPatient.Rua, Numero: findPatient.Numero, Bairro: findPatient.Bairro, Cidade: findPatient.Cidade, Estado: findPatient.Estado, DataDeCadastro: dataDeCadastroUpdated }))
 
-        if (res.status === 200) {
-            toast.success('Paciente atualizado com sucesso.')
-            navigate('/Pacientes')
-        }
+        // const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
+        //     headers: {"Content-Type": "application/json"}
+        // })
+
+        // if (res.status === 200) {
+        //     toast.success('Médico atualizado com sucesso.')
+        //     navigate('/Medicos')
+        // }
 
     }
 
-    const contextValue = {medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate}
+    const contextValue = { medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate, sendDoctorUpdated }
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>

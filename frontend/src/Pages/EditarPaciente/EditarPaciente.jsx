@@ -91,7 +91,7 @@ export const EditarPaciente = () => {
                             <input type="date" value={patientUpdate.DataDeCadastro} readOnly />
                         </div>
 
-                        <button onClick={() => editPatient(patientUpdate.IDPaciente)}>Salvar</button>
+                        <button type='button' onClick={() => editPatient(patientUpdate.IDPaciente)}>Salvar</button>
                     </C.inputContainer>
                 </form>
             </C.formContainer>

@@ -11,7 +11,7 @@ export const EditarMedico = () => {
 
     const navigate = useNavigate()
 
-    const {doctorUpdate, setDoctorUpdate, editDoctor} = useContext(OrganizaClinicContext)
+    const {doctorUpdate, setDoctorUpdate, editDoctor, sendDoctorUpdated} = useContext(OrganizaClinicContext)
 
     console.log(doctorUpdate)
 
@@ -37,7 +37,7 @@ export const EditarMedico = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='CPF' value={doctorUpdate.CPF} onChange={(e) => setDoctorUpdate((prev) => ({...prev, CPF: e.target.value}))} />
+                            <input type="text" placeholder='CPF' value={doctorUpdate.CPF} onChange={(e) => setDoctorUpdate((prev) => ({...prev, CPF: e.target.value}))} maxLength={11} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -57,7 +57,7 @@ export const EditarMedico = () => {
                             <input type="date" value={date} readOnly />
                         </div>
 
-                        <button type='button' onClick={() => editDoctor(doctorUpdate.IDMedico)} >Salvar</button>
+                        <button type='button' onClick={() => sendDoctorUpdated(doctorUpdate.IDMedico)} >Salvar</button>
                     </C.inputContainer>
                 </form>
             </C.formContainer>
