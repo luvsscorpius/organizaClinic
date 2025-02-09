@@ -1,3 +1,22 @@
+# [1.27.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.26.0...v1.27.0) (2025-02-09)
+
+
+### Bug Fixes
+
+* **frontend:** creating a new function to sendinfo to backend editDoctor ([85501e3](https://github.com/luvsscorpius/organizaClinic/commit/85501e3dfaa72483902dd06f6cfdcbfa12bd592f))
+* **frontend:** fixing bugs ([cb88562](https://github.com/luvsscorpius/organizaClinic/commit/cb885624f9d8d0fa37f3399c0b01837b89fa3671))
+
+
+### Features
+
+* **backend updatepatient.route:** creating a new route to update a patient from database ([4b81182](https://github.com/luvsscorpius/organizaClinic/commit/4b81182f2337a53ab84921044d163062cfb1cea8))
+* **backend updatepatient.route:** receiving data on the backend ([7d8d17a](https://github.com/luvsscorpius/organizaClinic/commit/7d8d17a3ac339461a70da5197b3306b442212626))
+* **frontend agenda.jsx:** adding toast.success and error ([30f82c0](https://github.com/luvsscorpius/organizaClinic/commit/30f82c0bb7c48c7a924a5196199226a64224f33d))
+* **frontend context.jsx:** formatting dates coming from database to specif format yyyy/mm/dd ([25d7f16](https://github.com/luvsscorpius/organizaClinic/commit/25d7f16ca10b5be3970534b6beb33e7eecd9b6cf))
+* **frontend editarpacient.jsx:** using onChange to allow changing inputs ([cea4c3a](https://github.com/luvsscorpius/organizaClinic/commit/cea4c3a815e35080917408584ad8b14c1556d7bd))
+* **frontend editarpaciente.jsx:** onclick ([49b91c1](https://github.com/luvsscorpius/organizaClinic/commit/49b91c13a9b07f77d677817ebef6ffa2ba466af9))
+* **frontend:** sending info to backend ([9bfe170](https://github.com/luvsscorpius/organizaClinic/commit/9bfe1704f220362a7b994873ac030805b7239ea5))
+
 # [1.26.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.25.0...v1.26.0) (2025-02-07)
 
 
