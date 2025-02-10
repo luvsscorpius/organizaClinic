@@ -1,3 +1,16 @@
+# [1.28.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.27.0...v1.28.0) (2025-02-10)
+
+
+### Features
+
+* **backend updateappointment.route:** creating a new route to update an appointment from database ([4d78b0e](https://github.com/luvsscorpius/organizaClinic/commit/4d78b0ef3b3a6c182ad68d961af9e658d9aa20c5))
+* **backend/frontend:** returning if the data was updated or not and showing it on frontend ([60e5d0b](https://github.com/luvsscorpius/organizaClinic/commit/60e5d0b61af096f6694357429e6f5c2970514d9b))
+* **frontend agenda.jsx:** creating a function to edit events ([31164bf](https://github.com/luvsscorpius/organizaClinic/commit/31164bffaf57891efdf209afd425e66a46186426))
+* **frontend agenda.jsx:** creating a new function to update an event ([05e57eb](https://github.com/luvsscorpius/organizaClinic/commit/05e57eb6aeb39f9fc6907263c36b1599ecd40f72))
+* **frontend agenda.jsx:** implementing function to update an event in frontend ([ae0744f](https://github.com/luvsscorpius/organizaClinic/commit/ae0744fc3e7f390c0cad2f39ded57990e9ae329b))
+* **frontend agenda.jsx:** useeffect find doctor and patient names ([75adc76](https://github.com/luvsscorpius/organizaClinic/commit/75adc762da36976cb4f4bec2eafb81abc843308a))
+* **frontend agenda.jszx:** creating a function to edit events ([f74f03f](https://github.com/luvsscorpius/organizaClinic/commit/f74f03fa7eaba8a90bfc760da07f47a5afa34f7d))
+
 # [1.27.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.26.0...v1.27.0) (2025-02-09)
 
 
