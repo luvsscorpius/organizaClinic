@@ -57,10 +57,13 @@ export const Agenda = () => {
 
             const horarioFimUpdated = horarioFim < 10 ? `0${horarioFim}:00` : `${horarioFim}:00`;
 
+            // encontrando o medico e o paciente para usar no useEffect para colocar o nome que nao tem na consulta
+            const findPatient = pacientes.find((pacienteID) => pacienteID.IDPaciente === consulta.pacientes_IDPaciente)
+            const findDoctor = medicos.find((doctorID) => doctorID.IDMedico === consulta.medicos_IDMedico)
 
             return {
                 id: consulta.IDConsulta,
-                title: `Paciente ${consulta.pacientes_IDPaciente} - Médico ${consulta.medicos_IDMedico}`,
+                title: `Paciente ${findPatient.Nome} - Médico ${findDoctor.Nome}`,
                 start: `${dataConsultaRefatorada}T${consulta.HorarioConsulta}`,
                 end: `${dataConsultaRefatorada}T${horarioFimUpdated}`,
                 description: consulta.DescricaoConsulta || 'Sem descrição',
