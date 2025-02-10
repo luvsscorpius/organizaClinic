@@ -8,6 +8,7 @@ import '../../Css/index.css'
 import { OrganizaClinicContext } from '../../Context/Context';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { FaTrash } from "react-icons/fa";
 
 export const Agenda = () => {
     const [events, setEvents] = useState([]);
@@ -242,9 +243,21 @@ export const Agenda = () => {
                             <form className="space-y-6" onSubmit={(e) => eventAdd(e)}>
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="text-center sm:text-left">
-                                        <DialogTitle as="h3" className="text-lg font-semibold text-gray-900">
-                                            Adicionar Evento
-                                        </DialogTitle>
+                                        <div className="TitleContainer" style={{display: 'flex', justifyContent: 'space-between'}}>
+                                            <DialogTitle as="h3" className="text-lg font-semibold text-gray-900">
+                                                Adicionar Evento
+                                            </DialogTitle>
+
+                                            {eventData.id && (
+                                                <button
+                                                    type="button"
+                                                    className="bg-red-500 text-white px-4 py-2 rounded"
+                                                >
+                                                    <FaTrash/>
+                                                </button>
+                                            )}
+                                        </div>
+
                                         <div className="mt-6 space-y-4">
                                             {/* Paciente */}
                                             <div>
