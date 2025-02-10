@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import * as H from '../Home/Styles'
 import * as M from '../Medicos/Styles'
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
@@ -7,6 +7,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router';
 import { OrganizaClinicContext } from '../../Context/Context';
+import { toast } from 'react-toastify';
 
 export const Pacientes = () => {
 
@@ -14,18 +15,29 @@ export const Pacientes = () => {
 
   const { pacientes, getPacientes, deletePatient, editPatient } = useContext(OrganizaClinicContext)
 
-  console.log(pacientes)
+  const [filteredPacientes, setFilteredPacientes] = useState([])
   
   useEffect(() => {
     getPacientes()
   }, [])
+
+  useEffect(() => {
+    setFilteredPacientes(pacientes)
+  }, [pacientes])
+
+  const findPatient = (patientName) => {
+    const lowerCasePatientName = patientName.toLowerCase()
+
+    const patientFound = pacientes.filter((patient) => patient.Nome.toLowerCase().includes(lowerCasePatientName))
+    setFilteredPacientes(patientFound)
+  }
 
   return (
     <H.section style={{ flexDirection: 'column' }}>
       <M.buttonContainer>
         <span className="searchSpan">
           <HiOutlineMagnifyingGlass />
-          <input type="search" placeholder='Pesquise um paciente' />
+          <input type="search" placeholder='Pesquise um paciente' onChange={(e) => findPatient(e.target.value)} />
         </span>
 
         <span className='buttonSpan' onClick={() => navigate('cadastrarpaciente')}>
@@ -126,7 +138,7 @@ export const Pacientes = () => {
             </thead>
             <tbody>
 
-              {pacientes.map((paciente) => (
+              {filteredPacientes.map((paciente) => (
                 <tr class="hover:bg-slate-50" key={paciente.IDPaciente}>
                   <td class="p-4">
                     <p class="text-sm font-bold">
