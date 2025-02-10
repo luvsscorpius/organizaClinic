@@ -236,6 +236,7 @@ export const Agenda = () => {
     const deleteEvent = async (e) => {
         e.preventDefault()
         toast.success('Evento deletado com sucesso')
+        cancelUpdate()
     }
 
     return (
