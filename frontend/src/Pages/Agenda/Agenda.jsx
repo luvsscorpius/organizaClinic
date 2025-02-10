@@ -133,14 +133,21 @@ export const Agenda = () => {
         }
     }
 
+    // Função para editar eventos na agenda
     const handleEventClick = (clickInfo) => {
 
-        console.log(clickInfo.event.cliente)
+        const firstSplit = clickInfo.event.title.split('-')
+        const patientSplit = firstSplit[0].split('Paciente')[1].trim()
+        const doctorSplit = firstSplit[1].split('Médico')[1].trim()
+
+        // encontrando o medico e o paciente para usar no useEffect para colocar o nome que nao tem na consulta
+        const findPatient = pacientes.find((paciente) => paciente.Nome === patientSplit)
+        const findDoctor = medicos.find((doctor) => doctor.Nome === doctorSplit)
 
         setEventData({
             id: clickInfo.event.id,
-            cliente: clickInfo.event.extendedProps.pacientes_IDPaciente,
-            medico: clickInfo.event.extendedProps.medicos_IDMedico,
+            cliente: findPatient ? findPatient.Nome : '',
+            medico: findDoctor ? findDoctor.Nome : '',
             data: clickInfo.event.startStr.split('T')[0], 
             horario: clickInfo.event.startStr.split('T')[1].slice(0,5),
             desc: clickInfo.event.extendedProps.description || ''
