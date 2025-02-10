@@ -233,10 +233,21 @@ export const Agenda = () => {
         }
     }
 
-    const deleteEvent = async (e) => {
+    const deleteEvent = async (e, id) => {
         e.preventDefault()
-        toast.success('Evento deletado com sucesso')
-        cancelUpdate()
+
+        try {
+            const res = await axios.delete(`http://localhost:2000/deleteEvent/${id}`)
+
+            if (res.status === 200) {
+                toast.success('Evento deletado com sucesso')
+                cancelUpdate()
+                getAppointments()
+            }
+        } catch (error) {
+            console.error(error)
+            toast.error(error)
+        }
     }
 
     return (
@@ -281,7 +292,7 @@ export const Agenda = () => {
                                                 <button
                                                     type="button"
                                                     className="bg-red-500 text-white px-4 py-2 rounded"
-                                                    onClick={(e) => deleteEvent(e)}
+                                                    onClick={(e) => deleteEvent(e, eventData.id)}
                                                 >
                                                     <FaTrash/>
                                                 </button>
