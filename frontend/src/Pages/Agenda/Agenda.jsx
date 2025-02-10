@@ -196,6 +196,12 @@ export const Agenda = () => {
                 const res = await axios.put(`http://localhost:2000/updateAppointment/${newAppointment.IDConsulta}`, newAppointment, {
                     headers: { "Content-Type": "application/json" }
                 })
+
+                if (res.status === 200) {
+                    setOpen(false)
+                    toast.success('Evento atualizado com sucesso')
+                    getAppointments()
+                }
             } catch (error) {
                 console.error(error)
                 toast.error(error)
