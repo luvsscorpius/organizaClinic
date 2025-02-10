@@ -130,6 +130,22 @@ export const Agenda = () => {
         }
     }
 
+    const handleEventClick = (clickInfo) => {
+
+        console.log(clickInfo.event.cliente)
+
+        setEventData({
+            id: clickInfo.event.id,
+            cliente: clickInfo.event.extendedProps.pacientes_IDPaciente,
+            medico: clickInfo.event.extendedProps.medicos_IDMedico,
+            data: clickInfo.event.startStr.split('T')[0], 
+            horario: clickInfo.event.startStr.split('T')[1].slice(0,5),
+            desc: clickInfo.event.extendedProps.description || ''
+        });
+    
+        setOpen(true);
+    };
+
     useEffect(() => {
         setNewAppointment({
             DataConsulta: eventData.data,
@@ -149,12 +165,15 @@ export const Agenda = () => {
                 initialView="dayGridMonth"
                 headerToolbar={{
                     start: "today prev next",
+                    center: "title", 
                     end: "dayGridMonth dayGridWeek dayGridDay",
                 }}
+                locale='pt-BR'
                 views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
                 dateClick={handleDateClick}
                 selectable={true}
                 events={events}
+                eventClick={handleEventClick} 
             />
 
             <Dialog open={open} onClose={setOpen} className="relative z-10">
