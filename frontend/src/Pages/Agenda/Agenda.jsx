@@ -233,6 +233,11 @@ export const Agenda = () => {
         }
     }
 
+    const deleteEvent = async (e) => {
+        e.preventDefault()
+        toast.success('Evento deletado com sucesso')
+    }
+
     return (
         <A.section style={{ padding: '10px' }}>
             <FullCalendar
@@ -275,6 +280,7 @@ export const Agenda = () => {
                                                 <button
                                                     type="button"
                                                     className="bg-red-500 text-white px-4 py-2 rounded"
+                                                    onClick={(e) => deleteEvent(e)}
                                                 >
                                                     <FaTrash/>
                                                 </button>
