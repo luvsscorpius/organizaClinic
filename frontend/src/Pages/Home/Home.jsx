@@ -6,6 +6,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
+import { ptBR} from 'react-day-picker/locale'
 import "react-day-picker/style.css";
 import { OrganizaClinicContext } from '../../Context/Context';
 
@@ -88,7 +89,8 @@ export const Home = () => {
                         className='daypicker'
                         onSelect={setSelected}
                         disabled={[{ before: new Date() }, ...bookedDays]}
-                        defaultMonth={bookedDays[0]}
+                        defaultMonth={new Date()}
+                        locale={ptBR}
                         modifiers={{
                             booked: bookedDays,
                         }}
