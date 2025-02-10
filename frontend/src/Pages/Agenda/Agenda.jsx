@@ -16,6 +16,7 @@ export const Agenda = () => {
     const handleOpen = () => setOpen(!open);
 
     const [eventData, setEventData] = useState({
+        id: '',
         cliente: '',
         medico: '',
         data: '',
@@ -40,12 +41,12 @@ export const Agenda = () => {
         getAppointments()
     }, [])
 
-    const bookedTimes = agenda.map(event => ({date: event.DataConsulta.split('T')[0], hours: event.HorarioConsulta.split(':').slice(0, 2).join(':')}))
+    const bookedTimes = agenda.map(event => ({ date: event.DataConsulta.split('T')[0], hours: event.HorarioConsulta.split(':').slice(0, 2).join(':') }))
 
-    const groupedTimes = bookedTimes.reduce((acc, {date, hours}) => {
+    const groupedTimes = bookedTimes.reduce((acc, { date, hours }) => {
         (acc[date] ||= []).push(hours)
         return acc
-    }, [])  
+    }, [])
 
     useEffect(() => {
         const formattedEventsFromDataBase = agenda.map((consulta) => {
@@ -85,6 +86,7 @@ export const Agenda = () => {
     }
 
     const [newAppointment, setNewAppointment] = useState({
+        IDConsulta: '',
         DataConsulta: eventData.data,
         HorarioConsulta: eventData.horario,
         DescricaoConsulta: eventData.desc,
@@ -133,6 +135,19 @@ export const Agenda = () => {
         }
     }
 
+    useEffect(() => {
+        setNewAppointment({
+            IDConsulta: eventData.id,
+            DataConsulta: eventData.data,
+            HorarioConsulta: eventData.horario,
+            DescricaoConsulta: eventData.desc,
+            pacientes_IDPaciente: findPacienteId(eventData.cliente),
+            medicos_IDMedico: findMedicoId(eventData.medico)
+        });
+    }, [eventData]);
+
+    console.log(newAppointment)
+
     // Função para editar eventos na agenda
     const handleEventClick = (clickInfo) => {
 
@@ -148,44 +163,45 @@ export const Agenda = () => {
             id: clickInfo.event.id,
             cliente: findPatient ? findPatient.Nome : '',
             medico: findDoctor ? findDoctor.Nome : '',
-            data: clickInfo.event.startStr.split('T')[0], 
-            horario: clickInfo.event.startStr.split('T')[1].slice(0,5),
+            data: clickInfo.event.startStr.split('T')[0],
+            horario: clickInfo.event.startStr.split('T')[1].slice(0, 5),
             desc: clickInfo.event.extendedProps.description || ''
         });
-    
-        setOpen(true);
 
-        if (clickInfo.event.id) {
-            setEventData((prev) => ({...prev, id: clickInfo.event.id}))
-        }
-    };
-
-    const eventUpdate = async (e) => {
-        e.preventDefault()
-
-        if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
-            toast.error('Preencha todas as informações')
-        } else {
-            try {
-                console.log('Teste')
-            } catch (error) {
-                console.error(error)
-                toast.error(error)
-            }
-        }
-    }
-
-    useEffect(() => {
         setNewAppointment({
+            IDConsulta: clickInfo.event.id,
             DataConsulta: eventData.data,
             HorarioConsulta: eventData.horario,
             DescricaoConsulta: eventData.desc,
             pacientes_IDPaciente: findPacienteId(eventData.cliente),
             medicos_IDMedico: findMedicoId(eventData.medico)
         });
-    }, [eventData]);
 
-    console.log(newAppointment)
+        console.log(eventData)
+
+        setOpen(true);
+
+        if (clickInfo.event.id) {
+            setEventData((prev) => ({ ...prev, id: clickInfo.event.id }))
+        }
+    };
+
+    const eventUpdate = async (e) => {
+        e.preventDefault()
+
+        if (newAppointment.IDConsulta === '' || newAppointment.DataConsulta === '' || newAppointment.HorarioConsulta === '' || newAppointment.pacientes_IDPaciente === '' || newAppointment.medicos_IDMedico === '') {
+            toast.error('Preencha todas as informações')
+        } else {
+            try {
+                const res = await axios.put(`http://localhost:2000/updateAppointment/${newAppointment.IDConsulta}`, newAppointment, {
+                    headers: { "Content-Type": "application/json" }
+                })
+            } catch (error) {
+                console.error(error)
+                toast.error(error)
+            }
+        }
+    }
 
     return (
         <A.section style={{ padding: '10px' }}>
@@ -194,7 +210,7 @@ export const Agenda = () => {
                 initialView="dayGridMonth"
                 headerToolbar={{
                     start: "today prev next",
-                    center: "title", 
+                    center: "title",
                     end: "dayGridMonth dayGridWeek dayGridDay",
                 }}
                 locale='pt-BR'
@@ -202,7 +218,7 @@ export const Agenda = () => {
                 dateClick={handleDateClick}
                 selectable={true}
                 events={events}
-                eventClick={handleEventClick} 
+                eventClick={handleEventClick}
             />
 
             <Dialog open={open} onClose={setOpen} className="relative z-10">
@@ -291,7 +307,7 @@ export const Agenda = () => {
                                                 >
                                                     <option value="">Selecione um horário</option>
                                                     {allTimeSlots.map((hour) => (
-                                                        <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`}   disabled={groupedTimes[eventData.data]?.includes(hour < 10 ? `0${hour}:00` : `${hour}:00`)}  >
+                                                        <option key={hour} value={hour < 10 ? `0${hour}:00` : `${hour}:00`} disabled={groupedTimes[eventData.data]?.includes(hour < 10 ? `0${hour}:00` : `${hour}:00`)}  >
                                                             {`${hour}` < 10 ? `0${hour}:00` : `${hour}:00`}
                                                         </option>
                                                     ))}
