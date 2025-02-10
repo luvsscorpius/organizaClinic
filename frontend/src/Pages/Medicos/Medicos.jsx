@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import * as H from '../Home/Styles'
 import * as M from './Styles'
 import { FaPlus } from "react-icons/fa";
@@ -13,17 +13,31 @@ export const Medicos = () => {
   const navigate = useNavigate()
 
   const { medicos, getMedicos, deleteDoctor, editDoctor } = useContext(OrganizaClinicContext)
+  const [filteredMedicos, setFilteredMedicos] = useState([])
 
   useEffect(() => {
     getMedicos()
   }, [])
+
+  useEffect(() => {
+    setFilteredMedicos(medicos)
+  }, [medicos])
+
+  console.log(filteredMedicos)
+
+  const findDoctor = async (doctorName) => {
+    const lowerCaseDoctorName = doctorName.toLowerCase()
+
+    const doctorFound = medicos.filter((doctor) => doctor.Nome.toLowerCase().includes(lowerCaseDoctorName))
+    setFilteredMedicos(doctorFound)
+  }
 
   return (
     <H.section style={{ flexDirection: 'column' }}>
       <M.buttonContainer>
         <span className='searchSpan'>
           <HiOutlineMagnifyingGlass />
-          <input type="search" placeholder='Pesquise um médico' />
+          <input type="search" placeholder='Pesquise um médico' onChange={(e) => findDoctor(e.target.value)} />
         </span>
 
         <span className='buttonSpan' onClick={() => navigate('cadastrarmedico')}>
@@ -84,7 +98,7 @@ export const Medicos = () => {
             </thead>
             <tbody>
 
-              {medicos.map((medico) => (
+              {filteredMedicos.map((medico) => (
                 <tr class="hover:bg-slate-50" key={medico.IDMedico}>
                   <td class="p-4">
                     <p class="text-sm font-bold">
