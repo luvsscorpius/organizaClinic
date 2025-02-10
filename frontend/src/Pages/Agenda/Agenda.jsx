@@ -92,15 +92,15 @@ export const Agenda = () => {
         medicos_IDMedico: findMedicoId(eventData.medico)
     })
 
+    const horarioFim = Number.parseFloat(eventData.horario) + 1
+    const horarioFimUpdated = horarioFim < 10 ? `0${horarioFim}:00` : `${horarioFim}:00`
+
+    const endEvent = `${eventData.data}T${horarioFimUpdated}`
+
     // Função para adicionar eventos
     const eventAdd = async (e) => {
         e.preventDefault()
         console.log('teste')
-
-        const horarioFim = Number.parseFloat(eventData.horario) + 1
-        const horarioFimUpdated = horarioFim < 10 ? `0${horarioFim}:00` : `${horarioFim}:00`
-
-        const endEvent = `${eventData.data}T${horarioFimUpdated}`
 
         if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
             alert('Preencha todas as informações')
@@ -154,7 +154,26 @@ export const Agenda = () => {
         });
     
         setOpen(true);
+
+        if (clickInfo.event.id) {
+            setEventData((prev) => ({...prev, id: clickInfo.event.id}))
+        }
     };
+
+    const eventUpdate = async (e) => {
+        e.preventDefault()
+
+        if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
+            toast.error('Preencha todas as informações')
+        } else {
+            try {
+                console.log('Teste')
+            } catch (error) {
+                console.error(error)
+                toast.error(error)
+            }
+        }
+    }
 
     useEffect(() => {
         setNewAppointment({
@@ -302,7 +321,7 @@ export const Agenda = () => {
                                     <button
                                         type="submit"
                                         className="inline-flex w-full justify-center rounded-md bg-[#15babc] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-                                        onClick={(e) => eventAdd(e)}
+                                        onClick={(e) => eventData.id ? eventUpdate(e) : eventAdd(e)}
                                     >
                                         Salvar
                                     </button>
