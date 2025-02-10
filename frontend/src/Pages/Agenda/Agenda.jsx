@@ -187,6 +187,28 @@ export const Agenda = () => {
         }
     };
 
+    const cancelUpdate = () => {
+        setOpen(false)
+
+        setEventData({
+            id: '',
+            cliente: '',
+            medico: '',
+            data: '',
+            horario: '',
+            desc: ''
+        });
+
+        setNewAppointment({
+            IDConsulta: '',
+            DataConsulta: '',
+            HorarioConsulta: '',
+            DescricaoConsulta: '',
+            pacientes_IDPaciente: '',
+            medicos_IDMedico: ''
+        });
+    }
+
     const eventUpdate = async (e) => {
         e.preventDefault()
 
@@ -201,6 +223,7 @@ export const Agenda = () => {
                 if (res.status === 200) {
                     setOpen(false)
                     toast.success('Evento atualizado com sucesso')
+                    cancelUpdate()
                     getAppointments()
                 }
             } catch (error) {
@@ -362,7 +385,7 @@ export const Agenda = () => {
                                     </button>
                                     <button
                                         type="button"
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => cancelUpdate()}
                                         className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                     >
                                         Cancelar
