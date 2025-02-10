@@ -1,3 +1,17 @@
+# [1.29.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.28.0...v1.29.0) (2025-02-10)
+
+
+### Features
+
+* **backend deleteevent.route:** creating a new route to delete events from database ([85ab60a](https://github.com/luvsscorpius/organizaClinic/commit/85ab60abd3cfa960d173d831cc75ab91ac6a4e8a))
+* **frontend agenda.jsx:** creating a button to delete event ([a4f4353](https://github.com/luvsscorpius/organizaClinic/commit/a4f43535128bc8b0191d49bdd62c1785c2ca403e))
+* **frontend agenda.jsx:** creating a function to delete an event ([e51a18e](https://github.com/luvsscorpius/organizaClinic/commit/e51a18ebc12db01c4534793a74284acdad62e7f0))
+* **frontend agenda.jsx:** creating a function to erase inputs values when button cancel is clicked ([b693754](https://github.com/luvsscorpius/organizaClinic/commit/b693754d7d84c1eff4f3ed051b04b2b0d7e9f669))
+* **frontend home.jsx:** putting day picker locale to pt-BR ([60d0a9a](https://github.com/luvsscorpius/organizaClinic/commit/60d0a9a4ced8ea909650d5362d67e4216bcd7716))
+* **frontend medicos.jsx:** creating a function to find a doctor on search bar ([4218cc4](https://github.com/luvsscorpius/organizaClinic/commit/4218cc44c936711b898e854d1c057070090d6d75))
+* **frontend pacientes.jsx:** creating a function to find a patient in search bar ([9e6d8e7](https://github.com/luvsscorpius/organizaClinic/commit/9e6d8e7be8fbe79c95cbc81834e7b41b01d6a99e))
+* **frontend/backend finishing deleting events from database:** finishing deleting events from db ([4519c7c](https://github.com/luvsscorpius/organizaClinic/commit/4519c7c34ebee11688990e7fb077da6ac5c5fdec))
+
 # [1.28.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.27.0...v1.28.0) (2025-02-10)
 
 
