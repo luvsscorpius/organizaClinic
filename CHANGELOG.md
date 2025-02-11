@@ -1,3 +1,12 @@
+# [1.30.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.29.0...v1.30.0) (2025-02-11)
+
+
+### Features
+
+* **frontend agenda.js context.jsx:** moving bookedtimes & groupedTimes to context.jsx ([516749a](https://github.com/luvsscorpius/organizaClinic/commit/516749abf0aacb913de82d520617a166a5f24cb6))
+* **frontend agenda.jsx home.jsx:** creating a function to check if there are days fully booked ([22fddbc](https://github.com/luvsscorpius/organizaClinic/commit/22fddbc801e2f6976fc042b8d9de3f72c2c9b38e))
+* **frontend agenda.jsx:** putting a gap on button and titlecontainer ([9e03129](https://github.com/luvsscorpius/organizaClinic/commit/9e031296c780eecb03acd11cba15b5161bacb119))
+
 # [1.29.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.28.0...v1.29.0) (2025-02-10)
 
 
