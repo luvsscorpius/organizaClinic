@@ -23,8 +23,6 @@ export const Medicos = () => {
     setFilteredMedicos(medicos)
   }, [medicos])
 
-  console.log(filteredMedicos)
-
   const findDoctor = async (doctorName) => {
     const lowerCaseDoctorName = doctorName.toLowerCase()
 

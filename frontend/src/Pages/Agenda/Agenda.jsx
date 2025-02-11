@@ -45,7 +45,6 @@ export const Agenda = () => {
     useEffect(() => {
         const formattedEventsFromDataBase = agenda.map((consulta) => {
             const horarioFim = Number.parseFloat(consulta.HorarioConsulta) + 1
-            console.log(consulta.HorarioConsulta)
 
             const dataConsultaSplit = consulta.DataConsulta.split('T')
             const dataConsultaRefatorada = dataConsultaSplit[0]
@@ -96,7 +95,6 @@ export const Agenda = () => {
     // Função para adicionar eventos
     const eventAdd = async (e) => {
         e.preventDefault()
-        console.log('teste')
 
         if (eventData.cliente === '' || eventData.medico === '' || eventData.data === '' || eventData.horario === '') {
             alert('Preencha todas as informações')
@@ -118,7 +116,6 @@ export const Agenda = () => {
                     }
 
                     setEvents((prev) => ([...prev, newEvent]))
-                    console.log(events.newEvent)
                     toast.success('Consulta agendada com sucesso')
                     cancelUpdate()
                     handleOpen()
@@ -140,8 +137,6 @@ export const Agenda = () => {
             medicos_IDMedico: findMedicoId(eventData.medico)
         });
     }, [eventData]);
-
-    console.log(newAppointment)
 
     // Função para editar eventos na agenda
     const handleEventClick = (clickInfo) => {
@@ -171,8 +166,6 @@ export const Agenda = () => {
             pacientes_IDPaciente: findPacienteId(eventData.cliente),
             medicos_IDMedico: findMedicoId(eventData.medico)
         });
-
-        console.log(eventData)
 
         setOpen(true);
 

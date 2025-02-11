@@ -51,8 +51,6 @@ export const CadastrarPaciente = () => {
                     headers: {'Content-Type': 'application/json'}
                 }) 
 
-                console.log(res)
-
                 if (res.status === 200) {
                     navigate('/Pacientes')
                     setPacientes((prev) => [...prev, newPatient])

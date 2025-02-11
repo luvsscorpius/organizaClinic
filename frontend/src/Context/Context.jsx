@@ -43,7 +43,6 @@ const OrganizaClinicProvider = ({ children }) => {
     const getPacientes = async () => {
         const res = await axios.get('http://localhost:2000/getPacientes')
         setPacientes(res.data)
-        console.log(res.data)
     }
 
     const getMedicos = async () => {
@@ -57,7 +56,6 @@ const OrganizaClinicProvider = ({ children }) => {
     }
 
     const deleteDoctor = async (idDoctor) => {
-        console.log(idDoctor)
         const res = await axios.delete(`http://localhost:2000/deleteDoctor/${idDoctor}`)
         if (res.status === 200) {
             getMedicos()
@@ -66,7 +64,6 @@ const OrganizaClinicProvider = ({ children }) => {
     }
 
     const deletePatient = async (idPatient) => {
-        console.log(idPatient)
         const res = await axios.delete(`http://localhost:2000/deletePatient/${idPatient}`)
         if (res.status === 200) {
             getPacientes()

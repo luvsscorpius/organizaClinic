@@ -13,8 +13,6 @@ export const EditarMedico = () => {
 
     const {doctorUpdate, setDoctorUpdate, sendDoctorUpdated} = useContext(OrganizaClinicContext)
 
-    console.log(doctorUpdate)
-
     return (
         <H.section style={{flexDirection: 'column'}}>
             <C.ButtonContainer>

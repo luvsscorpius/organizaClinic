@@ -46,8 +46,6 @@ export const CadastrarMedico = () => {
                     headers: {'Content-Type': 'application/json'}
                 })
 
-                console.log(res)
-
                 if (res.status === 200) {
                     navigate('/Medicos')
                     setMedicos((prev) => [...prev, newMedico])
