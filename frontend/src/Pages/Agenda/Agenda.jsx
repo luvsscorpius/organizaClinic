@@ -120,6 +120,7 @@ export const Agenda = () => {
                     setEvents((prev) => ([...prev, newEvent]))
                     console.log(events.newEvent)
                     toast.success('Consulta agendada com sucesso')
+                    cancelUpdate()
                     handleOpen()
                 }
             } catch (error) {
@@ -238,8 +239,8 @@ export const Agenda = () => {
                 getAppointments()
             }
         } catch (error) {
-            console.error(error)
             toast.error(error)
+            console.error(error)
         }
     }
 

@@ -6,26 +6,43 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
-import { ptBR} from 'react-day-picker/locale'
+import { da, ptBR} from 'react-day-picker/locale'
 import "react-day-picker/style.css";
 import { OrganizaClinicContext } from '../../Context/Context';
 
 export const Home = () => {
     const [selected, setSelected] = useState(new Date());
 
-    const bookedDays = [
-        new Date(2025, 0, 20), // 20 de Janeiro de 2025
-        new Date(2025, 0, 21), // 21 de Janeiro de 2025
-        new Date(2025, 0, 25), // 25 de Janeiro de 2025
-    ];
+    const [bookedDays, setBookedDays] = useState([])
 
-    const {agenda, pacientes, medicos, getMedicos, getPacientes, getAppointments} = useContext(OrganizaClinicContext)
+    const {agenda, pacientes, medicos, getMedicos, getPacientes, getAppointments, groupedTimes} = useContext(OrganizaClinicContext)
 
     useEffect(() => {
         getMedicos()
         getAppointments()
         getPacientes()
     }, [])
+    
+    // Função para colocar os dias com todas as datas agendadas no daypicker
+    const newBookedDays = () => {
+
+        if (groupedTimes) {
+            const bookedDays = Object.keys(groupedTimes).filter((day) => {
+                return groupedTimes[day].length === 10
+            })
+
+            const bookedDaysRefactored = bookedDays.map((day) => {
+                const [year, month, date] = day.split('-').map(Number) 
+                return new Date(year, month - 1, date)
+            })
+    
+            setBookedDays((prev) => [...new Set([...prev, ...bookedDaysRefactored])])
+        }
+    } 
+
+    useEffect(() => {
+        newBookedDays()
+    }, [groupedTimes])
  
     return (
         <H.section>
