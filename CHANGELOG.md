@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.30.0...v1.31.0) (2025-02-11)
+
+
+### Features
+
+* **backend adding finally to every route:** adding finally to every route ([8978247](https://github.com/luvsscorpius/organizaClinic/commit/897824790867586fe32084c4fe95d66cf10a5e1a))
+
 # [1.30.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.29.0...v1.30.0) (2025-02-11)
 
 
