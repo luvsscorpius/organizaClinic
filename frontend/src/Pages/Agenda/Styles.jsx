@@ -44,6 +44,10 @@ export const section = styled.section`
         order: 2;
     }
 
+    form {
+        border: 1px solid red;
+    }
+
     @media (min-width: 768px) { 
         flex-direction: row;
 

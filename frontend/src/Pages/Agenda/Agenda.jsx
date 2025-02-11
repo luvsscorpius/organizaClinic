@@ -277,7 +277,7 @@ export const Agenda = () => {
                             <form className="space-y-6" onSubmit={(e) => eventAdd(e)}>
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="text-center sm:text-left">
-                                        <div className="TitleContainer" style={{display: 'flex', justifyContent: 'space-between'}}>
+                                        <div className="TitleContainer" style={{display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
                                             <DialogTitle as="h3" className="text-lg font-semibold text-gray-900">
                                                 Adicionar Evento
                                             </DialogTitle>
