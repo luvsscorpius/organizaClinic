@@ -34,19 +34,12 @@ export const Agenda = () => {
         7, 8, 9, 10, 11, 13, 14, 15, 16, 17
     ]
 
-    const { medicos, pacientes, getMedicos, getPacientes, agenda, getAppointments } = useContext(OrganizaClinicContext)
+    const { medicos, pacientes, getMedicos, getPacientes, agenda, getAppointments, groupedTimes } = useContext(OrganizaClinicContext)
 
     useEffect(() => {
         getMedicos()
         getPacientes()
         getAppointments()
-    }, [])
-
-    const bookedTimes = agenda.map(event => ({ date: event.DataConsulta.split('T')[0], hours: event.HorarioConsulta.split(':').slice(0, 2).join(':') }))
-
-    const groupedTimes = bookedTimes.reduce((acc, { date, hours }) => {
-        (acc[date] ||= []).push(hours)
-        return acc
     }, [])
 
     useEffect(() => {

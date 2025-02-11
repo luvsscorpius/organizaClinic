@@ -108,7 +108,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const sendPatientUpdated = async (idPatient) => {
         const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
-            headers: {"Content-Type": "application/json"}
+            headers: { "Content-Type": "application/json" }
         })
 
         if (res.status === 200) {
@@ -119,7 +119,14 @@ const OrganizaClinicProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate, sendDoctorUpdated, sendPatientUpdated }
+    const bookedTimes = agenda.map(event => ({ date: event.DataConsulta.split('T')[0], hours: event.HorarioConsulta.split(':').slice(0, 2).join(':') }))
+
+    const groupedTimes = bookedTimes.reduce((acc, { date, hours }) => {
+        (acc[date] ||= []).push(hours)
+        return acc
+    }, [])
+
+    const contextValue = { medicos, setMedicos, pacientes, setPacientes, getPacientes, getMedicos, agenda, setAgenda, getAppointments, deleteDoctor, deletePatient, editDoctor, doctorUpdate, setDoctorUpdate, editPatient, patientUpdate, setPatientUpdate, sendDoctorUpdated, sendPatientUpdated, bookedTimes, groupedTimes }
 
     return (
         <OrganizaClinicContext.Provider value={contextValue}>
