@@ -9,14 +9,12 @@ router.put('/:id', async (req, res) => {
     // console.log(id, patientUpdate)
 
     const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado} = patientUpdate
-
-    console.log(DataDeNascimento)
+    const conn = await db()
 
     try {
-        const conn = await db()
         const sql = `UPDATE Pacientes SET Nome = '${Nome}', DataDeNascimento = '${DataDeNascimento}', Genero = '${Genero}', Sexo = '${Sexo}', CPF = '${CPF}', Telefone = '${Telefone}', Email = '${Email}', Naturalidade = '${Naturalidade}', CEP = '${CEP}', Rua = '${Rua}', Numero = '${Numero}', Bairro = '${Bairro}', Cidade = '${Cidade}', Estado = '${Estado}' WHERE IDPaciente = ${id.id}`
 
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.error('Erro ao efetuar edição do paciente', err)
                 return res.status(500).send(err)
@@ -27,6 +25,9 @@ router.put('/:id', async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 

@@ -4,14 +4,13 @@ const db = require('../config/db')
 
 router.delete('/:id', async (req, res) => {
     const id = req.params
-    console.log(id)
+
+    const conn = await db()
 
     try {
-        const conn = await db()
-        
         const sql = `DELETE FROM Pacientes WHERE IDPaciente = ${id.id}`
 
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.log('Erro ao efetuar exclusão de paciente', err)
                 return res.status(500).send(err)
@@ -23,6 +22,9 @@ router.delete('/:id', async (req, res) => {
 
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 

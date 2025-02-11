@@ -6,11 +6,11 @@ router.delete('/:id', async (req, res) => {
     const id = req.params
     console.log(id)
 
-    try {
-        const conn = await db()
+    const conn = await db()
 
+    try {
         const sql = `DELETE FROM Medicos WHERE IDMedico = ${id.id}`
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.log('Erro ao tentar excluir médico', err)
                 return res.status(500).send(err)
@@ -21,6 +21,9 @@ router.delete('/:id', async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 

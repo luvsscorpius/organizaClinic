@@ -6,13 +6,13 @@ const db = require('../config/db')
 router.get('/', async (req, res) => {
     console.log('Doctors route accessed.')
 
-    try {
-        const conn = await db()
+    const conn = await db()
 
+    try {
         const sql = `SELECT * FROM medicos`
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
-                console.error('Erro ao tentar consultar a tabela de médicos',err)
+                console.error('Erro ao tentar consultar a tabela de médicos', err)
                 res.status(500).send(err)
             }
 
@@ -21,6 +21,9 @@ router.get('/', async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 

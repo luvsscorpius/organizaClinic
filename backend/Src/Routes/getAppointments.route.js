@@ -6,9 +6,9 @@ const db = require('../config/db')
 router.get('/', async (req, res) => {
     console.log('getAppointments route accessed.')
 
-    try {
-        const conn = await db()
+    const conn = await db()
 
+    try {
         const sql = `SELECT * FROM Agenda`
 
         conn.query(sql, (err, result) => {
@@ -23,6 +23,9 @@ router.get('/', async (req, res) => {
 
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 

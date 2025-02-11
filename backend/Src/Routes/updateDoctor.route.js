@@ -3,18 +3,16 @@ const router = express.Router()
 const db = require('../config/db')
 
 router.put('/:id', async (req, res) => {
+    console.log('Update Doctor route accessed.')
     const id = req.params
-    console.log(id)
     const doctorUpdate = req.body
-    console.log(doctorUpdate)
+
+    const conn = await db()
 
     try {
-
-        const conn = await db()
-
         const sql = `UPDATE Medicos SET Nome = '${doctorUpdate.NomeMedico}', CPF = '${doctorUpdate.CPF}', CRM = '${doctorUpdate.CRM}', Especialidade = '${doctorUpdate.Especialidade}', Telefone = '${doctorUpdate.Telefone}', Email = '${doctorUpdate.Email}'`
 
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.log('Erro ao tentar efetuar a edição do médico', err)
                 return res.status(500).send(err)
@@ -25,11 +23,10 @@ router.put('/:id', async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+    } finally {
+        conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
-
-
-
-    console.log('Update Doctor route accessed.')
 })
 
 module.exports = router

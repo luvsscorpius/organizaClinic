@@ -9,12 +9,12 @@ router.post('/', async (req, res) => {
     const {Nome, CPF, CRM, Especialidade, Email, Telefone, DataDeCadastro} = newMedico
     console.log(newMedico)
 
-    try {
-        const conn = await db()
+    const conn = await db()
 
+    try {
         const sql = `INSERT INTO medicos (Nome, CPF, CRM, Especialidade, Telefone, DataDeCadastro, Email) VALUES ('${Nome}', '${CPF}', '${CRM}', '${Especialidade}', '${Telefone}', '${DataDeCadastro}', '${Email}')`
 
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.error('Erro ao inserior dados ao banco de dados.', err)
                 res.status(500)
@@ -27,6 +27,9 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.error(error)
         res.status(500)
+    } finally {
+            await conn.end()
+            console.log('Conexão com o banco de dados fechada.')
     }
 })
  

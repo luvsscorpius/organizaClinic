@@ -4,19 +4,17 @@ const router = express.Router()
 const db = require('../config/db')
 
 router.post('/', async (req, res) => {
+    const newPatient = req.body
+    const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado, DataDeCadastro} = newPatient
+
+    console.log('addNewPatient route')
+
+    const conn = await db()
 
     try {
-        const newPatient = req.body
-        const {Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado, DataDeCadastro} = newPatient
-
-        console.log(newPatient)
-        console.log('addNewPatient route')
-
-        const conn = await db()
-
         const sql = `INSERT INTO pacientes (Nome, DataDeNascimento, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado, DataDeCadastro) VALUES ('${Nome}', '${DataDeNascimento}', '${Genero}', '${Sexo}', '${CPF}', '${Telefone}',' ${Email}', '${Naturalidade}', '${CEP}', '${Rua}', '${Numero}', '${Bairro}', '${Cidade}', '${Estado}', '${DataDeCadastro}')`
 
-        await conn.query(sql, (err, result) => {
+        conn.query(sql, (err, result) => {
             if (err) {
                 console.error('Erro ao adicionar dados ao banco de dados', err)
                 return
@@ -27,6 +25,9 @@ router.post('/', async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+    } finally {
+        await conn.end()
+        console.log('Conexão com o banco de dados fechada.')
     }
 })
 
