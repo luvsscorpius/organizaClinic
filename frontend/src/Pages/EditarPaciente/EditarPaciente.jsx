@@ -29,7 +29,7 @@ export const EditarPaciente = () => {
 
                     <C.inputContainer>
                     <div className="inputContainerItem">
-                            <input type="text" placeholder='Nome completo' value={patientUpdate.Nome} onChange={(e) => setPatientUpdate((prev) => ({...prev, Nome: e.target.value}))} />
+                            <input type="text" placeholder='Nome completo' maxLength={25} value={patientUpdate.Nome} onChange={(e) => setPatientUpdate((prev) => ({...prev, Nome: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -60,11 +60,11 @@ export const EditarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="email" placeholder='E-mail' value={patientUpdate.Email} onChange={(e) => setPatientUpdate((prev) => ({...prev, Email: e.target.value}))} />
+                            <input type="email" placeholder='E-mail' maxLength={50} value={patientUpdate.Email} onChange={(e) => setPatientUpdate((prev) => ({...prev, Email: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Naturalidade' value={patientUpdate.Naturalidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Naturalidade: e.target.value}))} />
+                            <input type="text" placeholder='Naturalidade' maxLength={25} value={patientUpdate.Naturalidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Naturalidade: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -72,17 +72,17 @@ export const EditarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Rua' value={patientUpdate.Rua} onChange={(e) => setPatientUpdate((prev) => ({...prev, Rua: e.target.value}))} />
-                            <input type="text" placeholder='Número' value={patientUpdate.Numero} onChange={(e) => setPatientUpdate((prev) => ({...prev, Numero: e.target.value}))}  />
+                            <input type="text" placeholder='Rua' maxLength={50} value={patientUpdate.Rua} onChange={(e) => setPatientUpdate((prev) => ({...prev, Rua: e.target.value}))} />
+                            <input type="text" placeholder='Número' maxLength={10} value={patientUpdate.Numero} onChange={(e) => setPatientUpdate((prev) => ({...prev, Numero: e.target.value}))}  />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Bairro'  value={patientUpdate.Bairro} onChange={(e) => setPatientUpdate((prev) => ({...prev, Bairro: e.target.value}))} />
+                            <input type="text" placeholder='Bairro' maxLength={50}  value={patientUpdate.Bairro} onChange={(e) => setPatientUpdate((prev) => ({...prev, Bairro: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Cidade' value={patientUpdate.Cidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Cidade: e.target.value}))}/>
-                            <input type="text" placeholder='Estado' value={patientUpdate.Estado} onChange={(e) => setPatientUpdate((prev) => ({...prev, Estado: e.target.value}))}/>
+                            <input type="text" placeholder='Cidade' maxLength={50} value={patientUpdate.Cidade} onChange={(e) => setPatientUpdate((prev) => ({...prev, Cidade: e.target.value}))}/>
+                            <input type="text" placeholder='Estado' maxLength={50} value={patientUpdate.Estado} onChange={(e) => setPatientUpdate((prev) => ({...prev, Estado: e.target.value}))}/>
                         </div>
 
                         <div className="inputContainerItem">
