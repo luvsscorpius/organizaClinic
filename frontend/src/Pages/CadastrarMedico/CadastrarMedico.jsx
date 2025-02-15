@@ -75,7 +75,7 @@ export const CadastrarMedico = () => {
 
                     <C.inputContainer> 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Nome completo' value={newMedico.Nome} onChange={(e) => setNewMedico((prev) => ({...prev, Nome: e.target.value}))} />
+                            <input type="text" placeholder='Nome completo' maxLength={25} value={newMedico.Nome} onChange={(e) => setNewMedico((prev) => ({...prev, Nome: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -87,11 +87,11 @@ export const CadastrarMedico = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Especialidade' value={newMedico.Especialidade} onChange={(e) => setNewMedico((prev) => ({...prev, Especialidade: e.target.value}))} />
+                            <input type="text" placeholder='Especialidade' maxLength={50} value={newMedico.Especialidade} onChange={(e) => setNewMedico((prev) => ({...prev, Especialidade: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="email" placeholder='E-mail' value={newMedico.Email} onChange={(e) => setNewMedico((prev) => ({...prev, Email: e.target.value}))} />
+                            <input type="email" placeholder='E-mail' maxLength={100} value={newMedico.Email} onChange={(e) => setNewMedico((prev) => ({...prev, Email: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
