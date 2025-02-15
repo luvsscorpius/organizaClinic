@@ -113,10 +113,7 @@ export const Home = () => {
                         }}
                         modifiersClassNames={{
                             booked: 'booked-day',
-                        }}
-                        footer={
-                            selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
-                        } />
+                        }} />
                 </span>
             </H.Container>
         </H.section>
