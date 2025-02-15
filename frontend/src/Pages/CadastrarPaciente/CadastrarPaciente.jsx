@@ -83,7 +83,7 @@ export const CadastrarPaciente = () => {
 
                     <C.inputContainer>
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Nome completo' value={newPatient.Nome} onChange={(e) => setNewPatient((prev) => ({...prev, Nome: e.target.value}))} />
+                            <input type="text" placeholder='Nome completo' maxLength={25} value={newPatient.Nome} onChange={(e) => setNewPatient((prev) => ({...prev, Nome: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -114,11 +114,11 @@ export const CadastrarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="email" placeholder='E-mail' value={newPatient.Email} onChange={(e) => setNewPatient((prev) => ({...prev, Email: e.target.value}))} />
+                            <input type="email" placeholder='E-mail' maxLength={50} value={newPatient.Email} onChange={(e) => setNewPatient((prev) => ({...prev, Email: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Naturalidade' value={newPatient.Naturalidade} onChange={(e) => setNewPatient((prev) => ({...prev, Naturalidade: e.target.value}))} />
+                            <input type="text" placeholder='Naturalidade' maxLength={25} value={newPatient.Naturalidade} onChange={(e) => setNewPatient((prev) => ({...prev, Naturalidade: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
@@ -126,17 +126,17 @@ export const CadastrarPaciente = () => {
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Rua' value={newPatient.Rua} onChange={(e) => setNewPatient((prev) => ({...prev, Rua: e.target.value}))} />
-                            <input type="text" placeholder='Número' value={newPatient.Numero} onChange={(e) => setNewPatient((prev) => ({...prev, Numero: e.target.value}))} />
+                            <input type="text" placeholder='Rua' maxLength={50} value={newPatient.Rua} onChange={(e) => setNewPatient((prev) => ({...prev, Rua: e.target.value}))} />
+                            <input type="text" placeholder='Número' maxLength={10} value={newPatient.Numero} onChange={(e) => setNewPatient((prev) => ({...prev, Numero: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Bairro' value={newPatient.Bairro} onChange={(e) => setNewPatient((prev) => ({...prev, Bairro: e.target.value}))} />
+                            <input type="text" placeholder='Bairro' maxLength={50} value={newPatient.Bairro} onChange={(e) => setNewPatient((prev) => ({...prev, Bairro: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
-                            <input type="text" placeholder='Cidade' value={newPatient.Cidade} onChange={(e) => setNewPatient((prev) => ({...prev, Cidade: e.target.value}))}/>
-                            <input type="text" placeholder='Estado' value={newPatient.Estado} onChange={(e) => setNewPatient((prev) => ({...prev, Estado: e.target.value}))} />
+                            <input type="text" placeholder='Cidade' maxLength={50} value={newPatient.Cidade} onChange={(e) => setNewPatient((prev) => ({...prev, Cidade: e.target.value}))}/>
+                            <input type="text" placeholder='Estado' maxLength={50} value={newPatient.Estado} onChange={(e) => setNewPatient((prev) => ({...prev, Estado: e.target.value}))} />
                         </div>
 
                         <div className="inputContainerItem">
