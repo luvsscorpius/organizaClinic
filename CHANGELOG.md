@@ -1,3 +1,21 @@
+# [1.32.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.31.0...v1.32.0) (2025-02-22)
+
+
+### Bug Fixes
+
+* **backend updatedoctor.route:** putting conditional where idmedico = id.id to fix bug duplicate CRM ([94ef7c3](https://github.com/luvsscorpius/organizaClinic/commit/94ef7c3c551b1513b30e428e683ef56141d7c5b8))
+* **frontend cadastrarmedico.jsx:** adding maxLengths to inputs ([a61f5ad](https://github.com/luvsscorpius/organizaClinic/commit/a61f5ad35c5d13fbfb4ebe17263ab9344fc2ae9d))
+* **frontend home.jsx:** removing footer from dayPicker ([38e547a](https://github.com/luvsscorpius/organizaClinic/commit/38e547aaf9e2cce9f06fc2b630376ad6efc50966))
+
+
+### Features
+
+* **frontend cadastrarpaciente.jsx:** adding maxLength to inputs ([2e7e267](https://github.com/luvsscorpius/organizaClinic/commit/2e7e2672d357dfacc6ccf3f6cf0e3ef8c373f404))
+* **frontend cadastrarpaciente.jsx:** implementing API viaCEP do get the address ([3615f17](https://github.com/luvsscorpius/organizaClinic/commit/3615f1792bd76af03b3fcab3f69aeb6311c17f0b))
+* **frontend cadastrarpaciente.jsx:** implementing skeletons when typing CEP ([1204fb5](https://github.com/luvsscorpius/organizaClinic/commit/1204fb5837b65dd7a6f2129f01a6f7d87a4ae0b9))
+* **frontend editarmedico.jsx:** adding maxLengths to inputs ([d375c88](https://github.com/luvsscorpius/organizaClinic/commit/d375c883d71b0981bbdbb216a06da8b375a8b733))
+* **frontend editarpaciente.jsx:** adding maxlength to inputs ([55be452](https://github.com/luvsscorpius/organizaClinic/commit/55be452ad5a66de967946bf7e06153e98c696125))
+
 # [1.31.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.30.0...v1.31.0) (2025-02-11)
 
 
