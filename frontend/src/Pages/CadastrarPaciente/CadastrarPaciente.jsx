@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { OrganizaClinicContext } from '../../Context/Context';
 import axios from 'axios'
+import { Box } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
 
 export const CadastrarPaciente = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
@@ -29,18 +31,24 @@ export const CadastrarPaciente = () => {
     })
 
     // Feat: Implementando busca de endereço através do CEP
+    // Feat: Skeletons
+    const [loading, setLoading] = useState(false)
+
     const buscarCEP = async () => {
         if (newPatient.CEP.length === 8) {
-            try {
-                const response = await axios.get(`https://viacep.com.br/ws/${newPatient.CEP}/json/`)
-                setNewPatient((prev) => ({ ...prev, Rua: response.data.logradouro, Bairro: response.data.bairro, Cidade: response.data.localidade, Estado: response.data.estado }))
-            } catch (error) {
-                console.error("Erro ao buscar o CEP", error)
-            }
+            setLoading(true)
+            setTimeout(async () => {
+                try {
+                    const response = await axios.get(`https://viacep.com.br/ws/${newPatient.CEP}/json/`)
+                    setNewPatient((prev) => ({ ...prev, Rua: response.data.logradouro, Bairro: response.data.bairro, Cidade: response.data.localidade, Estado: response.data.estado }))
+                } catch (error) {
+                    console.error("Erro ao buscar o CEP", error)
+                } finally {
+                    setLoading(false)
+                }
+            }, 1500)
         }
     }
-
-    console.log(newPatient)
 
     const { pacientes, setPacientes } = useContext(OrganizaClinicContext)
 
@@ -139,7 +147,18 @@ export const CadastrarPaciente = () => {
                             <input type="text" placeholder='CEP' maxLength={8} value={newPatient.CEP} onChange={(e) => setNewPatient((prev) => ({ ...prev, CEP: e.target.value }))} onBlur={buscarCEP} />
                         </div>
 
-                        {newPatient.Rua ? (
+                        {loading ? (
+                            <>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', gap: '10px', width: '100%', padding: '0 10px 0 10px'  }}>
+                                    <Skeleton sx={{ width: '100%', height: '60px', padding: '10px' }} />
+                                    <Skeleton sx={{ width: '100%', height: '60px' }} />
+                                </Box>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', gap: '10px', width: '100%', padding: '0 10px 0 10px' }}>
+                                    <Skeleton sx={{ width: '100%', height: '60px', padding: '10px' }} />
+                                    <Skeleton sx={{ width: '100%', height: '60px' }} />
+                                </Box>
+                            </>
+                        ) : newPatient.Rua && (
                             <>
                                 <div className="inputContainerItem">
                                     <input type="text" placeholder='Rua' maxLength={50} value={newPatient.Rua} onChange={(e) => setNewPatient((prev) => ({ ...prev, Rua: e.target.value }))} readOnly />
@@ -151,7 +170,7 @@ export const CadastrarPaciente = () => {
                                     <input type="text" placeholder='Estado' maxLength={50} value={newPatient.Estado} onChange={(e) => setNewPatient((prev) => ({ ...prev, Estado: e.target.value }))} readOnly />
                                 </div>
                             </>
-                        ) : ''}
+                        )}
 
                         <div className="inputContainerItem">
                             <input type="date" value={date} readOnly />
