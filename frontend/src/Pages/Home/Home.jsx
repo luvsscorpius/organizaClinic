@@ -60,8 +60,8 @@ export const Home = () => {
                             </div>
 
                             <span>
-                                <h3>Agendamentos</h3>
-                                <p>{agenda.length}</p>
+                                <h3 aria-label="Número de agendamentos">Agendamentos</h3>
+                                <p aria-label={`Total de agendamentos: ${agenda.length}`}>{agenda.length}</p>
                             </span>
                         </div>
                     </div>
@@ -73,8 +73,8 @@ export const Home = () => {
                             </div>
 
                             <span>
-                                <h3>Pacientes</h3>
-                                <p>{pacientes.length}</p>
+                                <h3 aria-label="Número de pacientes">Pacientes</h3>
+                                <p aria-label={`Total de pacientes: ${pacientes.length}`}>{pacientes.length}</p>
                             </span>
                         </div>
 
@@ -84,8 +84,8 @@ export const Home = () => {
                             </div>
 
                             <span>
-                                <h3>Médicos</h3>
-                                <p>{medicos.length}</p>
+                                <h3 aria-label="Número de médicos">Médicos</h3>
+                                <p aria-label={`Total de médicos: ${medicos.length}`}>{medicos.length}</p>
                             </span>
                         </div>
                     </div>
