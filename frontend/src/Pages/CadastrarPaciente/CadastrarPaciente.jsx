@@ -153,6 +153,9 @@ export const CadastrarPaciente = () => {
                                     <Skeleton sx={{ width: '100%', height: '60px', padding: '10px' }} />
                                     <Skeleton sx={{ width: '100%', height: '60px' }} />
                                 </Box>
+                                <Box sx={{ display: 'flex', width: '100%', padding: '0 10px 0 10px' }}>
+                                    <Skeleton sx={{ width: '100%', height: '60px', padding: '10px' }} />
+                                </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '10px', width: '100%', padding: '0 10px 0 10px' }}>
                                     <Skeleton sx={{ width: '100%', height: '60px', padding: '10px' }} />
                                     <Skeleton sx={{ width: '100%', height: '60px' }} />
@@ -163,6 +166,10 @@ export const CadastrarPaciente = () => {
                                 <div className="inputContainerItem">
                                     <input type="text" placeholder='Rua' maxLength={50} value={newPatient.Rua} onChange={(e) => setNewPatient((prev) => ({ ...prev, Rua: e.target.value }))} readOnly />
                                     <input type="text" placeholder='Número' maxLength={10} value={newPatient.Numero} onChange={(e) => setNewPatient((prev) => ({ ...prev, Numero: e.target.value }))} />
+                                </div>
+
+                                <div className="inputContainerItem">
+                                    <input type="text" placeholder='Bairro' maxLength={50} value={newPatient.Bairro} onChange={(e) => setNewPatient((prev) => ({ ...prev, Bairro: e.target.value }))} readOnly />
                                 </div>
 
                                 <div className="inputContainerItem">
