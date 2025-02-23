@@ -1,5 +1,5 @@
 import { Nav } from "./Components/Nav/Nav";
-import { HashRouter as Router, Routes, Route } from 'react-router'
+import { HashRouter as Router, Routes, Route, Outlet } from 'react-router'
 import { Home } from "./Pages/Home/Home";
 import { GlobalStyle } from "./Css/GlobalStyle";
 import { Agenda } from "./Pages/Agenda/Agenda";
@@ -18,33 +18,33 @@ import { Theme } from "./Css/Theme";
 function App() {
   return (
     <>
-        <ThemeProvider theme={Theme}>
+      <ToastContainer autoClose={3000} className='toast-container' />
+      <ThemeProvider theme={Theme}>
         <GlobalStyle />
         <Router>
-        <OrganizaClinicProvider>
-          <Nav />
-          <ToastContainer autoClose={3000} className='toast-container' />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/agenda" element={<Agenda />} />
+          <OrganizaClinicProvider>
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/agenda" element={<Agenda />} />
 
-            {/* Rota principal de paciente */}
-            <Route path="/pacientes" >
-              <Route index element={<Pacientes />} />
-              <Route path="cadastrarpaciente" element={<CadastrarPaciente />} />
-              <Route path="editarpaciente" element={<EditarPaciente />} />
-            </Route>
+              {/* Rota principal de paciente */}
+              <Route path="/pacientes" element={<Outlet />} >
+                <Route index element={<Pacientes />} />
+                <Route path="cadastrarpaciente" element={<CadastrarPaciente />} />
+                <Route path="editarpaciente" element={<EditarPaciente />} />
+              </Route>
 
-            {/* Rota principal de médicos */}
-            <Route path="/medicos"  >
-              <Route index element={<Medicos />} />
-              <Route path="cadastrarmedico" element={<CadastrarMedico />} />
-              <Route path="editarmedico" element={<EditarMedico />} />
-            </Route>
-          </Routes>
+              {/* Rota principal de médicos */}
+              <Route path="/medicos" element={<Outlet />}  >
+                <Route index element={<Medicos />} />
+                <Route path="cadastrarmedico" element={<CadastrarMedico />} />
+                <Route path="editarmedico" element={<EditarMedico />} />
+              </Route>
+            </Routes>
           </OrganizaClinicProvider>
         </Router>
-        </ThemeProvider>
+      </ThemeProvider>
     </>
   );
 }
