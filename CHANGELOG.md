@@ -1,3 +1,19 @@
+# [1.33.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.32.0...v1.33.0) (2025-02-23)
+
+
+### Bug Fixes
+
+* **frontend cadastrarpaciente.jsx:** forgot to put an input to check the neighbourhood ([77c6126](https://github.com/luvsscorpius/organizaClinic/commit/77c6126dbc5f9c291082b122dea191b73cabc4aa))
+
+
+### Features
+
+* **frontend editarpaciente.jsx:** implementing readonly in address inputs ([f3a1f1b](https://github.com/luvsscorpius/organizaClinic/commit/f3a1f1bdd7d76d5f2dec27954a0da96b51e8749e))
+* **frontend editarpaciente.jsx:** implementing skeletons ([67875fe](https://github.com/luvsscorpius/organizaClinic/commit/67875fed64ccbc70b100fdac50e787641eb9dbd4))
+* **frontend home.jsx:** adding ARIA labels to h3 and p for improved accessibility ([6d88e4b](https://github.com/luvsscorpius/organizaClinic/commit/6d88e4be24a64b6e6d3c39d06afd73a9778696f0))
+* **frontend home.jsx:** implementing skeletons ([418bf9b](https://github.com/luvsscorpius/organizaClinic/commit/418bf9b929f21660a1620bbc7bc259343a8b17d5))
+* **frontend nav.jsx:** refactoring ([6b39d60](https://github.com/luvsscorpius/organizaClinic/commit/6b39d605999f99f7961966728a5b5020be8ab204))
+
 # [1.32.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.31.0...v1.32.0) (2025-02-22)
 
 
