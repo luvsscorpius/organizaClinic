@@ -6,23 +6,36 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
-import { da, ptBR} from 'react-day-picker/locale'
+import { ptBR } from 'react-day-picker/locale'
 import "react-day-picker/style.css";
 import { OrganizaClinicContext } from '../../Context/Context';
+import { Box } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
 
 export const Home = () => {
     const [selected, setSelected] = useState(new Date());
 
     const [bookedDays, setBookedDays] = useState([])
 
-    const {agenda, pacientes, medicos, getMedicos, getPacientes, getAppointments, groupedTimes} = useContext(OrganizaClinicContext)
+    const { agenda, pacientes, medicos, getMedicos, getPacientes, getAppointments, groupedTimes } = useContext(OrganizaClinicContext)
 
     useEffect(() => {
         getMedicos()
         getAppointments()
         getPacientes()
     }, [])
-    
+
+    // Feat: skeletons
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(async () => {
+            if (agenda.length > 0) {
+                setLoading(false)
+            }
+        }, 1500)
+    }, [agenda])
+
     // Função para colocar os dias com todas as datas agendadas no daypicker
     const newBookedDays = () => {
 
@@ -32,18 +45,19 @@ export const Home = () => {
             })
 
             const bookedDaysRefactored = bookedDays.map((day) => {
-                const [year, month, date] = day.split('-').map(Number) 
+                const [year, month, date] = day.split('-').map(Number)
                 return new Date(year, month - 1, date)
             })
-    
+
             setBookedDays((prev) => [...new Set([...prev, ...bookedDaysRefactored])])
         }
-    } 
+    }
 
     useEffect(() => {
         newBookedDays()
     }, [groupedTimes])
- 
+
+
     return (
         <H.section>
             <H.Container className='first'>
@@ -53,42 +67,70 @@ export const Home = () => {
                 </span>
 
                 <H.infoContainer>
-                    <div className="container-items">
-                        <div className="container-item">
-                            <div className="iconContainer">
-                                <FaRegCalendarAlt size={22} />
+
+                    {loading ? (
+                        <Box sx={{
+                            width: '90%', height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'center', '@media (min-width: 768px)': {
+                                width: '350px',
+                                height: '80px',
+                            },
+                            '@media (min-width: 1024px)': {
+                                width: '350px',
+                            }
+                        }}>
+                            <Skeleton sx={{ width: '100%', height: '110px', padding: '10px', borderRadius: '10px' }} />
+                        </Box>
+                    ) : agenda && (
+                        <div className="container-items">
+                            <div className="container-item">
+                                <div className="iconContainer">
+                                    <FaRegCalendarAlt size={22} />
+                                </div>
+
+                                <span>
+                                    <h3 aria-label="Número de agendamentos">Agendamentos</h3>
+                                    <p aria-label={`Total de agendamentos: ${agenda.length}`}>{agenda.length}</p>
+                                </span>
+                            </div>
+                        </div>
+                    )}
+
+                    {loading ? (
+                        <Box sx={{ width: '90%', height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', '@media (min-width: 768px)': {
+                                width: '350px',
+                                height: '80px',
+                            },
+                            '@media (min-width: 1024px)': {
+                                width: '350px',
+                            } }}>
+                            <Skeleton sx={{ width: '100%', height: '110px', padding: '10px', borderRadius: '10px' }} />
+                            <Skeleton sx={{ width: '100%', height: '110px', padding: '10px', borderRadius: '10px' }} />
+                        </Box>
+                    ) : agenda && (
+                        <div className="container-items">
+                            <div className="container-item">
+                                <div className="iconContainer">
+                                    <FaRegCalendarAlt size={22} />
+                                </div>
+
+                                <span>
+                                    <h3 aria-label="Número de pacientes">Pacientes</h3>
+                                    <p aria-label={`Total de pacientes: ${pacientes.length}`}>{pacientes.length}</p>
+                                </span>
                             </div>
 
-                            <span>
-                                <h3 aria-label="Número de agendamentos">Agendamentos</h3>
-                                <p aria-label={`Total de agendamentos: ${agenda.length}`}>{agenda.length}</p>
-                            </span>
-                        </div>
-                    </div>
+                            <div className="container-item">
+                                <div className="iconContainer">
+                                    <FaRegCalendarAlt size={22} />
+                                </div>
 
-                    <div className="container-items">
-                        <div className="container-item">
-                            <div className="iconContainer">
-                                <FaRegCalendarAlt size={22} />
+                                <span>
+                                    <h3 aria-label="Número de médicos">Médicos</h3>
+                                    <p aria-label={`Total de médicos: ${medicos.length}`}>{medicos.length}</p>
+                                </span>
                             </div>
-
-                            <span>
-                                <h3 aria-label="Número de pacientes">Pacientes</h3>
-                                <p aria-label={`Total de pacientes: ${pacientes.length}`}>{pacientes.length}</p>
-                            </span>
                         </div>
-
-                        <div className="container-item">
-                            <div className="iconContainer">
-                                <FaRegCalendarAlt size={22} />
-                            </div>
-
-                            <span>
-                                <h3 aria-label="Número de médicos">Médicos</h3>
-                                <p aria-label={`Total de médicos: ${medicos.length}`}>{medicos.length}</p>
-                            </span>
-                        </div>
-                    </div>
+                    )}
 
                 </H.infoContainer>
             </H.Container>
