@@ -17,8 +17,6 @@ export const Nav = () => {
         const pathArray = path.split('#/')
         const pathUpdated = pathArray[1]
 
-        console.log(pathUpdated)
-
         if (pathUpdated === 'Medicos/cadastrarmedico' || pathUpdated === 'Medicos/editarmedico') {
             setActiveName('Medicos')
         } else if (pathUpdated === 'Pacientes/cadastrarpaciente') {
@@ -32,16 +30,13 @@ export const Nav = () => {
     
     useEffect(() => {
         activeUpdate()
-    })
-
+    }, [])
 
     const navigate = useNavigate()
 
     const handleActive = (e) => {
-        console.log(e)
         setActiveName(e)
         if (e === 'Home') {
-            console.log('teste')
             navigate('/')
         } else {
             navigate(`/${e}`)
