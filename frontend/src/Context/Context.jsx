@@ -41,58 +41,97 @@ const OrganizaClinicProvider = ({ children }) => {
     const navigate = useNavigate('')
 
     const getPacientes = async () => {
-        const res = await axios.get('http://localhost:2000/getPacientes')
-        setPacientes(res.data)
+        try {
+            const res = await axios.get('http://localhost:2000/getPacientes')
+            setPacientes(res.data)
+        } catch (error) {
+            console.error("Erro ao buscar pacientes", error)
+        }
     }
 
     const getMedicos = async () => {
-        const res = await axios.get('http://localhost:2000/getDoctors')
-        setMedicos(res.data)
+        try {
+            const res = await axios.get('http://localhost:2000/getDoctors')
+            setMedicos(res.data)
+        } catch (error) {
+            console.error("Erro ao buscar médicos", error)
+        }
     }
 
     const getAppointments = async () => {
-        const res = await axios.get('http://localhost:2000/getAppointments')
-        setAgenda(res.data)
+        try {
+            const res = await axios.get('http://localhost:2000/getAppointments')
+            setAgenda(res.data)
+        } catch (error) {
+            console.error("Erro ao buscar consultas", error)
+        }
     }
 
     const deleteDoctor = async (idDoctor) => {
-        const res = await axios.delete(`http://localhost:2000/deleteDoctor/${idDoctor}`)
-        if (res.status === 200) {
-            getMedicos()
-            toast.success('Médico excluído com sucesso.')
+        try {
+            const res = await axios.delete(`http://localhost:2000/deleteDoctor/${idDoctor}`)
+            if (res.status === 200) {
+                getMedicos()
+                toast.success('Médico excluído com sucesso.')
+            } else {
+                toast.error('Erro ao deletar médico')
+            }
+        } catch (error) {
+            console.error("Erro ao deletar médico", error)
         }
     }
 
     const deletePatient = async (idPatient) => {
-        const res = await axios.delete(`http://localhost:2000/deletePatient/${idPatient}`)
-        if (res.status === 200) {
-            getPacientes()
-            toast.success('Paciente excluído com sucesso.')
+        try {
+            const res = await axios.delete(`http://localhost:2000/deletePatient/${idPatient}`)
+            if (res.status === 200) {
+                getPacientes()
+                toast.success('Paciente excluído com sucesso.')
+            } else {
+                toast.error('Erro ao deletar paciente')
+            }
+        } catch (error) {
+            console.error('Erro ao deletar paciente', error)
         }
     }
 
     const editDoctor = async (idDoctor) => {
         const findDoctor = medicos.find((doctor) => doctor.IDMedico === idDoctor)
 
+        if (!findDoctor) {
+            toast.error('Médico não encontrado.')
+            return
+        }
+
         const { Nome, CPF, CRM, Especialidade, Email, Telefone, DataDeCadastro } = findDoctor
         setDoctorUpdate({ IDMedico: idDoctor, NomeMedico: Nome, CPF: CPF, CRM: CRM, Especialidade: Especialidade, Email: Email, Telefone: Telefone, DataDeCadastro: DataDeCadastro })
     }
 
     const sendDoctorUpdated = async (idDoctor) => {
-        const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
-            headers: { "Content-Type": "application/json" }
-        })
+        try {
+            const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
+                headers: { "Content-Type": "application/json" }
+            })
 
-        if (res.status === 200) {
-            toast.success('Médico atualizado com sucesso.')
-            navigate('/Medicos')
-        } else {
-            toast.error('Erro ao atualizar médico')
+            if (res.status === 200) {
+                toast.success('Médico atualizado com sucesso.')
+                navigate('/Medicos')
+            } else {
+                toast.error('Erro ao atualizar médico')
+            }
+        } catch (error) {
+            console.error('Erro ao atualizar médico')
         }
     }
 
     const editPatient = async (idPatient) => {
         const findPatient = pacientes.find((patient) => patient.IDPaciente === idPatient)
+
+        if (!findPatient) {
+            toast.error('Paciente não encontrado.')
+            return
+        }
+
         const { Nome, Genero, Sexo, CPF, Telefone, Email, Naturalidade, CEP, Rua, Numero, Bairro, Cidade, Estado } = findPatient
 
         // Formatando as datas para ficar no formato de yyyy/mm/dd
@@ -104,15 +143,19 @@ const OrganizaClinicProvider = ({ children }) => {
     }
 
     const sendPatientUpdated = async (idPatient) => {
-        const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
-            headers: { "Content-Type": "application/json" }
-        })
+        try {
+            const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
+                headers: { "Content-Type": "application/json" }
+            })
 
-        if (res.status === 200) {
-            toast.success('Paciente atualizado com sucesso.')
-            navigate('/Pacientes')
-        } else {
-            toast.error('Erro ao atualizar paciente')
+            if (res.status === 200) {
+                toast.success('Paciente atualizado com sucesso.')
+                navigate('/Pacientes')
+            } else {
+                toast.error('Erro ao atualizar paciente')
+            }
+        } catch (error) {
+            console.error('Erro ao atualizar paciente', error)
         }
     }
 
