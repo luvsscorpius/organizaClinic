@@ -111,17 +111,17 @@ export const EditarPaciente = () => {
                         ) : patientUpdate.Rua && (
                             <>
                                 <div className="inputContainerItem">
-                                    <input type="text" placeholder='Rua' maxLength={50} value={patientUpdate.Rua} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Rua: e.target.value }))} />
+                                    <input type="text" placeholder='Rua' maxLength={50} value={patientUpdate.Rua} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Rua: e.target.value }))} readOnly />
                                     <input type="text" placeholder='Número' maxLength={10} value={patientUpdate.Numero} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Numero: e.target.value }))} />
                                 </div>
 
                                 <div className="inputContainerItem">
-                                    <input type="text" placeholder='Bairro' maxLength={50} value={patientUpdate.Bairro} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Bairro: e.target.value }))} />
+                                    <input type="text" placeholder='Bairro' maxLength={50} value={patientUpdate.Bairro} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Bairro: e.target.value }))} readOnly />
                                 </div>
 
                                 <div className="inputContainerItem">
-                                    <input type="text" placeholder='Cidade' maxLength={50} value={patientUpdate.Cidade} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Cidade: e.target.value }))} />
-                                    <input type="text" placeholder='Estado' maxLength={50} value={patientUpdate.Estado} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Estado: e.target.value }))} />
+                                    <input type="text" placeholder='Cidade' maxLength={50} value={patientUpdate.Cidade} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Cidade: e.target.value }))} readOnly />
+                                    <input type="text" placeholder='Estado' maxLength={50} value={patientUpdate.Estado} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Estado: e.target.value }))} readOnly />
                                 </div>
                             </>
                         )}
