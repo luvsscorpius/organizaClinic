@@ -1,3 +1,11 @@
+## [1.34.1](https://github.com/luvsscorpius/organizaClinic/compare/v1.34.0...v1.34.1) (2025-02-28)
+
+
+### Bug Fixes
+
+* **git:** git ([2bffa50](https://github.com/luvsscorpius/organizaClinic/commit/2bffa5087232c58bf62f3da5712037b54de0c91d))
+* **gitignore:** gitignore ([e02b6c7](https://github.com/luvsscorpius/organizaClinic/commit/e02b6c78e31f6904bfbbb411ca71569e2f45137d))
+
 # [1.34.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.33.0...v1.34.0) (2025-02-28)
 
 
