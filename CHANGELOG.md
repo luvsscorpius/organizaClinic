@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.33.0...v1.34.0) (2025-02-28)
+
+
+### Features
+
+* **backend:** installing dotenv ([6d93f07](https://github.com/luvsscorpius/organizaClinic/commit/6d93f07f71b723c24a75392528ea7aa4a6d233eb))
+
 # [1.33.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.32.0...v1.33.0) (2025-02-23)
 
 
