@@ -1,12 +1,15 @@
 const mysql = require('mysql2')
 
+const user = process.env.USER
+const password = process.env.PASSWORD
+
 const connection = async () => {
     try {
         const conexao = await mysql.createConnection({
             host: 'localhost',
-            user: 'root',
+            user: user,
             port: 3307,
-            password: 'January18Th*',
+            password: password,
             database: 'OrganizaClinic'
         })
 

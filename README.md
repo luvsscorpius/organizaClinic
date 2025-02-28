@@ -117,3 +117,24 @@ A estrutura do projeto é organizada em pastas de componentes e páginas no fron
 - **/updatePatient**: Atualiza informações de um paciente.
 - **/updateAppointment**: Atualiza um agendamento.
 - **/deleteEvent**: Remove um evento/agendamento.
+
+
+## Dependências
+
+### Frontend
+
+- `@emotion/react`, `@emotion/styled`: Para estilização de componentes de forma modular.
+- `@mui/material`: Componentes de interface baseados em Material Design.
+- `@fullcalendar/react`: Para integração de calendário e agenda.
+- `react-router`: Para gerenciar as rotas da aplicação.
+- `styled-components`: Para exibir notificações em tempo real.
+- `tailwindcss`: Framework para estilização com classes utilitárias.
+
+### Backend
+
+- `express`: Framework para Node.js para criação de APIs.
+- `mysql2`: Cliente MySQL para comunicação com o banco de dados.
+- `cors`: Para permitir o compartilhamento de recursos entre origens.
+- `dotenv`: Para carregar variáveis de ambientes.
+- `nodemon`: Para reiniciar o servidor durante o desenvolvimento.
+
