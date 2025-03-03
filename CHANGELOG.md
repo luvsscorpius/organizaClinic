@@ -1,3 +1,11 @@
+# [1.35.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.34.2...v1.35.0) (2025-03-03)
+
+
+### Features
+
+* **gh pages:** gh pages ([eb91b91](https://github.com/luvsscorpius/organizaClinic/commit/eb91b917b6b8dea7e70e06eff6a97451db2c094e))
+* **gh pages:** gh pages ([b0e9438](https://github.com/luvsscorpius/organizaClinic/commit/b0e94382b0250b999e1781e2de40f79b27d41fe7))
+
 ## [1.34.2](https://github.com/luvsscorpius/organizaClinic/compare/v1.34.1...v1.34.2) (2025-02-28)
 
 
