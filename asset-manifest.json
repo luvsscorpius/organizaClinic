@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.73a0545f.css",
-    "main.js": "/static/js/main.a84f9781.js",
-    "index.html": "/index.html",
-    "main.73a0545f.css.map": "/static/css/main.73a0545f.css.map",
-    "main.a84f9781.js.map": "/static/js/main.a84f9781.js.map"
+    "main.css": "/organizaClinic/static/css/main.73a0545f.css",
+    "main.js": "/organizaClinic/static/js/main.e9d3ff26.js",
+    "index.html": "/organizaClinic/index.html",
+    "main.73a0545f.css.map": "/organizaClinic/static/css/main.73a0545f.css.map",
+    "main.e9d3ff26.js.map": "/organizaClinic/static/js/main.e9d3ff26.js.map"
   },
   "entrypoints": [
     "static/css/main.73a0545f.css",
-    "static/js/main.a84f9781.js"
+    "static/js/main.e9d3ff26.js"
   ]
 }
