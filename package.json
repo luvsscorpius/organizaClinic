@@ -1,9 +1,12 @@
 {
   "name": "organizaclinic",
   "version": "1.34.1",
+  "homepage": "http://luvsscorpius.github.io/organizaClinic",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeply": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "cz-conventional-changelog": "^3.3.0",
+    "gh-pages": "^6.3.0",
     "semantic-release": "^24.2.1"
   },
   "config": {
