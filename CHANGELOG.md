@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.36.2...v1.37.0) (2025-03-03)
+
+
+### Features
+
+* **vercel:** vercel ([91766fa](https://github.com/luvsscorpius/organizaClinic/commit/91766fa2345a64a0356dc31ab74c488e39a39a38))
+
 ## [1.36.2](https://github.com/luvsscorpius/organizaClinic/compare/v1.36.1...v1.36.2) (2025-03-03)
 
 
