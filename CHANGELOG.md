@@ -1,3 +1,10 @@
+## [1.37.2](https://github.com/luvsscorpius/organizaClinic/compare/v1.37.1...v1.37.2) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fix:** fix ([a06b348](https://github.com/luvsscorpius/organizaClinic/commit/a06b348a930887ec50388e97f474cf069b9d4a06))
+
 ## [1.37.1](https://github.com/luvsscorpius/organizaClinic/compare/v1.37.0...v1.37.1) (2025-03-03)
 
 
