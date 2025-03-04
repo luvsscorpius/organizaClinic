@@ -6,6 +6,8 @@ const host = process.env.HOST
 const port = process.env.PORT
 const database = process.env.DATABASENAME
 
+console.log(database)
+
 const connection = async () => {
     try {
         const conexao = await mysql.createConnection({
