@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const conn = await db()
 
     try {
-        const sql = `SELECT * FROM Agenda`
+        const sql = `SELECT * FROM agenda`
 
         conn.query(sql, (err, result) => {
             if (err) {

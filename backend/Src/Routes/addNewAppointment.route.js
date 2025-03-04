@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     const conn = await db()
 
     try {
-        const sql = `INSERT INTO Agenda (DataConsulta, HorarioConsulta, DescricaoConsulta, pacientes_IDPaciente, medicos_IDMedico) VALUES ('${DataConsulta}', '${HorarioConsulta}', '${DescricaoConsulta}', '${pacientes_IDPaciente}', '${medicos_IDMedico}')`
+        const sql = `INSERT INTO agenda (DataConsulta, HorarioConsulta, DescricaoConsulta, pacientes_IDPaciente, medicos_IDMedico) VALUES ('${DataConsulta}', '${HorarioConsulta}', '${DescricaoConsulta}', '${pacientes_IDPaciente}', '${medicos_IDMedico}')`
 
         conn.query(sql, (err, result) => {
             if (err) {
