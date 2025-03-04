@@ -69,7 +69,7 @@ export const CadastrarPaciente = () => {
             toast.error('CPF já cadastrado no banco de dados.')
         } else {
             try {
-                const res = await axios.post('https://organiza-clinic-sable.vercel.app/addNewPatient', newPatient, {
+                const res = await axios.post('https://organiza-clinic.vercel.app/addNewPatient', newPatient, {
                     headers: { 'Content-Type': 'application/json' }
                 })
 

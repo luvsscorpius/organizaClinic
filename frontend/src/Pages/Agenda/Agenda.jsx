@@ -101,7 +101,7 @@ export const Agenda = () => {
         } else {
 
             try {
-                const res = await axios.post('https://organiza-clinic-sable.vercel.app/addNewAppointment', newAppointment, {
+                const res = await axios.post('https://organiza-clinic.vercel.app/addNewAppointment', newAppointment, {
                     headers: { "Content-Type": "application/json" }
                 })
 
@@ -203,7 +203,7 @@ export const Agenda = () => {
             toast.error('Preencha todas as informações')
         } else {
             try {
-                const res = await axios.put(`http://localhost:2000/updateAppointment/${newAppointment.IDConsulta}`, newAppointment, {
+                const res = await axios.put(`https://organiza-clinic.vercel.app/updateAppointment/${newAppointment.IDConsulta}`, newAppointment, {
                     headers: { "Content-Type": "application/json" }
                 })
 
@@ -224,7 +224,7 @@ export const Agenda = () => {
         e.preventDefault()
 
         try {
-            const res = await axios.delete(`http://localhost:2000/deleteEvent/${id}`)
+            const res = await axios.delete(`https://organiza-clinic.vercel.app/deleteEvent/${id}`)
 
             if (res.status === 200) {
                 toast.success('Evento deletado com sucesso')
