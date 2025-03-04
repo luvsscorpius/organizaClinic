@@ -1,3 +1,11 @@
+# [1.38.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.37.3...v1.38.0) (2025-03-04)
+
+
+### Features
+
+* **backend:** adding new endpoint to database now deployed ([d1178d9](https://github.com/luvsscorpius/organizaClinic/commit/d1178d94f3bff3d1b599a9241906249ebdfe52bf))
+* **frontend:** changing endpoints ([ab27e54](https://github.com/luvsscorpius/organizaClinic/commit/ab27e54158e187ae54b139d9507891b191282854))
+
 ## [1.37.3](https://github.com/luvsscorpius/organizaClinic/compare/v1.37.2...v1.37.3) (2025-03-03)
 
 
