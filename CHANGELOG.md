@@ -1,3 +1,10 @@
+## [1.38.4](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.3...v1.38.4) (2025-03-04)
+
+
+### Bug Fixes
+
+* **cors:** cors policy ([a682363](https://github.com/luvsscorpius/organizaClinic/commit/a6823632eea3f6df22cc7f9065fc2f0d9191f760))
+
 ## [1.38.3](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.2...v1.38.3) (2025-03-04)
 
 
