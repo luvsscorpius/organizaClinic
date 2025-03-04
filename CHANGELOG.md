@@ -1,3 +1,10 @@
+## [1.38.3](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.2...v1.38.3) (2025-03-04)
+
+
+### Bug Fixes
+
+* **fix:** changing endpoints ([7fab14a](https://github.com/luvsscorpius/organizaClinic/commit/7fab14a46900dc57ef3333b5d835af95806705a2))
+
 ## [1.38.2](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.1...v1.38.2) (2025-03-04)
 
 
