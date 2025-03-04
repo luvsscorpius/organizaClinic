@@ -101,7 +101,7 @@ export const Agenda = () => {
         } else {
 
             try {
-                const res = await axios.post('http://localhost:2000/addNewAppointment', newAppointment, {
+                const res = await axios.post('https://organiza-clinic-sable.vercel.app/addNewAppointment', newAppointment, {
                     headers: { "Content-Type": "application/json" }
                 })
 

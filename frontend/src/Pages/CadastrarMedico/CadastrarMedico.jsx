@@ -42,7 +42,7 @@ export const CadastrarMedico = () => {
         } else {
 
             try {
-                const res = await axios.post('http://localhost:2000/addNewDoctor', newMedico, {
+                const res = await axios.post('https://organiza-clinic-sable.vercel.app/addNewDoctor', newMedico, {
                     headers: {'Content-Type': 'application/json'}
                 })
 

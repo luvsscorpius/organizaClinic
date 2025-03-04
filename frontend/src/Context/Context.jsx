@@ -42,7 +42,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const getPacientes = async () => {
         try {
-            const res = await axios.get('http://localhost:2000/getPacientes')
+            const res = await axios.get('https://organiza-clinic-sable.vercel.app/getPacientes')
             setPacientes(res.data)
         } catch (error) {
             console.error("Erro ao buscar pacientes", error)
@@ -51,7 +51,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const getMedicos = async () => {
         try {
-            const res = await axios.get('http://localhost:2000/getDoctors')
+            const res = await axios.get('https://organiza-clinic-sable.vercel.app/getDoctors')
             setMedicos(res.data)
         } catch (error) {
             console.error("Erro ao buscar médicos", error)
@@ -60,7 +60,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const getAppointments = async () => {
         try {
-            const res = await axios.get('http://localhost:2000/getAppointments')
+            const res = await axios.get('https://organiza-clinic-sable.vercel.app/getAppointments')
             setAgenda(res.data)
         } catch (error) {
             console.error("Erro ao buscar consultas", error)
@@ -69,7 +69,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const deleteDoctor = async (idDoctor) => {
         try {
-            const res = await axios.delete(`http://localhost:2000/deleteDoctor/${idDoctor}`)
+            const res = await axios.delete(`https://organiza-clinic-sable.vercel.app/deleteDoctor/${idDoctor}`)
             if (res.status === 200) {
                 getMedicos()
                 toast.success('Médico excluído com sucesso.')
@@ -83,7 +83,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const deletePatient = async (idPatient) => {
         try {
-            const res = await axios.delete(`http://localhost:2000/deletePatient/${idPatient}`)
+            const res = await axios.delete(`https://organiza-clinic-sable.vercel.app/deletePatient/${idPatient}`)
             if (res.status === 200) {
                 getPacientes()
                 toast.success('Paciente excluído com sucesso.')
@@ -109,7 +109,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const sendDoctorUpdated = async (idDoctor) => {
         try {
-            const res = await axios.put(`http://localhost:2000/updateDoctor/${idDoctor}`, doctorUpdate, {
+            const res = await axios.put(`https://organiza-clinic-sable.vercel.app/updateDoctor/${idDoctor}`, doctorUpdate, {
                 headers: { "Content-Type": "application/json" }
             })
 
@@ -144,7 +144,7 @@ const OrganizaClinicProvider = ({ children }) => {
 
     const sendPatientUpdated = async (idPatient) => {
         try {
-            const res = await axios.put(`http://localhost:2000/updatePatient/${idPatient}`, patientUpdate, {
+            const res = await axios.put(`https://organiza-clinic-sable.vercel.app/updatePatient/${idPatient}`, patientUpdate, {
                 headers: { "Content-Type": "application/json" }
             })
 

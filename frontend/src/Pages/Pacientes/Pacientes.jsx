@@ -7,7 +7,6 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router';
 import { OrganizaClinicContext } from '../../Context/Context';
-import { toast } from 'react-toastify';
 
 export const Pacientes = () => {
 
