@@ -53,6 +53,7 @@ const OrganizaClinicProvider = ({ children }) => {
         try {
             const res = await axios.get('https://organiza-clinic-sable.vercel.app/getDoctors')
             setMedicos(res.data)
+            console.log(res)
         } catch (error) {
             console.error("Erro ao buscar médicos", error)
         }
