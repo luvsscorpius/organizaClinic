@@ -1,6 +1,6 @@
 {
   "name": "organizaclinic",
-  "version": "1.38.6",
+  "version": "1.38.7",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

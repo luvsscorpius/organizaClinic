@@ -1,3 +1,10 @@
+## [1.38.7](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.6...v1.38.7) (2025-03-16)
+
+
+### Bug Fixes
+
+* **frontend editarpaciente:** adding onChange to telefone input ([fa9fecf](https://github.com/luvsscorpius/organizaClinic/commit/fa9fecfbd4195f385aaaa3e8781746bdf4e1661c))
+
 ## [1.38.6](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.5...v1.38.6) (2025-03-16)
 
 
