@@ -79,7 +79,7 @@ export const EditarPaciente = () => {
 
                         <div className="inputContainerItem">
                             <input type="text" placeholder='CPF' maxLength={11} value={patientUpdate.CPF} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, CPF: e.target.value }))} />
-                            <input type="tel" placeholder='Telefone' maxLength={11} value={patientUpdate.Telefone} />
+                            <input type="tel" placeholder='Telefone' maxLength={11} value={patientUpdate.Telefone} onChange={(e) => setPatientUpdate((prev) => ({ ...prev, Telefone: e.target.value }))} />
                         </div>
 
                         <div className="inputContainerItem">
