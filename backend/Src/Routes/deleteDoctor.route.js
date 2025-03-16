@@ -9,7 +9,7 @@ router.delete('/:id', async (req, res) => {
     const conn = await db()
 
     try {
-        const sql = `DELETE FROM Medicos WHERE IDMedico = ${id.id}`
+        const sql = `DELETE FROM medicos WHERE IDMedico = ${id.id}`
         conn.query(sql, (err, result) => {
             if (err) {
                 console.log('Erro ao tentar excluir médico', err)

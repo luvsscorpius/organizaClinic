@@ -12,7 +12,7 @@ router.put('/:id', async (req, res) => {
     const conn = await db()
 
     try {
-        const sql = `UPDATE Pacientes SET Nome = '${Nome}', DataDeNascimento = '${DataDeNascimento}', Genero = '${Genero}', Sexo = '${Sexo}', CPF = '${CPF}', Telefone = '${Telefone}', Email = '${Email}', Naturalidade = '${Naturalidade}', CEP = '${CEP}', Rua = '${Rua}', Numero = '${Numero}', Bairro = '${Bairro}', Cidade = '${Cidade}', Estado = '${Estado}' WHERE IDPaciente = ${id.id}`
+        const sql = `UPDATE pacientes SET Nome = '${Nome}', DataDeNascimento = '${DataDeNascimento}', Genero = '${Genero}', Sexo = '${Sexo}', CPF = '${CPF}', Telefone = '${Telefone}', Email = '${Email}', Naturalidade = '${Naturalidade}', CEP = '${CEP}', Rua = '${Rua}', Numero = '${Numero}', Bairro = '${Bairro}', Cidade = '${Cidade}', Estado = '${Estado}' WHERE IDPaciente = ${id.id}`
 
         conn.query(sql, (err, result) => {
             if (err) {

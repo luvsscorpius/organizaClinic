@@ -8,7 +8,7 @@ router.delete('/:id', async (req, res) => {
     const conn = await db()
 
     try {
-        const sql = `DELETE FROM Pacientes WHERE IDPaciente = ${id.id}`
+        const sql = `DELETE FROM pacientes WHERE IDPaciente = ${id.id}`
 
         conn.query(sql, (err, result) => {
             if (err) {
