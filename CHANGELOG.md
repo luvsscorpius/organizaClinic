@@ -1,3 +1,10 @@
+## [1.38.5](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.4...v1.38.5) (2025-03-16)
+
+
+### Bug Fixes
+
+* **fix:** medicos.jsx ([df13e33](https://github.com/luvsscorpius/organizaClinic/commit/df13e33dc5b68c0ab0ed5c81d20284887958e394))
+
 ## [1.38.4](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.3...v1.38.4) (2025-03-04)
 
 
