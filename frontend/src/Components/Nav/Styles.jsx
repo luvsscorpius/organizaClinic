@@ -49,20 +49,23 @@ export const Nav = styled.nav`
         align-items: center;
         justify-content: space-around;
         width: 100%;
-        margin: 0;
-        gap: 3px;
-        font-size: 15px;
+        margin: 0 auto;
+        font-size: 14px;
         font-weight: 500;
+        padding: 8px 12px;
+        gap: 10px;
         
         span {
-            width: 100%;
-            height: 35px;
+            width: 90%;
+            padding: 3px;
+            height: 50px;
             border-radius: 10px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 5px;
+            transition: all 0.3s ease-in-out;
         }
 
         .active {
@@ -73,6 +76,59 @@ export const Nav = styled.nav`
         li {
             list-style: none;
         }
+    }
+
+    @media (min-width: 768px) {
+        padding: 10px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0;
+            gap: 3px;
+            font-size: 15px;
+            width: 950px !important;
+            font-weight: 500;
+        
+        span {
+            width: 20%;
+            height: 35px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+    }
+}
+
+    @media (min-width: 1024px) {
+	    width: 950px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0;
+            gap: 3px;
+            font-size: 15px;
+            width: 950px !important;
+            font-weight: 500;
+        
+        span {
+            width: 20%;
+            height: 35px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
 
         span:hover {
             cursor: pointer;
@@ -81,24 +137,5 @@ export const Nav = styled.nav`
             color:${(props) => props.theme.colors.primaryColor};
         }
     }
-
-    @media (min-width: 768px) {
-        padding: 10px;
-
-        ul {
-            span {
-                width: 20%;
-            }        
-        }
-    }
-
-    @media (min-width: 1024px) {
-	    width: 950px;
-
-        ul {
-            span {
-                width: 20%;
-            }        
-        }
-    }
+}
 `
