@@ -1,3 +1,10 @@
+# [1.39.0](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.7...v1.39.0) (2025-03-16)
+
+
+### Features
+
+* **frontend nav:** improving UI/UX ([bfbee13](https://github.com/luvsscorpius/organizaClinic/commit/bfbee13c5a96c65f9ba3f49e059d270e020d9b72))
+
 ## [1.38.7](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.6...v1.38.7) (2025-03-16)
 
 
