@@ -139,10 +139,10 @@ export const Medicos = () => {
                     </p>
                   </td>
                   <td class="p-4 tdIcons">
-                    <a href="/#/Medicos" class="text-sm font-semibold ">
+                    <a href="#/Medicos" class="text-sm font-semibold ">
                       <FaRegTrashAlt size={22} onClick={() => deleteDoctor(medico.IDMedico)} />
                     </a>
-                    <a href="/#/Medicos/editarmedico" class="text-sm font-semibold ">
+                    <a href="#/Medicos/editarmedico" class="text-sm font-semibold ">
                       <FaEdit size={22} onClick={() => editDoctor(medico.IDMedico)} />
                     </a>
                   </td>
