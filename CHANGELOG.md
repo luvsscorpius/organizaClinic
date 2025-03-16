@@ -1,3 +1,10 @@
+## [1.38.6](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.5...v1.38.6) (2025-03-16)
+
+
+### Bug Fixes
+
+* **fix:** backend initials were CAPSLOCK ([63c9229](https://github.com/luvsscorpius/organizaClinic/commit/63c9229fe948c814bfe3763408a532a489e2782d))
+
 ## [1.38.5](https://github.com/luvsscorpius/organizaClinic/compare/v1.38.4...v1.38.5) (2025-03-16)
 
 
